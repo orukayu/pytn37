@@ -1,13 +1,11 @@
 from django.shortcuts import render
 from .models import Postlar
-from django.utils import timezone
 
 # APİ için eklemeler
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Postlar
 from .serializers import PostlarSerializer
 
 # Create your views here.
@@ -20,8 +18,8 @@ def anasayfa(request):
 
 class PostlarListesi(APIView):
     def get(self, request):
-        dnmtext = Postlar.objects.all()
-        serializer = PostlarSerializer(dnmtext, many=True)
+        Listele = Postlar.objects.all()
+        serializer = PostlarSerializer(Listele, many=True)
         return Response(serializer.data)
     def post(self, request):
         serializer = PostlarSerializer(data=request.data)
