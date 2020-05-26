@@ -10,5 +10,8 @@ class Postlar(models.Model):
     tarih = models.DateTimeField(
         default=timezone.now)
 
+    class Meta:
+        ordering = ['-tarih',]
+
     def __str__(self):
         return self.profil    # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor

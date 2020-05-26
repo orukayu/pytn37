@@ -1,7 +1,7 @@
 {% load static %}
 <html>
     <head>
-        <title>Python Projesi</title>
+        <title>Post Takip</title>
         <link rel="stylesheet" href="{% static 'css/uygpostblog.css' %}">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <!-- Bootstrap CSS
@@ -9,19 +9,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css"> -->
     </head>
     <body>
-        <div class="page-header">
-            <h1><a href="/">Anasayfa</a></h1>
+        <div id="baslik" class="header">
+            <h1><a href="/">Sosyal Medya Gündemi</a></h1>
         </div>
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% for post in posts %}
-                        {% autoescape off %}
-                            <p>{{ post.embed }}</p>
-                        {% endautoescape %}
-                    {% endfor %}
-                </div>
-            </div>
+        <div id="satir" class="content">
+            {% for post in posts %}
+                {% autoescape off %}
+                    <p>{{ post.embed }}</p>
+                {% endautoescape %}
+            {% endfor %}
         </div>
     </body>
 </html>
