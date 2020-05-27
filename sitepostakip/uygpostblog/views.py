@@ -8,6 +8,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import PostlarSerializer
 
+# Talep formu için eklemeler
+
+from .forms import TalepFormu
+
 # Create your views here.
 
 def anasayfa(request):
@@ -27,3 +31,9 @@ class PostlarListesi(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Talep formu için eklemeler
+
+def Talep(request):
+    form = TalepFormu()
+    return render(request,'uygpostblog/formsayfa.html',{'form': form})

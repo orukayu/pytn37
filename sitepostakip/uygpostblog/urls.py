@@ -6,5 +6,6 @@ urlpatterns = [
 
     # APİ için yüklemeler
 
-    path('api/', views.PostlarListesi.as_view())
+    path('api/', views.PostlarListesi.as_view()),
+    path('formsayfa/', views.Talep, name='new'),
 ]

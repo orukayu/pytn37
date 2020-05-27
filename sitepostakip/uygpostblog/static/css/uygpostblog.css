@@ -1,4 +1,4 @@
-body {
+html, body {
     margin: 0px;
     padding: 0px;
     height: 100%;
@@ -6,26 +6,41 @@ body {
     text-align: center;
 }
 
-.header {
-background-color: rgba(148, 144, 144, 0.1411764705882353);
-box-shadow: 0 0.625rem 1.875rem 0 rgba(10,52,120,.1);
-height: auto;
-padding-bottom: 1px;
+#container {
+    min-height: 100%;
+    position: relative;
 }
 
-.header h1, .header h1 a, .header h1 a:visited, .header h1 a:active {
-color: #c51818;
-font-size: 36pt;
-text-decoration: none;
-text-align: center;
-padding-top: 10px;
+#header {
+    background-color: #6200EE;
+    box-shadow: 0px 1rem 2rem 0px #00000026;
+    padding: 10px;
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+}
+
+#header h1, #header h1 a, #header h1 a:visited, #header h1 a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+#body {
+	padding: 7rem;
+	padding-bottom: 60px;
+}
+
+#footer {
+   position: fixed;
+   bottom: 0;
+   width: 100vw;
+   background: #6cf;
 }
 
 .content {
-text-align: -webkit-center;
-height: 70%;
+    text-align: -webkit-center;
 }
 
 h1, h2, h3, h4 {
-font-family: 'Lobster', cursive;
+    font-family: 'Lobster', cursive;
 }

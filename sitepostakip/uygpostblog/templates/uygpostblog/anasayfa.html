@@ -1,23 +1,39 @@
 {% load static %}
-<html>
+<!doctype html>
+<html lang="tr">
     <head>
-        <title>Post Takip</title>
-        <link rel="stylesheet" href="{% static 'css/uygpostblog.css' %}">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="sosyal mecraların gündemi belirleyen paylaşımları">
+    <meta name="author" content="Oktay BAYRAM">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Post Takip</title>
+    <link rel="stylesheet" href="{% static 'css/uygpostblog.css' %}">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <!-- Bootstrap CSS
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css"> -->
     </head>
     <body>
-        <div id="baslik" class="header">
-            <h1><a href="/">Sosyal Medya Gündemi</a></h1>
-        </div>
-        <div id="satir" class="content">
-            {% for post in posts %}
-                {% autoescape off %}
-                    <p>{{ post.embed }}</p>
-                {% endautoescape %}
-            {% endfor %}
+        <div id="container">
+            <div id="header">
+                <h1><a href="/">Sosyal Medya Gündemi</a></h1>
+            </div>
+            <div id="body" class="content">
+                {% for post in posts %}
+                    {% autoescape off %}
+                        <p>{{ post.embed }}</p>
+                    {% endautoescape %}
+                {% endfor %}
+            </div>
+            <div id="footer">
+                <p>
+                    <form method="POST" class="post-form">{% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="save btn btn-default">Kaydet</button>
+                    </form>
+                </p>
+            </div>
         </div>
     </body>
 </html>
