@@ -11,15 +11,26 @@ from .serializers import PostlarSerializer
 # Talep formu için eklemeler
 
 from .forms import TalepFormu
+from django.shortcuts import redirect
 
 # Create your views here.
 
 def anasayfa(request):
-    posts = Postlar.objects.all()
 
-    # Talep formunu anasayfada göstermek için form satırı ve return e bilgisi eklenir.
+    # Bu kısım Talepformunun kaydedilebilmesi için eklenmiştir.
+    
+    if request.method == "POST":
+        form = TalepFormu(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('/')
+    else:
 
-    form = TalepFormu()
+    # Buradan aşağısı postların ve talep formunun anasayfada gözükmesi içindir.
+
+        posts = Postlar.objects.all()
+        form = TalepFormu()
     return render(request, 'uygpostblog/anasayfa.html', {'posts': posts, 'form': form})
 
 # APİ için eklemeler
@@ -36,9 +47,17 @@ class PostlarListesi(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 """
-# Talep formunu başka bir sayfada göstermek için
+# Talep formunu başka bir sayfada gösterip kaydetmek için
 
 def Talep(request):
-    form = TalepFormu()
+    if request.method == "POST":
+        form = TalepFormu(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('/')
+    else:
+
+        form = TalepFormu()
     return render(request,'uygpostblog/formsayfa.html',{'form': form})
 """

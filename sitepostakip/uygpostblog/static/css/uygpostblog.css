@@ -58,7 +58,7 @@ h4 {
 
 #footer textarea {
 	height: 1.7vh;
-	width: 99%;
+	width: 90%;
 	padding-top: 0.9vh;
 }
 
@@ -68,8 +68,8 @@ h4 {
 }
 
 @media (min-width: 576px) {
-	.col-md-4 {
-		width: 30%;
+	.col-md-6 {
+		width: 45%;
 		float: left;
 		margin-left: 1vw;
 		margin-right: 1vw;

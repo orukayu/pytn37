@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="description" content="sosyal mecraların gündemi belirleyen paylaşımları">
+    <meta name="description" content="Sosyal Medyada Gündemi Belirleyen Paylaşımlar">
     <meta name="author" content="Oktay BAYRAM">
     <link rel="icon" href="../../favicon.ico">
     <title>Post Takip</title>
@@ -27,23 +27,19 @@
                 {% endfor %}
             </div>
             <div id="footer" class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <p>
                         <h4>
                             Takip edilmesini istediğiniz,
                         </h4>
                     </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <p>
-                        <form method="POST" class="post-form" action="/formsayfa">{% csrf_token %}
-                            {{ form.as_p }}
+                        <form method="POST" class="post-form" action="/">{% csrf_token %}
+                            {{ form.as_p }}<button type="submit" class="save btn btn-default"><h3>Gönder</h3></button>
+                            
                         </form>
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <p>
-                        <button type="submit" class="save btn btn-default"><h3>Gönder</h3></button>
                     </p>
                 </div>
             </div>
