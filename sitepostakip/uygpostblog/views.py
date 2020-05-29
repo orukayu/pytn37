@@ -16,7 +16,11 @@ from .forms import TalepFormu
 
 def anasayfa(request):
     posts = Postlar.objects.all()
-    return render(request, 'uygpostblog/anasayfa.html', {'posts': posts})
+
+    # Talep formunu anasayfada göstermek için form satırı ve return e bilgisi eklenir.
+
+    form = TalepFormu()
+    return render(request, 'uygpostblog/anasayfa.html', {'posts': posts, 'form': form})
 
 # APİ için eklemeler
 
@@ -31,9 +35,10 @@ class PostlarListesi(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-# Talep formu için eklemeler
+"""
+# Talep formunu başka bir sayfada göstermek için
 
 def Talep(request):
     form = TalepFormu()
     return render(request,'uygpostblog/formsayfa.html',{'form': form})
+"""

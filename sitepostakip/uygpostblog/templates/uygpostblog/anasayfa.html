@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css"> -->
     </head>
     <body>
-        <div id="container">
+        <div id="hepsi" class="container-fluid">
             <div id="header">
                 <h1><a href="/">Sosyal Medya Gündemi</a></h1>
             </div>
@@ -26,13 +26,26 @@
                     {% endautoescape %}
                 {% endfor %}
             </div>
-            <div id="footer">
-                <p>
-                    <form method="POST" class="post-form">{% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="save btn btn-default">Kaydet</button>
-                    </form>
-                </p>
+            <div id="footer" class="row">
+                <div class="col-md-4">
+                    <p>
+                        <h4>
+                            Takip edilmesini istediğiniz,
+                        </h4>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <form method="POST" class="post-form" action="/formsayfa">{% csrf_token %}
+                            {{ form.as_p }}
+                        </form>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <button type="submit" class="save btn btn-default"><h3>Gönder</h3></button>
+                    </p>
+                </div>
             </div>
         </div>
     </body>
