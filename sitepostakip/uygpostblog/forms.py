@@ -6,6 +6,7 @@ class TalepFormu(forms.ModelForm):
     class Meta:
         model = Talepler
         fields = ('kullanici',)
-        labels = {
-            "kullanici" : ""
+        labels = {"kullanici" : ""}
+        widgets = {
+        	'kullanici': forms.TextInput(attrs={'placeholder': 'youtube/güldürgüldür, instagram/@mosalah vb.'}),
         }

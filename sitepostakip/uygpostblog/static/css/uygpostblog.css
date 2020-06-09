@@ -56,15 +56,18 @@ h4 {
     text-align: right;
 }
 
-#footer textarea {
-	height: 1.7vh;
-	width: 90%;
-	padding-top: 0.9vh;
+#footer input {
+	width: 50%;
 }
 
 #footer button {
 	font-family: 'Lobster', cursive;
-	display: block;
+}
+
+#footer table {
+	width: 50%;
+	margin: auto;
+	writing-mode: vertical-lr;
 }
 
 @media (min-width: 576px) {
