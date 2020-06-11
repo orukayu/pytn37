@@ -13,7 +13,7 @@ html, body {
 
 #header {
     background-color: #ff9800;
-    box-shadow: 0px 1rem 2rem 0px #00000026;
+    box-shadow: inset 0px 4px 4px 2px #00000026;
     position: fixed;
     width: 100vw;
     z-index: 1;
@@ -36,6 +36,7 @@ html, body {
    bottom: 0;
    width: 100vw;
    background: #6cf;
+   height: 3.5vh;
 }
 
 .content {
@@ -47,6 +48,7 @@ h1 {
     font-family: 'Lobster', cursive;
     margin: 2vh;
     text-shadow: 2px 2px 5px black;
+    text-rendering: optimizeSpeed;
 }
 
 h3 {
@@ -60,7 +62,7 @@ h4 {
 }
 
 #footer input {
-	width: 30vw;
+	width: 70vw;
 }
 
 #footer button {
