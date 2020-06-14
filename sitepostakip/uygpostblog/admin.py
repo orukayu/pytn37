@@ -3,4 +3,7 @@ from .models import Postlar
 
 # Register your models here.
 
-admin.site.register(Postlar)
+class PostlarAdmin(admin.ModelAdmin):
+    list_display = ('id', 'mecra', 'profil', 'tarih')
+
+admin.site.register(Postlar,PostlarAdmin)

@@ -14,7 +14,7 @@ class Postlar(models.Model):
         ordering = ['-tarih',]
 
     def __str__(self):
-        return self.profil    # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor
+        return self.mecra    # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor
 
 # Talep formu için model oluşturulur
 
