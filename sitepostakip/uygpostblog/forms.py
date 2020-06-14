@@ -8,5 +8,5 @@ class TalepFormu(forms.ModelForm):
         fields = ('kullanici',)
         labels = {"kullanici" : ""}
         widgets = {
-        	'kullanici': forms.TextInput(attrs={'placeholder': 'youtube/güldürgüldür, instagram/@mosalah vb.'}),
+        	'kullanici': forms.TextInput(attrs={'placeholder': 'youtube/güldürgüldür, instagram/@mosalah vb. önerilerini'}),
         }

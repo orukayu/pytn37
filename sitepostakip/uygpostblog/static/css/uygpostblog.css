@@ -79,6 +79,19 @@ h4 {
 	writing-mode: vertical-lr;
 }
 
+.ozet {
+	display: inline-flex;
+	width: auto;
+}
+
+.mecra {
+	padding-right: 10vw;
+}
+
+.profil {
+	padding-left: 10vw;
+}
+
 @media (min-width: 576px) {
 	.col-md-6 {
 		width: 45%;
