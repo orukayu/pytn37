@@ -36,7 +36,8 @@ html, body {
    bottom: 0;
    width: 100vw;
    background: #6cf;
-   height: 3.5vh;
+   height: 4vh;
+   box-shadow: inset 0px -4px 4px 2px #00000040;
 }
 
 .content {
@@ -63,6 +64,7 @@ h4 {
 
 #footer input {
 	width: 70vw;
+	font-size: 12px;
 }
 
 #footer button {
@@ -99,5 +101,9 @@ h4 {
 		display: inline;
 	}
 }
-
+@media (min-width: 900px) {
+	#footer input {
+		width: 25vw;
+	}
+}
 
