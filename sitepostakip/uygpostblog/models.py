@@ -20,6 +20,8 @@ class Postlar(models.Model):
 
 class Talepler(models.Model):
     kullanici = models.TextField()
+    tarih = models.DateTimeField(
+        default=timezone.now)
 
     def __str__(self):
         return self.kullanici
