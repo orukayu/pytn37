@@ -15,7 +15,7 @@ from django.shortcuts import redirect
 
 # Create your views here.
 
-def anasayfa(request):
+def hepsi(request):
 
     # Bu kısım Talepformunun kaydedilebilmesi için eklenmiştir.
     
@@ -31,7 +31,7 @@ def anasayfa(request):
 
         posts = Postlar.objects.all()
         form = TalepFormu()
-    return render(request, 'uygpostblog/anasayfa.html', {'posts': posts, 'form': form})
+    return render(request, 'uygpostblog/hepsi.html', {'posts': posts, 'form': form})
 
 # APİ için eklemeler
 
@@ -61,3 +61,9 @@ def Talep(request):
         form = TalepFormu()
     return render(request,'uygpostblog/formsayfa.html',{'form': form})
 """
+
+# mecra sayfası için views tanımlama
+
+def mecralar(request, mecra):
+    posts = Postlar.objects.filter(mecra=mecra,)
+    return render(request, 'uygpostblog/mecra.html', {'posts': posts})
