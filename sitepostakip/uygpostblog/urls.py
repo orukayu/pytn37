@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.hepsi, name='anasayfamiz'),
@@ -8,12 +9,9 @@ urlpatterns = [
 
     path('api/', views.PostlarListesi.as_view(), name='apisayfasi'),
 
-    # Talep Formunu anasayda dışında açıp kaydetmek için
-
-    # path('form/', views.Talep, name='Form Sayfası'),
-
-    # mecra başlıklarına tıklayınca gidilecek sayfa
+    # mecra ve profil başlıklarına tıklayınca gidilecek sayfalar için
 
     path('Mecra/<str:mecra>/', views.mecralar, name='mecrasayfasi'),
+    path('Profil/<str:profil>/', views.profiller, name='profilsayfasi'),
 
 ]

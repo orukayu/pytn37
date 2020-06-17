@@ -46,24 +46,31 @@ class PostlarListesi(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-"""
-# Talep formunu başka bir sayfada gösterip kaydetmek için
 
-def Talep(request):
+# mecra sayfası için views tanımlama
+
+def mecralar(request, mecra):
     if request.method == "POST":
         form = TalepFormu(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('/')
+            redirect(end)
     else:
-
+        posts = Postlar.objects.filter(mecra=mecra,)
         form = TalepFormu()
-    return render(request,'uygpostblog/formsayfa.html',{'form': form})
-"""
+    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'form': form})
 
-# mecra sayfası için views tanımlama
+# profil sayfası için views tanımlama
 
-def mecralar(request, mecra):
-    posts = Postlar.objects.filter(mecra=mecra,)
-    return render(request, 'uygpostblog/mecra.html', {'posts': posts})
+def profiller(request, profil):
+    if request.method == "POST":
+        form = TalepFormu(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            redirect(end)
+    else:
+        posts = Postlar.objects.filter(profil=profil,)
+        form = TalepFormu()
+    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'form': form})
