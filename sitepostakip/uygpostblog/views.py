@@ -13,13 +13,6 @@ from .serializers import PostlarSerializer
 from .forms import TalepFormu
 from django.shortcuts import redirect
 
-# mecra ve profil sayfasında ki talep formu için eklenmişlerdir.
-
-from django.urls import path
-from django.shortcuts import reverse
-from . import views
-from . import urls
-from django.http import HttpResponseRedirect
 
 def hepsi(request):
 
