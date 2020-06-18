@@ -13,7 +13,13 @@ from .serializers import PostlarSerializer
 from .forms import TalepFormu
 from django.shortcuts import redirect
 
-# Create your views here.
+# mecra ve profil sayfasında ki talep formu için eklenmişlerdir.
+
+from django.urls import path
+from django.shortcuts import reverse
+from . import views
+from . import urls
+from django.http import HttpResponseRedirect
 
 def hepsi(request):
 
@@ -55,7 +61,7 @@ def mecralar(request, mecra):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            redirect(end)
+            return redirect('mecrasayfasi', mecra=mecra)
     else:
         posts = Postlar.objects.filter(mecra=mecra,)
         form = TalepFormu()
@@ -69,7 +75,7 @@ def profiller(request, profil):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            redirect(end)
+            return redirect('profilsayfasi', profil=profil)
     else:
         posts = Postlar.objects.filter(profil=profil,)
         form = TalepFormu()

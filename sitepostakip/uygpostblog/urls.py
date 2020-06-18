@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+
+# postakiplogo.svg dosyası gibi sabit medyaların bütün sayfalarda çıkmasını sağlıyor.
+
 from django.conf.urls.static import static
 
 urlpatterns = [
