@@ -12,18 +12,25 @@
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div id="hepsi" class="container-fluid">
+        <div id="hepsi">
             <div id="header">
                 <h1><a href="/">Sosyal Medya Gündemi</a></h1>
+                <div class="ustmenu">
+                    <a href="{% url 'takiplistesi' %}" id=umsol >Takip Listesi</a>
+                    <a href="{% url 'taleplistesi' %}" id=umorta >Talep Listesi</a>
+                    <a href="{% url 'takiplistesi' %}" id=umsag >Teşekkür Listesi</a>
+                </div>
             </div>
             <div id="body">
+                {% block ustmenu %}
                 <p>
                     <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu"/>
                 </p>
                 {% block content %}
                 {% endblock %}
+                {% endblock %}
             </div>
-            <div id="footer" class="row">
+            <div id="footer">
                 <div>
                     <form method="POST" class="post-form" action="">{% csrf_token %}
                         <table>

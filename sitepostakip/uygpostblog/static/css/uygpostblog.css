@@ -30,6 +30,22 @@ html, body {
     font-size: 4vh;
 }
 
+.ustmenu {
+    background-color: #d29234;
+}
+
+.ustmenu #umsol, #umorta {
+	margin-right: 15px;
+	color: black;
+}
+.ustmenu #umsag {
+	color: black;
+}
+.ustmenu #umsol:hover, #umorta:hover, #umsag:hover {
+	color: white;
+}
+
+
 #body {
 	padding-top: 9vh;
 	padding-bottom: 6vh;

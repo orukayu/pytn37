@@ -17,4 +17,8 @@ urlpatterns = [
     path('Mecra/<str:mecra>/', views.mecralar, name='mecrasayfasi'),
     path('Profil/<str:profil>/', views.profiller, name='profilsayfasi'),
 
+    # üstmenüde ki linklerin urlleri
+
+    path('TakipListesi/', views.takiptekiler, name='takiplistesi'),
+    path('TalepListesi/', views.taleptekiler, name='taleplistesi'),
 ]

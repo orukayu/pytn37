@@ -1,0 +1,7 @@
+{% extends 'uygpostblog/temel.html' %}
+
+{% block ustmenu %}
+    {% for form in form %}
+    <p>{{ form.kullanici }}</p>
+    {% endfor %}
+{% endblock %}

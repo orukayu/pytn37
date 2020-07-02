@@ -73,3 +73,25 @@ def profiller(request, profil):
         posts = Postlar.objects.filter(profil=profil,)
         form = TalepFormu()
     return render(request, 'uygpostblog/profil.html', {'posts': posts, 'form': form})
+
+def takiptekiler(request):
+    if request.method == "POST":
+        form = TalepFormu(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('takiplistesi')
+    else:
+        form = TalepFormu()
+    return render(request, 'uygpostblog/takip.html', {'form': form})
+
+def taleptekiler(request):
+    if request.method == "POST":
+        form = TalepFormu(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('taleplistesi')
+    else:
+        form = TalepFormu()
+    return render(request, 'uygpostblog/talep.html', {'form': form})
