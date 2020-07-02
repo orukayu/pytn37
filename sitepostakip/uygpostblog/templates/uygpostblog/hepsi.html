@@ -4,10 +4,12 @@
     {% for post in posts %}
     <div class="ozet">
         <div class="mecra">
-            <h3><a href="{% url 'mecrasayfasi' post.mecra %}">{{ post.mecra }}</a></h3>
+            <!-- <h3><a href="{% url 'mecrasayfasi' post.mecra %}">{{ post.mecra }}</a></h3> -->
+            <button onclick="window.location.href='{% url 'mecrasayfasi' post.mecra %}';">{{ post.mecra }}</button>
         </div>
         <div class="profil">
-            <h3><a href="{% url 'profilsayfasi' post.profil %}">{{ post.profil }}</a></h3>
+            <!-- <h3><a href="{% url 'profilsayfasi' post.profil %}">{{ post.profil }}</a></h3> -->
+            <button onclick="window.location.href='{% url 'profilsayfasi' post.profil %}';">{{ post.profil }}</button>
         </div>
     </div>
     {% autoescape off %}
