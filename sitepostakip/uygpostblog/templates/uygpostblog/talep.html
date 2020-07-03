@@ -1,7 +1,16 @@
 {% extends 'uygpostblog/temel.html' %}
 
 {% block ustmenu %}
-    {% for form in form %}
-    <p>{{ form.kullanici }}</p>
-    {% endfor %}
+<div class="sayfalar">
+	<p>
+		<h2>
+			Takip edilmesi için önerilen sosyal medya hesapları ve göndereceğiniz diğer hesaplar için de şimdiden teşekkür ederiz.
+		</h2>
+	</p>
+	{% for kast in kast %}
+	<p>
+		<h3>{{ kast.kullanici }}</h3>
+	</p>
+	{% endfor %}
+</div>
 {% endblock %}

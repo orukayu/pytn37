@@ -21,4 +21,5 @@ urlpatterns = [
 
     path('TakipListesi/', views.takiptekiler, name='takiplistesi'),
     path('TalepListesi/', views.taleptekiler, name='taleplistesi'),
+    path('TesekkurListesi/', views.tesekkurler, name='tesekkurlistesi'),
 ]

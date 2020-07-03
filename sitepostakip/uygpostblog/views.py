@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Postlar
+from .models import Talepler
 
 # APİ için eklemeler
 
@@ -94,4 +95,16 @@ def taleptekiler(request):
             return redirect('taleplistesi')
     else:
         form = TalepFormu()
-    return render(request, 'uygpostblog/talep.html', {'form': form})
+        kast = Talepler.objects.order_by('kullanici')
+    return render(request, 'uygpostblog/talep.html', {'form': form, 'kast':kast})
+
+def tesekkurler(request):
+    if request.method == "POST":
+        form = TalepFormu(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('tesekkurlistesi')
+    else:
+        form = TalepFormu()
+    return render(request, 'uygpostblog/tesekkur.html', {'form': form})

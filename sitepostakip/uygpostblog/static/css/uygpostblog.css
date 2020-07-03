@@ -71,6 +71,11 @@ h1 {
     text-rendering: optimizeSpeed;
 }
 
+h2 {
+    font-family: 'Lobster', cursive;
+    margin: 4vh;
+}
+
 h3 {
     font-family: 'Lobster', cursive;
     margin: 1px;
@@ -107,6 +112,11 @@ h4 {
 .profil {
 	padding-left: 10vw;
 }
+
+.sayfalar h2 {
+	color: midnightblue;
+}
+
 
 @media (min-width: 576px) {
 	.col-md-6 {
