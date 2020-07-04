@@ -2,15 +2,11 @@
 
 {% block ustmenu %}
 <div class="sayfalar">
-	<p>
-		<h2>
-			Takip edilmesi için önerilen sosyal medya hesapları ve göndereceğiniz diğer hesaplar için de şimdiden teşekkür ederiz.
-		</h2>
-	</p>
+	<h2>
+		Takip edilmesi için önerilen sosyal medya hesapları ve göndereceğiniz diğer hesaplar için de şimdiden teşekkür ederiz.
+	</h2>
 	{% for kast in kast %}
-	<p>
-		<h3>{{ kast.kullanici }}</h3>
-	</p>
+	<h3>{{ kast.kullanici }}</h3>
 	{% endfor %}
 </div>
 {% endblock %}

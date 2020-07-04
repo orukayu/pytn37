@@ -31,7 +31,7 @@ html, body {
 }
 
 .ustmenu {
-    background-color: #d29234;
+    background-color: black;
 }
 
 .ustmenu #umsol, #umorta {
@@ -72,7 +72,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Roboto', sans-serif;
     margin: 4vh;
 }
 
@@ -152,4 +152,18 @@ h4 {
 	#footer {
 		height: 10vw;
 	}
+}
+.btn {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.btn:hover {
+  background-color: white;
+  color: black;
 }
