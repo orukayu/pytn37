@@ -115,6 +115,7 @@ h4 {
 
 .sayfalar h2 {
 	color: midnightblue;
+	font-size: 99%;
 }
 
 
@@ -162,8 +163,17 @@ h4 {
   color: white;
   padding-left: 10px;
   padding-right: 10px;
+  font-size: 95%;
 }
 .btn:hover {
   background-color: white;
   color: black;
+}
+li {
+	text-align: initial;
+	margin-left: calc(100vw/3);
+}
+a {
+	text-decoration-line: none;
+	color: #5f9ea0;
 }

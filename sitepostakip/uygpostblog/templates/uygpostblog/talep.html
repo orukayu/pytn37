@@ -5,8 +5,12 @@
 	<h2>
 		Takip edilmesi için önerilen sosyal medya hesapları ve göndereceğiniz diğer hesaplar için de şimdiden teşekkür ederiz.
 	</h2>
-	{% for kast in kast %}
-	<h3>{{ kast.kullanici }}</h3>
-	{% endfor %}
+	<ul>
+		{% for kast in kast %}
+			<li>
+				<h3>{{ kast.kullanici }}</h3>
+			</li>
+		{% endfor %}
+	</ul>
 </div>
 {% endblock %}
