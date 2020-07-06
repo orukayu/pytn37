@@ -11,7 +11,7 @@ class Postlar(models.Model):
         default=timezone.now)
 
     class Meta:
-        ordering = ['-tarih',]
+        ordering = ['-tarih',]  # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor
 
     def __str__(self):
         return self.mecra    # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor
@@ -25,3 +25,15 @@ class Talepler(models.Model):
 
     def __str__(self):
         return self.kullanici
+
+# Takip listesi için model oluşturulur
+
+class Takipler(models.Model):
+    mecra = models.TextField()
+    profil = models.TextField()
+    link = models.TextField()
+    tarih = models.DateTimeField(
+        default=timezone.now)
+
+    def __str__(self):
+        return self.profil

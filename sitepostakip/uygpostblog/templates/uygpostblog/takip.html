@@ -5,5 +5,12 @@
     <h2>
         Takip edilen sosyal medya hesapları;
     </h2>
+    <ul>
+        {% for liste in liste %}
+            <li>
+                <h3>{{ liste.mecra }} - <a target="_blank" href="{{ liste.link }}">{{ liste.profil }}</a></h3>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Postlar
 from .models import Talepler
+from .models import Takipler
 
 # APİ için eklemeler
 
@@ -84,7 +85,8 @@ def takiptekiler(request):
             return redirect('takiplistesi')
     else:
         form = TalepFormu()
-    return render(request, 'uygpostblog/takip.html', {'form': form})
+        liste = Takipler.objects.all()
+    return render(request, 'uygpostblog/takip.html', {'form': form, 'liste': liste})
 
 def taleptekiler(request):
     if request.method == "POST":
@@ -96,7 +98,7 @@ def taleptekiler(request):
     else:
         form = TalepFormu()
         kast = Talepler.objects.order_by('kullanici')
-    return render(request, 'uygpostblog/talep.html', {'form': form, 'kast':kast})
+    return render(request, 'uygpostblog/talep.html', {'form': form, 'kast': kast})
 
 def tesekkurler(request):
     if request.method == "POST":
