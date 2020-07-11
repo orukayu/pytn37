@@ -2,15 +2,26 @@
 
 {% block ustmenu %}
 <div class="sayfalar">
-    <h2>
-        Takip edilen sosyal medya hesapları;
-    </h2>
-    <ul>
-        {% for liste in liste %}
-            <li>
-                <h3>{{ liste.mecra }} - <a target="_blank" href="{{ liste.link }}">{{ liste.profil }}</a></h3>
-            </li>
-        {% endfor %}
-    </ul>
+    <div>
+        <h2>
+            Takip edilen sosyal medya hesapları;
+        </h2>
+    </div>
+    <div>
+    {% for baslik in baslik %}
+        <div class="kutu">
+            <h3>{{ baslik.mecra }}</h3>
+            {% for liste in liste %}
+                <h4>{{ liste.profil }}</h4>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+    <!-- <h3><a target="_blank" href="{{ liste.link }}">{{ liste.profil }}</a></h3> -->
+    <!-- <div>
+        <h2>
+            Gündemi belirleyen paylaşımların yanı sıra özgün ve kaliteli paylaşım yapan hesapları bu listeden takip edebilirsiniz.
+        </h2>
+    </div> -->
 </div>
 {% endblock %}

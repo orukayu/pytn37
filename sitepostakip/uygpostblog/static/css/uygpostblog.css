@@ -79,11 +79,17 @@ h2 {
 h3 {
     font-family: 'Lobster', cursive;
     margin: 1px;
+    text-transform: capitalize;
 }
 
 h4 {
     font-family: 'Lobster', cursive;
-    text-align: right;
+    margin: auto;
+}
+
+hh {
+	font-family: 'Lobster', cursive;
+	margin: 4vh;
 }
 
 #footer input {
@@ -172,11 +178,19 @@ h4 {
 ul {
 	padding-inline-start: 0px;
 }
-li {
+.sayfalar li {
 	text-align: initial;
 	margin-left: calc(100vw/3);
 }
 a {
 	text-decoration-line: none;
 	color: #5f9ea0;
+}
+.kutu {
+	float: left;
+	min-width: 30%;
+}
+.kutu li {
+	text-align: initial;
+	margin-left: 0px;
 }

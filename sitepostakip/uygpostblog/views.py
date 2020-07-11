@@ -15,7 +15,6 @@ from .serializers import PostlarSerializer
 from .forms import TalepFormu
 from django.shortcuts import redirect
 
-
 def hepsi(request):
 
     # Bu kısım Talepformunun kaydedilebilmesi için eklenmiştir.
@@ -85,8 +84,10 @@ def takiptekiler(request):
             return redirect('takiplistesi')
     else:
         form = TalepFormu()
-        liste = Takipler.objects.all()
-    return render(request, 'uygpostblog/takip.html', {'form': form, 'liste': liste})
+        baslik = Takipler.objects.values('mecra').distinct()
+        liste = Takipler.objects.filter()
+        args = {'form': form, 'baslik': baslik, 'liste': liste}
+    return render(request, 'uygpostblog/takip.html', args)
 
 def taleptekiler(request):
     if request.method == "POST":
