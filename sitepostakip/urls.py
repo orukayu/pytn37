@@ -16,7 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+# 404 sayfası için ekleme
+from django.conf.urls import handler404
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('sitepostakip.uygpostblog.urls')),
 ]
+
+# 404 sayfası için ekleme
+handler404 = 'sitepostakip.uygpostblog.views.kiriklink'

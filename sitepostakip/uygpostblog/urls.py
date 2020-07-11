@@ -5,6 +5,7 @@ from . import views
 
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('', views.hepsi, name='anasayfamiz'),
 
@@ -22,4 +23,5 @@ urlpatterns = [
     path('TakipListesi/', views.takiptekiler, name='takiplistesi'),
     path('TalepListesi/', views.taleptekiler, name='taleplistesi'),
     path('TesekkurListesi/', views.tesekkurler, name='tesekkurlistesi'),
+
 ]

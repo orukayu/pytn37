@@ -15,6 +15,7 @@ from .serializers import PostlarSerializer
 from .forms import TalepFormu
 from django.shortcuts import redirect
 
+
 def hepsi(request):
 
     # Bu kısım Talepformunun kaydedilebilmesi için eklenmiştir.
@@ -111,3 +112,8 @@ def tesekkurler(request):
     else:
         form = TalepFormu()
     return render(request, 'uygpostblog/tesekkur.html', {'form': form})
+
+# 404 sayfası için ekleme, diğer eklemeler uygulamaya değil proje urls.py dosyasında
+
+def kiriklink(request, exception):
+    return render(request,'uygpostblog/404.html')
