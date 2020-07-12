@@ -116,4 +116,5 @@ def tesekkurler(request):
 # 404 sayfası için ekleme, diğer eklemeler uygulamanın değil proje urls.py dosyasında
 
 def kiriklink(request, exception):
-    return render(request,'uygpostblog/404.html')
+    form = TalepFormu()
+    return render(request,'uygpostblog/404.html', {'form': form})
