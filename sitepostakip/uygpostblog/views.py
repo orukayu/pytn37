@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Postlar
-from .models import Talepler
 from .models import Takipler
+from .models import Talepler
+from .models import Mecralar
 
 # APİ için eklemeler
 
@@ -85,9 +86,10 @@ def takiptekiler(request):
             return redirect('takiplistesi')
     else:
         form = TalepFormu()
-        baslik = Takipler.objects.values('mecra').distinct()
-        liste = Takipler.objects.filter()
-        args = {'form': form, 'baslik': baslik, 'liste': liste}
+        #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
+        #mec = Takipler.objects.values('mecra').distinct()
+        mec = Takipler.objects.all()
+        args = {'form': form, 'mec': mec}
     return render(request, 'uygpostblog/takip.html', args)
 
 def taleptekiler(request):
@@ -99,7 +101,7 @@ def taleptekiler(request):
             return redirect('taleplistesi')
     else:
         form = TalepFormu()
-        kast = Talepler.objects.order_by('kullanici')
+        kast = Talepler.objects.order_by('talep')
     return render(request, 'uygpostblog/talep.html', {'form': form, 'kast': kast})
 
 def tesekkurler(request):
