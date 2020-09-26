@@ -2,21 +2,32 @@
 <!doctype html>
 <html lang="tr">
 <head>
-    <title>Yenipost.com | Güncel Haber Sitesi </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="description" content="Gündemi Belirleyen Sosyla Medya Paylaşımları">
-    <meta name="author" content="oktaybayram@hotmail.com">
+    <title>Yenipost.com | Güncel Paylaşımların Sitesi</title>
+    <meta charset="utf-8"/>
+    <link rel="canonical" href="http://www.yenipost.com/"/>
+    <meta name="robots" content="all"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="Gündemi Belirleyen Sosyal Medya Paylaşımları ile Sizde Her An Güncel Kalın"/>
+    <meta name="author" content="oktaybayram@hotmail.com"/>
+    <meta name="publisher" content="Python Django"/>
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Yenipost.com | Güncel Paylaşımların Sitesi"/>
+    <meta property="og:description" content="Gündemi Belirleyen Sosyal Medya Paylaşımları ile Sizde Her An Güncel Kalın" />
+    <meta property="og:image" content="http://www.yenipost.com/thump.jpg"/>
+    <meta property="og:url" content="http://www.yenipost.com/"/>
+    <meta property="og:site_name" content="Yenipost.com"/>
+
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'media/favicon.ico' %}"/>
-    <link rel="stylesheet" href="{% static 'css/uygpostblog.css' %}">
-    <!-- <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/uygpostblog.css' %}"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
     </head>
     <body>
         <div id="hepsi">
             <div id="header">
-                <h1><a href="/">www. YENİPOST .com</a></h1>
+                <h1><a href="/" title="Anasayfa"> YENİPOST </a></h1>
                 <div class="ustmenu">
                     <button class="btn" onclick="location.href='{% url 'takiplistesi' %}';">Takip Listesi</button>
                     <button class="btn" onclick="location.href='{% url 'taleplistesi' %}';">Talep Listesi</button>
@@ -40,7 +51,7 @@
                                 <th>{{ form.as_p }}</th>
                             </tr>
                             <tr>
-                                <td><button type="submit" ><h3>Gönder</h3></button></td>
+                                <td><button type="submit" ><h2>Gönder</h2></button></td>
                             </tr>
                         </table>
                     </form>
