@@ -21,13 +21,14 @@ html, body {
     position: fixed;
     width: 100vw;
     z-index: 1;
-    height: 9vh;
 }
 
 #header h1, #header h1 a, #header h1 a:visited, #header h1 a:active {
     color: #fff;
     text-decoration: none;
     font-size: 4vh;
+    margin-bottom: 0;
+    letter-spacing: 15px;
 }
 
 .ustmenu {
@@ -84,7 +85,8 @@ h3 {
 
 h4 {
     font-family: 'Lobster', cursive;
-    margin: auto;
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 hh {

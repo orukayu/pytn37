@@ -88,7 +88,7 @@ def takiptekiler(request):
         form = TalepFormu()
         #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
         #mec = Takipler.objects.values('mecra').distinct()
-        mec = Takipler.objects.all()
+        mec = Takipler.objects.all().order_by('mecra_id')
         args = {'form': form, 'mec': mec}
     return render(request, 'uygpostblog/takip.html', args)
 

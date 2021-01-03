@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="tr">
 <head>
-    <title>Yenipost.com | Güncel Paylaşımların Sitesi</title>
+    <title>Yenipost.com Size Yeter</title>
     <meta charset="utf-8"/>
     <link rel="canonical" href="http://www.yenipost.com/"/>
     <meta name="robots" content="all"/>
@@ -28,6 +28,7 @@
         <div id="hepsi">
             <div id="header">
                 <h1><a href="/" title="Anasayfa"> YENİPOST </a></h1>
+                <h4>Gündemi Anlık Takip Etmek İsteyenlerin Sitesi</h4>
                 <div class="ustmenu">
                     <button class="btn" onclick="location.href='{% url 'takiplistesi' %}';">Takip Listesi</button>
                     <button class="btn" onclick="location.href='{% url 'taleplistesi' %}';">Talep Listesi</button>
@@ -51,7 +52,7 @@
                                 <th>{{ form.as_p }}</th>
                             </tr>
                             <tr>
-                                <td><button type="submit" ><h2>Gönder</h2></button></td>
+                                <td><button type="submit" ><h3>Gönder</h3></button></td>
                             </tr>
                         </table>
                     </form>
