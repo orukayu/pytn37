@@ -4,16 +4,28 @@
 <div class="sayfa">
 
     <div>
-        <h2>
-            Takip edilen sosyal medya hesapları;
+        <h2>Takip edilen sosyal medya hesaplarını görmek için ilgili mecra sayfasına gidiniz;
         </h2>
     </div>
-    <div>
+    <div class="grid-container">
         {% for mec in mec %}
-        {{ mec.mecra }}
+            <div>
+                <a href="{{ mec.mecra}}">{{ mec.mecra}}</a>
+            </div>
         {% endfor %}
     </div>
+    
     <!--
+    <div>
+        {% for mec2 in mec2 %}
+        {{ mec2.mecra }}
+        {% endfor %}
+        <br>
+        {% for mec in mec %}
+        {{ mec.mecra_id }}
+        {% endfor %}
+    </div>
+    
     <div>
         <table>
             <tr>
@@ -44,8 +56,8 @@
             <h3>{{ profiller.mecraid }} - <a target="_blank" href="{{ profiller.link }}">{{ profiller.profil }}</a></h3>
         {% endfor %}
     </div>
-    -->
-    <!-- <h3><a target="_blank" href="{{ profiller.link }}">{{ profiller.profil }}</a></h3> -->
+    
+    <h3><a target="_blank" href="{{ profiller.link }}">{{ profiller.profil }}</a></h3> -->
 
 </div>
 {% endblock %}

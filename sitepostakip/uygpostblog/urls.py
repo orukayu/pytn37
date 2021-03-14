@@ -24,4 +24,8 @@ urlpatterns = [
     path('TalepListesi/', views.taleptekiler, name='taleplistesi'),
     path('TesekkurListesi/', views.tesekkurler, name='tesekkurlistesi'),
 
+    # Takip sayfasında ki mecralara tıklayınca gidilecek sayfanın URL si
+
+    path('TakipListesi/<str:mecra>/', views.listeler, name='listesayfasi'),
+
 ]

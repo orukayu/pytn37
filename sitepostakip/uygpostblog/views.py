@@ -87,8 +87,13 @@ def takiptekiler(request):
     else:
         form = TalepFormu()
         #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
-        #mec = Takipler.objects.values('mecra').distinct()
-        mec = Takipler.objects.all().order_by('mecra_id')
+        mec = Mecralar.objects.values('mecra').order_by('mecra').distinct()
+        #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
+
+        #mec3 = mec.get(id=1)
+        #mec4 = mec2.filter("mec3")
+        #mec5 = print('mec2')
+        #mec = mec1.values('mecra').order_by('mecra').distinct()
         args = {'form': form, 'mec': mec}
     return render(request, 'uygpostblog/takip.html', args)
 
@@ -120,3 +125,25 @@ def tesekkurler(request):
 def kiriklink(request, exception):
     form = TalepFormu()
     return render(request,'uygpostblog/404.html', {'form': form})
+
+# Takip sayfasında ki mecra ismine basınca, o mecraya ait listenin gösterileceği sayfa
+
+def listeler(request, mecra):
+    if request.method == "POST":
+        form = TalepFormu(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('listesayfasi', mecra=mecra)
+    else:
+        form = TalepFormu()
+        baslik = mecra
+
+        numara = Mecralar.objects.filter(mecra=baslik).get()
+        #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
+        mec = Takipler.objects.filter(mecra_id=numara).order_by('profil').distinct()
+        
+
+
+        args = {'form': form, 'mec': mec, 'baslik':baslik, 'numara':numara}
+    return render(request, 'uygpostblog/listeler.html', args)

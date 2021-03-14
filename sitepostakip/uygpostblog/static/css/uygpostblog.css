@@ -196,3 +196,16 @@ a {
 	text-align: initial;
 	margin-left: 0px;
 }
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: 20vw 20vw;
+  grid-gap: 3vw;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+}

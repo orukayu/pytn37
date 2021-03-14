@@ -1,0 +1,21 @@
+{% extends 'uygpostblog/temel.html' %}
+
+{% block ustmenu %}
+<div class="sayfa">
+    <div>
+        <h2>
+            {{ baslik }} 'da ki profillerden takip edilenlerin listesi;
+        </h2>
+    </div>
+    <div class="grid-container">
+        {% for mec in mec %}
+            <div>
+                {{ mec.profil }}
+            </div>
+            <div>
+                {{ mec.link }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
