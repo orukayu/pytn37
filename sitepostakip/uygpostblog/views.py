@@ -141,9 +141,10 @@ def listeler(request, mecra):
 
         numara = Mecralar.objects.filter(mecra=baslik).get()
         #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
-        mec = Takipler.objects.filter(mecra_id=numara).order_by('profil').distinct()
+        lis = Takipler.objects.filter(mecra_id=numara).order_by('profil').distinct()
+        mec = Mecralar.objects.values('mecra').order_by('mecra').distinct()
         
 
 
-        args = {'form': form, 'mec': mec, 'baslik':baslik, 'numara':numara}
+        args = {'form': form, 'lis': lis, 'baslik':baslik, 'numara':numara, 'mec':mec}
     return render(request, 'uygpostblog/listeler.html', args)

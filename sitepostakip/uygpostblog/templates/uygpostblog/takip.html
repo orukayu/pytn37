@@ -1,63 +1,22 @@
 {% extends 'uygpostblog/temel.html' %}
 
 {% block ustmenu %}
-<div class="sayfa">
+<div class="sayfalar">
 
     <div>
-        <h2>Takip edilen sosyal medya hesaplarını görmek için ilgili mecra sayfasına gidiniz;
+        <h2>Takip edilen sosyal medya profillerini görmek için ilgili sosyal mecraya tıklayınız;
         </h2>
     </div>
     <div class="grid-container">
         {% for mec in mec %}
             <div>
-                <a href="{{ mec.mecra}}">{{ mec.mecra}}</a>
+                <h3><a href="{{ mec.mecra }}">{{ mec.mecra }}</a></h3>
             </div>
         {% endfor %}
     </div>
-    
-    <!--
     <div>
-        {% for mec2 in mec2 %}
-        {{ mec2.mecra }}
-        {% endfor %}
-        <br>
-        {% for mec in mec %}
-        {{ mec.mecra_id }}
-        {% endfor %}
+        {% block listeler %}
+        {% endblock %}
     </div>
-    
-    <div>
-        <table>
-            <tr>
-                {% for mec in mec %}
-                <th>
-                    {{ mecra_id }}
-                </th>
-                {% endfor %}
-            </tr>
-            <tr>
-                <td>
-                    <ol>
-                        {% for mec in mec %}
-                        <li>
-                            <a target="_blank" href="{{ mec.link }}">{{ mec.profil }}</a>
-                        </li>
-                        {% endfor %}
-                    </ol>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <br>
-    
-    <div>
-        {% for profiller in profiller %}
-            <h3>{{ profiller.mecraid }} - <a target="_blank" href="{{ profiller.link }}">{{ profiller.profil }}</a></h3>
-        {% endfor %}
-    </div>
-    
-    <h3><a target="_blank" href="{{ profiller.link }}">{{ profiller.profil }}</a></h3> -->
-
 </div>
 {% endblock %}

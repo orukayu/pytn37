@@ -5,13 +5,13 @@
 	<h2>Kaliteli içerik üreten profiller ile takip edilmesi gereken sosyal medya hesapları<br>
 	veya göndereceğiniz diğer mecraların bilgileri için şimdiden teşekkür ederiz.
 	</h2>
-	<ul>
-		{% for kast in kast %}
-			<li>
-				<h3>{{ kast.talep }}</h3>
-			</li>
-		{% endfor %}
-	</ul>
+	<div class="grid-container">
+        {% for kast in kast %}
+            <div>
+                <h3>{{ kast.talep }}</h3>
+            </div>
+        {% endfor %}
+    </div>
 	<h2>Not : Önerilen sosyal medya hesapları alfabetik olarak sıralanmıştır.<br>
 		<br>
 		Lütfen sizde takip edilmesini istediğiniz twitter, instagram, youtube, tiktok gibi<br>

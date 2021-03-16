@@ -47,14 +47,14 @@
             <div id="footer">
                 <div>
                     <form method="POST" class="post-form" action="">{% csrf_token %}
-                        <table>
-                            <tr>
-                                <th>{{ form.as_p }}</th>
-                            </tr>
-                            <tr>
-                                <td><button type="submit" ><h3>Gönder</h3></button></td>
-                            </tr>
-                        </table>
+                        <div class="grid-container">
+                            <div>
+                                {{ form.as_p }}
+                            </div>
+                            <div  style="margin: -14px 0px 0px 0px;">
+                                <button type="submit" style="height: 25px;margin-top: 6px;"><h4>Gönder</h4></button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -60,7 +60,7 @@ html, body {
    position: fixed;
    bottom: 0;
    width: 100vw;
-   background: #6cf;
+   background: #1263A1;
    height: 4vh;
    box-shadow: inset 0px -4px 4px 2px #00000040;
 }
@@ -79,8 +79,9 @@ h2 {
 
 h3 {
     font-family: 'Lobster', cursive;
-    margin: 1px;
-    text-transform: capitalize;
+    margin: 5px 0px 5px 5px;
+    font-size: medium;
+    text-align: left;
 }
 
 h4 {
@@ -154,7 +155,7 @@ hh {
 }
 @media (min-width: 900px) {
 	#footer input {
-		width: 25vw;
+		width: 45vw;
 	}
 }
 @media (max-height: 750px) {
@@ -199,7 +200,7 @@ a {
 .grid-container {
   display: inline-grid;
   grid-template-columns: 20vw 20vw;
-  grid-gap: 3vw;
+  grid-gap: 1vw 3vw;
   padding: 10px;
 }
 
@@ -208,4 +209,21 @@ a {
   border: 1px solid black;
   text-align: center;
   font-size: 30px;
+}
+
+#footer .grid-container {
+  display: inline-grid;
+  grid-template-columns: 33vw 6vw;
+  grid-gap: 1vw 1vw;
+  padding: 10px;
+}
+
+#footer .grid-container > div {
+  text-align: left;
+  background-color: #ffffff00;
+  border: #ffffff00;
+}
+
+#footer p {
+  margin: -14px 0px 0px 0px;
 }
