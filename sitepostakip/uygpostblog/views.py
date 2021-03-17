@@ -86,14 +86,7 @@ def takiptekiler(request):
             return redirect('takiplistesi')
     else:
         form = TalepFormu()
-        #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
         mec = Mecralar.objects.values('mecra').order_by('mecra').distinct()
-        #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
-
-        #mec3 = mec.get(id=1)
-        #mec4 = mec2.filter("mec3")
-        #mec5 = print('mec2')
-        #mec = mec1.values('mecra').order_by('mecra').distinct()
         args = {'form': form, 'mec': mec}
     return render(request, 'uygpostblog/takip.html', args)
 
@@ -140,11 +133,8 @@ def listeler(request, mecra):
         baslik = mecra
 
         numara = Mecralar.objects.filter(mecra=baslik).get()
-        #mec = Takipler.objects.values('mecra_id').order_by('mecra_id').distinct()
         lis = Takipler.objects.filter(mecra_id=numara).order_by('profil').distinct()
         mec = Mecralar.objects.values('mecra').order_by('mecra').distinct()
-        
-
 
         args = {'form': form, 'lis': lis, 'baslik':baslik, 'numara':numara, 'mec':mec}
     return render(request, 'uygpostblog/listeler.html', args)

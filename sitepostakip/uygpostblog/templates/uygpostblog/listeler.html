@@ -10,7 +10,7 @@
     <div class="grid-container">
         {% for lis in lis %}
             <div>
-                <h3>{{ lis.profil }}</h3>
+                <h3><a href="{% url 'profilsayfasi' lis.profil %}">{{ lis.profil }}</a></h3>
             </div>
             <div>
                 <h3><a target="_blank" href="{{ lis.link }}">{{ lis.link }}</a></h3>
