@@ -16,7 +16,7 @@
     <meta property="og:description" content="Gündemi Belirleyen Sosyal Medya Paylaşımları ile Sizde Her An Güncel Kalın" />
     <meta property="og:image" content="http://www.yenipost.com/thump.jpg"/>
     <meta property="og:url" content="http://www.yenipost.com/"/>
-    <meta property="og:site_name" content="Yenipost.com"/>
+    <meta property="og:site_name" content="YeniPost.com"/>
 
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'media/favicon.ico' %}"/>
     <link rel="stylesheet" href="{% static 'css/uygpostblog.css' %}"/>
@@ -26,16 +26,20 @@
     </head>
     <body>
         <div id="hepsi">
-            <div id="header">
+            <div id="baslik">
                 <h1><a href="/" title="Anasayfa"> YENİPOST </a></h1>
                 <h4>Gündemi Anlık Takip Edenlerin Sitesi</h4>
                 <div class="ustmenu">
+                    <button class="btn" onclick="location.href='{% url 'anasayfamiz' %}';">Tüm Postlar</button>
                     <button class="btn" onclick="location.href='{% url 'takiplistesi' %}';">Takip Listesi</button>
                     <button class="btn" onclick="location.href='{% url 'taleplistesi' %}';">Talep Listesi</button>
                     <button class="btn" onclick="location.href='{% url 'tesekkurlistesi' %}';">Teşekkür Listesi</button>
                 </div>
             </div>
-            <div id="body">
+            <div id="menu">
+                
+            </div>
+            <div id="govde">
                 {% block ustmenu %}
                 <p style="margin-top: 3vh;">
                     <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
@@ -44,7 +48,7 @@
                     {% endblock %}
                 {% endblock %}
             </div>
-            <div id="footer">
+            <div id="temel">
                 <div>
                     <form method="POST" class="post-form" action="">{% csrf_token %}
                         <div class="grid-container">

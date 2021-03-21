@@ -15,7 +15,7 @@ html, body {
     position: relative;
 }
 
-#header {
+#baslik {
     background-color: #ff9800;
     box-shadow: inset 0px 4px 4px 2px #00000026;
     position: fixed;
@@ -23,7 +23,7 @@ html, body {
     z-index: 1;
 }
 
-#header h1, #header h1 a, #header h1 a:visited, #header h1 a:active {
+#baslik h1, #baslik h1 a, #baslik h1 a:visited, #baslik h1 a:active {
     color: #fff;
     text-decoration: none;
     font-size: 4vh;
@@ -47,7 +47,7 @@ html, body {
 }
 
 
-#body {
+#govde {
 	padding-top: 9vh;
 	padding-bottom: 6vh;
 	margin-left: 10px;
@@ -56,7 +56,7 @@ html, body {
     text-align: -moz-center;
 }
 
-#footer {
+#temel {
    position: fixed;
    bottom: 0;
    width: 100vw;
@@ -95,16 +95,16 @@ hh {
 	margin: 4vh;
 }
 
-#footer input {
+#temel input {
 	width: 70vw;
 	font-size: 12px;
 }
 
-#footer button {
+#temel button {
 	font-family: 'Lobster', cursive;
 }
 
-#footer table {
+#temel table {
 	margin: auto;
 	writing-mode: vertical-lr;
 }
@@ -138,7 +138,7 @@ hh {
 }
 
 @media (max-width: 576px) {
-	#footer textarea {
+	#temel textarea {
 		width: 50%;
 	}
 }
@@ -149,17 +149,17 @@ hh {
 	}
 }
 @media (max-width: 576px) {
-	#footer button {
+	#temel button {
 		display: inline;
 	}
 }
 @media (min-width: 900px) {
-	#footer input {
+	#temel input {
 		width: 45vw;
 	}
 }
 @media (max-height: 750px) {
-	#footer {
+	#temel {
 		height: 10vw;
 	}
 }
@@ -211,19 +211,19 @@ a {
   font-size: 30px;
 }
 
-#footer .grid-container {
+#temel .grid-container {
   display: inline-grid;
   grid-template-columns: 33vw 6vw;
   grid-gap: 1vw 1vw;
   padding: 10px;
 }
 
-#footer .grid-container > div {
+#temel .grid-container > div {
   text-align: left;
   background-color: #ffffff00;
   border: #ffffff00;
 }
 
-#footer p {
+#temel p {
   margin: -14px 0px 0px 0px;
 }
