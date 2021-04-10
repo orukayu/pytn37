@@ -4,7 +4,10 @@ from django.utils import timezone
 # Create your models here.
 
 class Postlar(models.Model):
-    mecra = models.TextField()
+    mecra = models.ForeignKey('uygpostblog.Mecralar', on_delete=models.CASCADE)
+    #Tabloya mecra_id adında bağlantılı sütun ekler bu yüzden adının mecra olması şart.
+    #İlk sırada olmasıda form doldururken ilk seçeneğin bu olması için.
+    #Mecralar modeli aşağıda kaldığı için yolu '' işaretleri arasında gösterdim.
     profil = models.TextField()
     embed = models.TextField()
     tarih = models.DateTimeField(
@@ -14,7 +17,7 @@ class Postlar(models.Model):
         ordering = ['-tarih',]  # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor
 
     def __str__(self):
-        return self.mecra
+        return self.profil
 
 # Takip listesi için model oluşturulur
 

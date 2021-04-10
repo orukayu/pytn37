@@ -160,7 +160,7 @@ hh {
 }
 @media (max-height: 750px) {
 	#temel {
-		height: 10vw;
+		height: 10vh;
 	}
 }
 .btn {
