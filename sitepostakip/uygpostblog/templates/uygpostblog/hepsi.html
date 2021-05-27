@@ -2,18 +2,26 @@
 
 {% block content %}
     {% for post in posts %}
-    <div class="ozet">
-        <div class="mecra">
+    <div class="solicerik"></div>
+    <div class="ortaicerik">
+        <div class="baslik"></div>
+        <div class="mecrabaslik">
             <!-- <h3><a href="{% url 'mecrasayfasi' post.mecra %}">{{ post.mecra }}</a></h3> -->
             <button onclick="window.location.href='{% url 'mecrasayfasi' post.mecra_id %}';">{{ post.mecra }}</button>
         </div>
-        <div class="profil">
+        <div class="mecraprofil">
             <!-- <h3><a href="{% url 'profilsayfasi' post.profil %}">{{ post.profil }}</a></h3> -->
             <button onclick="window.location.href='{% url 'profilsayfasi' post.profil %}';">{{ post.profil }}</button>
         </div>
+        <div class="posticerik">
+            {% autoescape off %}
+            <p>{{ post.embed }}</p>
+            {% endautoescape %}
+        </div>
+        <div class="solliste"></div>
+        <div class="sagliste"></div>
+        <div class="altmetin"></div>
     </div>
-    {% autoescape off %}
-    <p>{{ post.embed }}</p>
-    {% endautoescape %}
+    <div class="sagicerik"></div>
     {% endfor %}
 {% endblock %}

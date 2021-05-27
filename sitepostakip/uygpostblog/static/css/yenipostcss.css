@@ -1,0 +1,117 @@
+html, body, .tamsayfa { height: 100%; margin: 0; }
+
+.tamsayfa {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 8% 4% 1fr 6%;
+  gap: 0px 0px;
+  grid-template-areas:
+    "alinlik alinlik alinlik alinlik"
+    "ustmenu ustmenu ustmenu ustmenu"
+    "icerik icerik icerik icerik"
+    "altbolum altbolum altbolum altbolum";
+}
+
+.alinlik {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "solalinlik sagalinlik";
+  grid-area: alinlik;
+}
+
+.solalinlik { grid-area: solalinlik; }
+
+.sagalinlik { grid-area: sagalinlik; }
+
+.ustmenu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "solustmenu ortaustmenu ortaustmenu sagustmenu";
+  grid-area: ustmenu;
+}
+
+.solustmenu { grid-area: solustmenu; }
+
+.ortaustmenu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "m1 m2 m3 m4";
+  grid-area: ortaustmenu;
+}
+
+.m1 { grid-area: m1; }
+
+.m2 { grid-area: m2; }
+
+.m3 { grid-area: m3; }
+
+.m4 { grid-area: m4; }
+
+.sagustmenu { grid-area: sagustmenu; }
+
+.icerik {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "solicerik ortaicerik ortaicerik sagicerik";
+  grid-area: icerik;
+}
+
+.solicerik { grid-area: solicerik; }
+
+.ortaicerik {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 5% auto auto auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    "baslik baslik"
+    "mecrabaslik mecraprofil"
+    "posticerik posticerik"
+    "solliste sagliste"
+    "altmetin altmetin";
+  grid-area: ortaicerik;
+}
+
+.baslik { grid-area: baslik; }
+
+.mecrabaslik { grid-area: mecrabaslik; }
+
+.mecraprofil { grid-area: mecraprofil; }
+
+.posticerik { grid-area: posticerik; }
+
+.solliste { grid-area: solliste; }
+
+.sagliste { grid-area: sagliste; }
+
+.altmetin { grid-area: altmetin; }
+
+.sagicerik { grid-area: sagicerik; }
+
+.altbolum {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "solalt ortaalt ortaalt sagalt";
+  grid-area: altbolum;
+}
+
+.solalt { grid-area: solalt; }
+
+.ortaalt { grid-area: ortaalt; }
+
+.sagalt { grid-area: sagalt; }

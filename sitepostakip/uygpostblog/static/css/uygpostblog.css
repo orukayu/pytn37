@@ -11,15 +11,15 @@ html, body {
 }
 
 #hepsi {
-    min-height: 100%;
-    position: relative;
+	width:980px;
+	margin:0 auto;
 }
 
 #baslik {
     background-color: #ff9800;
     box-shadow: inset 0px 4px 4px 2px #00000026;
-    position: fixed;
-    width: 100vw;
+    height: 150px;
+    margin-bottom: 10px;
     z-index: 1;
 }
 
@@ -31,8 +31,9 @@ html, body {
     letter-spacing: 15px;
 }
 
-.ustmenu {
+#menu {
     background-color: black;
+    position: fixed;
 }
 
 .ustmenu #umsol, #umorta {

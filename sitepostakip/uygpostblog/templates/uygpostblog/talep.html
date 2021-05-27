@@ -1,9 +1,14 @@
 {% extends 'uygpostblog/temel.html' %}
 
-{% block ustmenu %}
+{% block sayfalar %}
 <div class="sayfalar">
-	<h2>Haber niteliği taşıyan, kaliteli içerik üreten profiller, sizce takip edilmesi gereken sosyal medya hesapları<br>
-	veya sosyal mecraların bilgileri için şimdiden teşekkür ederiz.
+	<div>
+        <p style="margin-top: 3vh;">
+            <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
+        </p>
+    </div>
+	<h2>Haber niteliği taşıyan mecralar, kaliteli içerik üreten profiller veya sizce takip edilmesi gereken sosyal medya hesapları gibi<br>
+	sayfaların bilgileri için şimdiden teşekkür ederiz.
 	</h2>
 	<div class="grid-container">
         {% for kast in kast %}
@@ -14,8 +19,8 @@
     </div>
 	<h2>Not : Önerilen sosyal medya hesapları alfabetik olarak sıralanmaktadır.<br>
 		<br>
-		Lütfen sizde takip edilmesini istediğiniz twitter, instagram, youtube, tiktok gibi<br>
-		mecralardan profil önerilerilerinizi bizim ile paylaşınız.
+		Siz de takip edilmesini istediğiniz twitter, instagram, youtube, tiktok gibi<br>
+		mecralardan profil önerilerilerinizi bize gönderebilirsiniz.
 	</h2>
 </div>
 {% endblock %}

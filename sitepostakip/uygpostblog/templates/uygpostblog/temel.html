@@ -1,53 +1,80 @@
 {% load static %}
 <!doctype html>
 <html lang="tr">
-<head>
-    <title>YeniPost.com Size Yeter</title>
-    <meta charset="utf-8"/>
-    <link rel="canonical" href="http://www.yenipost.com/"/>
-    <meta name="robots" content="all"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <meta name="description" content="Gündemi Belirleyen Sosyal Medya Paylaşımları ile Sizde Her An Güncel Kalın"/>
-    <meta name="author" content="oktaybayram@hotmail.com"/>
-    <meta name="publisher" content="Python Django"/>
+    <head>
+        <title>Yenipost.com ile Gündemi Keşfet</title>
+        <meta charset="utf-8"/>
+        <link rel="canonical" href="https://www.yenipost.com/"/>
+        <meta name="robots" content="all"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+        <meta name="description" content="Gündemi Belirleyen Sosyal Medya Paylaşımları ile Sizde Her An Güncel Kalın"/>
+        <meta name="author" content="oktaybayram@hotmail.com"/>
+        <meta name="publisher" content="Python Django"/>
 
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Yenipost.com | Size Yeter"/>
-    <meta property="og:description" content="Gündemi Belirleyen Sosyal Medya Paylaşımları ile Sizde Her An Güncel Kalın" />
-    <meta property="og:image" content="/static/media/thump.jpg"/>
-    <meta property="og:url" content="http://www.yenipost.com/"/>
-    <meta property="og:site_name" content="YeniPost.com"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Yenipost.com | Size Yeter"/>
+        <meta property="og:description" content="Gündemi Belirleyen Sosyal Medya Paylaşımları ile Siz De Her An Güncel Kalın" />
+        <meta property="og:image" content="/static/media/thump.jpg"/>
+        <meta property="og:url" content="https://www.yenipost.com/"/>
+        <meta property="og:site_name" content="Yenipost.com"/>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'media/favicon.ico' %}"/>
-    <link rel="stylesheet" href="{% static 'css/uygpostblog.css' %}"/>
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'media/favicon.ico' %}"/>
+        <link rel="stylesheet" href="{% static 'css/yenipostcss.css' %}"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
     </head>
     <body>
-        <div id="hepsi">
-            <div id="baslik">
-                <h1><a href="/" title="Anasayfa"> YENİPOST </a></h1>
-                <h4>Sizin İçin Gündemi Takip Eder</h4>
-                <div class="ustmenu">
-                    <button class="btn" onclick="location.href='{% url 'anasayfamiz' %}';">Tüm Postlar</button>
-                    <button class="btn" onclick="location.href='{% url 'takiplistesi' %}';">Takip Listesi</button>
-                    <button class="btn" onclick="location.href='{% url 'taleplistesi' %}';">Talep Listesi</button>
-                    <button class="btn" onclick="location.href='{% url 'tesekkurlistesi' %}';">Teşekkür Listesi</button>
+        <div class="tamsayfa">
+            <div class="alinlik">
+                <div class="solalinlik">
+                    <h1><a href="/" title="Anasayfa"> YENİPOST </a></h1>
+                </div>
+                <div class="sagalinlik"></div>
+            </div>
+            <div class="ustmenu">
+                <div class="solustmenu"></div>
+                <div class="ortaustmenu">
+                    <div class="m1">
+                        <button class="btn" onclick="location.href='{% url 'anasayfamiz' %}';">Tüm Postlar</button>
+                    </div>
+                    <div class="m2">
+                        <button class="btn" onclick="location.href='{% url 'takiplistesi' %}';">Takip Listesi</button>
+                    </div>
+                    <div class="m3">
+                        <button class="btn" onclick="location.href='{% url 'taleplistesi' %}';">Talep Listesi</button>
+                    </div>
+                    <div class="m4">
+                        <button class="btn" onclick="location.href='{% url 'tesekkurlistesi' %}';">Teşekkür Listesi</button>
+                    </div>
+                </div>
+                <div class="sagustmenu"></div>
+            </div>
+            <div class="icerik">
+                <div class="solicerik"></div>
+                    {% block sayfalar %}
+                        {% block content %}
+                        {% endblock %}
+                    {% endblock %}
+                <div class="sagicerik"></div>
+            </div>
+            <div class="altbolum">
+                <div class="solalt">
+                </div>
+                <div class="ortaalt">
+                    <form method="POST" class="post-form" action="">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" style="height: 25px;margin-top: 6px;"><h4>Gönder</h4></button>
+                    </form>
+                </div>
+                <div class="sagalt">
                 </div>
             </div>
-            <div id="menu">
-                
-            </div>
-            <div id="govde">
-                {% block ustmenu %}
-                <p style="margin-top: 3vh;">
-                    <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
-                </p>
-                    {% block content %}
-                    {% endblock %}
-                {% endblock %}
-            </div>
+        </div>
+    </body>
+</html>
+
+<!---
             <div id="temel">
                 <div>
                     <form method="POST" class="post-form" action="">{% csrf_token %}
@@ -65,3 +92,4 @@
         </div>
     </body>
 </html>
+-->
