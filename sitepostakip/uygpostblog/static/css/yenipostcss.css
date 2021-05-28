@@ -81,11 +81,10 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .ortaicerik {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
   gap: 0px 0px;
   grid-template-areas:
     "baslik baslik"
-    "mecrabaslik mecraprofil"
     "posticerik posticerik"
     "solliste sagliste"
     "altmetin altmetin";
@@ -93,10 +92,6 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 }
 
 .baslik { grid-area: baslik; }
-
-.mecrabaslik { grid-area: mecrabaslik; text-align: left; }
-
-.mecraprofil { grid-area: mecraprofil; text-align: right; }
 
 .posticerik {
   grid-area: posticerik;

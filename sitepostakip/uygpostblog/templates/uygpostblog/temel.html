@@ -53,22 +53,24 @@
             </div>
             <div class="icerik">
                 <div class="solicerik"></div>
+                <div class="ortaicerik">
                 {% block sayfalar %}
-                {% block content %}
+                    <div class="baslik"></div>
+                    <div class="posticerik"></div>
+                    {% block content %}
+                    {% endblock %}
+                    </div>
+                    <div class="solliste"></div>
+                    <div class="sagliste"></div>
+                    <div class="altmetin"></div>
                 {% endblock %}
-                {% endblock %}
+                </div>
                 <div class="sagicerik"></div>
             </div>
             <div class="altbolum">
                 <div class="solalt"></div>
                 <div class="ortaalt">
                 {% block form %}
-                    <!--
-                    <form method="POST" class="post-form" action="">{% csrf_token %}
-                    {{ form.as_p }}
-                    <button class="btn" type="submit" style=""><h4>Gönder</h4></button>
-                    </form>
-                    -->
                 {% endblock %}
                 </div>
                 <div class="sagalt"></div>
