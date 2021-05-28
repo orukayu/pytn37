@@ -3,7 +3,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .tamsayfa {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 8% 4% 1fr 6%;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "alinlik alinlik alinlik alinlik"
@@ -14,20 +14,28 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .alinlik {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  background-color: #ff9800;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: min-content;
   gap: 0px 0px;
   grid-template-areas:
-    "solalinlik sagalinlik";
+    "solalinlik merkezalinlik sagalinlik";
   grid-area: alinlik;
 }
 
-.solalinlik { grid-area: solalinlik; }
+.solalinlik {
+  grid-area: solalinlik;
+  margin-left: 1rem;
+}
+
+.merkezalinlik { grid-area: merkezalinlik; }
 
 .sagalinlik { grid-area: sagalinlik; }
 
 .ustmenu {
   display: grid;
+  height: fit-content;
+  background-color: black;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
@@ -73,7 +81,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .ortaicerik {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 5% auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
   gap: 0px 0px;
   grid-template-areas:
     "baslik baslik"
@@ -86,11 +94,14 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .baslik { grid-area: baslik; }
 
-.mecrabaslik { grid-area: mecrabaslik; }
+.mecrabaslik { grid-area: mecrabaslik; text-align: left; }
 
-.mecraprofil { grid-area: mecraprofil; }
+.mecraprofil { grid-area: mecraprofil; text-align: right; }
 
-.posticerik { grid-area: posticerik; }
+.posticerik {
+  grid-area: posticerik;
+  text-align: -webkit-center;
+}
 
 .solliste { grid-area: solliste; }
 
@@ -102,12 +113,16 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .altbolum {
   display: grid;
+  background-color: black;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "solalt ortaalt ortaalt sagalt";
   grid-area: altbolum;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .solalt { grid-area: solalt; }
@@ -115,3 +130,36 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .ortaalt { grid-area: ortaalt; }
 
 .sagalt { grid-area: sagalt; }
+
+ {
+  border: 1px solid red;
+  position: relative;
+}
+
+h1 a {
+    font-family: 'Lobster', cursive;
+    text-shadow: 2px 2px 5px black;
+    text-rendering: optimizeSpeed;
+    color: beige;
+    text-decoration: none;
+}
+.btn {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 95%;
+  width: 100%;
+}
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+input {
+  border-radius: 4px;
+  width: 150px;
+}

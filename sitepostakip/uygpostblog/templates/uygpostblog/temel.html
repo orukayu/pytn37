@@ -30,6 +30,7 @@
                 <div class="solalinlik">
                     <h1><a href="/" title="Anasayfa"> YENİPOST </a></h1>
                 </div>
+                <div class="merkezalinlik"></div>
                 <div class="sagalinlik"></div>
             </div>
             <div class="ustmenu">
@@ -52,23 +53,25 @@
             </div>
             <div class="icerik">
                 <div class="solicerik"></div>
-                    {% block sayfalar %}
-                        {% block content %}
-                        {% endblock %}
-                    {% endblock %}
+                {% block sayfalar %}
+                {% block content %}
+                {% endblock %}
+                {% endblock %}
                 <div class="sagicerik"></div>
             </div>
             <div class="altbolum">
-                <div class="solalt">
-                </div>
+                <div class="solalt"></div>
                 <div class="ortaalt">
+                {% block form %}
+                    <!--
                     <form method="POST" class="post-form" action="">{% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" style="height: 25px;margin-top: 6px;"><h4>Gönder</h4></button>
+                    <button class="btn" type="submit" style=""><h4>Gönder</h4></button>
                     </form>
+                    -->
+                {% endblock %}
                 </div>
-                <div class="sagalt">
-                </div>
+                <div class="sagalt"></div>
             </div>
         </div>
     </body>
