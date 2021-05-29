@@ -6,21 +6,19 @@
         <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
         <h2>Takip edilen sosyal medya profillerini görmek için ilgili mecraya tıklayınız;</h2>
     </div>
-    <div class="mecrabaslik"></div>
-    <div class="mecraprofil"></div>
-    <div class="posticerik">
+    <div class="posticerik"></div>
+    <div class="solliste">
         {% for mec in mec %}
             <div>
                 <h3><a href="{% url 'listesayfasi' mec.mecra %}">{{ mec.mecra }}</a></h3>
             </div>
         {% endfor %}
     </div>
-    <div class="solliste"></div>
+    
     <div class="sagliste"></div>
     <div class="altmetin">
         {% block listeler %}
         {% endblock %}
-
-</div>
+    </div>
 
 {% endblock %}

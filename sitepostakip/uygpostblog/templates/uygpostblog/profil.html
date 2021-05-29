@@ -2,24 +2,22 @@
 
 {% block content %}
     {% for post in posts %}
-    <div class="ortaicerik">
-        <div class="baslik"></div>
-        <div class="mecrabaslik">
+    <div style="height: 2vh; margin-bottom: 2vh;">
+        <div style="float: left;">
             <!-- <h3><a href="{% url 'mecrasayfasi' post.mecra %}">{{ post.mecra }}</a></h3> -->
             <button onclick="window.location.href='{% url 'mecrasayfasi' post.mecra_id %}';">{{ post.mecra }}</button>
         </div>
-        <div class="mecraprofil">
+        <div style="float: right;">
             <!-- <h3><a href="{% url 'anasayfamiz' %}">{{ post.profil }} Paylaşımları</a></h3> -->
             <button onclick="window.location.href='{% url 'anasayfamiz' %}';">{{ post.profil }} Paylaşımları</button>
         </div>
-        <div class="posticerik">
+    </div>
+    <div style="margin-bottom: 2vh;">
+        <div>
             {% autoescape off %}
-            <p>{{ post.embed }}</p>
+            {{ post.embed }}
             {% endautoescape %}
         </div>
-        <div class="solliste"></div>
-        <div class="sagliste"></div>
-        <div class="altmetin"></div>
     </div>
     {% endfor %}
 {% endblock %}

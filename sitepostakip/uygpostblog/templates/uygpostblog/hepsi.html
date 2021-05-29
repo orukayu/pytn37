@@ -2,18 +2,22 @@
 
 {% block content %}
     {% for post in posts %}
-    <div>
-        <!-- <h3><a href="{% url 'mecrasayfasi' post.mecra %}">{{ post.mecra }}</a></h3> -->
-        <button onclick="window.location.href='{% url 'mecrasayfasi' post.mecra_id %}';">{{ post.mecra }}</button>
+    <div style="height: 2vh; margin-bottom: 2vh;">
+        <div style="float: left;">
+            <!-- <h3><a href="{% url 'mecrasayfasi' post.mecra %}">{{ post.mecra }}</a></h3> -->
+            <button onclick="window.location.href='{% url 'mecrasayfasi' post.mecra_id %}';">{{ post.mecra }}</button>
+        </div>
+        <div style="float: right;">
+            <!-- <h3><a href="{% url 'profilsayfasi' post.profil %}">{{ post.profil }}</a></h3> -->
+            <button onclick="window.location.href='{% url 'profilsayfasi' post.profil %}';">{{ post.profil }}</button>
+        </div>
     </div>
-    <div>
-        <!-- <h3><a href="{% url 'profilsayfasi' post.profil %}">{{ post.profil }}</a></h3> -->
-        <button onclick="window.location.href='{% url 'profilsayfasi' post.profil %}';">{{ post.profil }}</button>
-    </div>
-    <div>
-        {% autoescape off %}
-        <p>{{ post.embed }}</p>
-        {% endautoescape %}
+    <div style="margin-bottom: 2vh;">
+        <div>
+            {% autoescape off %}
+            {{ post.embed }}
+            {% endautoescape %}
+        </div>
     </div>
     {% endfor %}
 {% endblock %}

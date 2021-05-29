@@ -3,13 +3,14 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .tamsayfa {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: max-content 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "alinlik alinlik alinlik alinlik"
     "ustmenu ustmenu ustmenu ustmenu"
     "icerik icerik icerik icerik"
     "altbolum altbolum altbolum altbolum";
+  overflow: auto;
 }
 
 .alinlik {
@@ -21,6 +22,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-template-areas:
     "solalinlik merkezalinlik sagalinlik";
   grid-area: alinlik;
+  font-size: 0.75em;
 }
 
 .solalinlik {
@@ -36,12 +38,14 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   display: grid;
   height: fit-content;
   background-color: black;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    "solustmenu ortaustmenu ortaustmenu sagustmenu";
+    "solustmenu ortaustmenu sagustmenu";
   grid-area: ustmenu;
+  position: sticky;
+  top: 0;
 }
 
 .solustmenu { grid-area: solustmenu; }
@@ -54,6 +58,8 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-template-areas:
     "m1 m2 m3 m4";
   grid-area: ortaustmenu;
+  max-width: fit-content;
+  margin: auto;
 }
 
 .m1 { grid-area: m1; }
@@ -68,9 +74,9 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .icerik {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr 1fr auto;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0px 5px;
   grid-template-areas:
     "solicerik ortaicerik ortaicerik sagicerik";
   grid-area: icerik;
@@ -82,16 +88,21 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto auto;
-  gap: 0px 0px;
+  gap: 1vh 0px;
   grid-template-areas:
     "baslik baslik"
     "posticerik posticerik"
     "solliste sagliste"
     "altmetin altmetin";
   grid-area: ortaicerik;
+  max-width: fit-content;
+  margin: auto;
 }
 
-.baslik { grid-area: baslik; }
+.baslik {
+  grid-area: baslik;
+  text-align: center;
+}
 
 .posticerik {
   grid-area: posticerik;
@@ -147,7 +158,6 @@ h1 a {
   color: white;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 95%;
   width: 100%;
 }
 .btn:hover {
@@ -157,4 +167,10 @@ h1 a {
 input {
   border-radius: 4px;
   width: 150px;
+}
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: 20vw 20vw;
+  grid-gap: 1vw 3vw;
+  padding: 10px;
 }
