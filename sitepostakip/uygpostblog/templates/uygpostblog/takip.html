@@ -7,7 +7,7 @@
         <h2>Takip edilen sosyal medya profillerini görmek için ilgili mecraya tıklayınız;</h2>
     </div>
     <div class="posticerik"></div>
-    <div class="solliste">
+    <div class="grid-container">
         {% for mec in mec %}
             <div>
                 <h3><a href="{% url 'listesayfasi' mec.mecra %}">{{ mec.mecra }}</a></h3>

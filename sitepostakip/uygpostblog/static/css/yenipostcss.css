@@ -30,7 +30,10 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   margin-left: 1rem;
 }
 
-.merkezalinlik { grid-area: merkezalinlik; }
+.merkezalinlik {
+  grid-area: merkezalinlik;
+  text-align: center;
+}
 
 .sagalinlik { grid-area: sagalinlik; }
 
@@ -46,6 +49,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-area: ustmenu;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 .solustmenu { grid-area: solustmenu; }
