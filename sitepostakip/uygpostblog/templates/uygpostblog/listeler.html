@@ -1,13 +1,12 @@
 {% extends 'uygpostblog/takip.html' %}
 
 {% block listeler %}
-<div class="sayfalar">
     <div>
         <h2>
             {{ baslik }} da takip edilen profiller;
         </h2>
     </div>
-    <div class="grid-container">
+    <div class="liste">
         {% for lis in lis %}
             <div>
                 <h3><a href="{% url 'profilsayfasi' lis.profil %}">{{ lis.profil }}</a></h3>
@@ -17,5 +16,4 @@
             </div>
         {% endfor %}
     </div>
-</div>
 {% endblock %}

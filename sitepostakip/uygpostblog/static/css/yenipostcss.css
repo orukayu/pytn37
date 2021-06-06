@@ -30,6 +30,12 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   margin-left: 1rem;
 }
 
+@media (max-width: 576px) {
+  .solalinlik h1 a, h2, h3 {
+    font-size: large;
+  }
+}
+
 .merkezalinlik {
   grid-area: merkezalinlik;
   text-align: center;
@@ -102,7 +108,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-template-areas:
     "baslik baslik"
     "posticerik posticerik"
-    "solliste sagliste"
+    "ustliste ustliste"
     "altmetin altmetin";
   grid-area: ortaicerik;
   max-width: fit-content;
@@ -125,9 +131,13 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   }
 }
 
-.solliste { grid-area: solliste; }
-
-.sagliste { grid-area: sagliste; }
+.ustliste {
+  grid-area: ustliste;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1vw 3vw;
+  padding: 10px;
+}
 
 .altmetin { grid-area: altmetin; }
 
@@ -159,12 +169,17 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 }
 
 h1 a {
-    font-family: 'Lobster', cursive;
+    font-family: 'Metamorphous', cursive;
     text-shadow: 2px 2px 5px black;
     text-rendering: optimizeSpeed;
     color: white;
     text-decoration: none;
 }
+
+h1, h2 {
+  font-family: 'Metamorphous';
+}
+
 .btn {
   border: none;
   background-color: inherit;
@@ -184,9 +199,10 @@ input {
   border-radius: 4px;
   width: 150px;
 }
-.grid-container {
+
+.liste {
   display: inline-grid;
-  grid-template-columns: 20vw 20vw;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 1vw 3vw;
   padding: 10px;
 }

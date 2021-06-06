@@ -1,12 +1,12 @@
 {% extends 'uygpostblog/temel.html' %}
 
 {% block sayfalar %}
-
 	<div class="baslik">
         <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
 	    <h2>Haber niteliği taşıyan mecralar, kaliteli içerik üreten profiller veya sizce takip edilmesi gereken sosyal medya hesapları gibi sayfaların bilgileri için şimdiden teşekkür ederiz.</h2>
     </div>
-	<div class="grid-container">
+    <div class="posticerik"></div>
+	<div class="ustliste">
         {% for kast in kast %}
             <div>
                 <h3>{{ kast.talep }}</h3>
@@ -18,7 +18,6 @@
             Siz de takip edilmesini istediğiniz twitter, instagram, youtube, tiktok gibi mecralardan profil önerilerilerinizi bize gönderebilirsiniz.
 	    </h2>
     </div>
-
 {% endblock %}
 
 {% block form %}

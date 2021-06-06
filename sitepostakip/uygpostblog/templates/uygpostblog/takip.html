@@ -7,15 +7,13 @@
         <h2>Takip edilen sosyal medya profillerini görmek için ilgili mecraya tıklayınız;</h2>
     </div>
     <div class="posticerik"></div>
-    <div class="grid-container">
+    <div class="ustliste">
         {% for mec in mec %}
             <div>
                 <h3><a href="{% url 'listesayfasi' mec.mecra %}">{{ mec.mecra }}</a></h3>
             </div>
         {% endfor %}
     </div>
-    
-    <div class="sagliste"></div>
     <div class="altmetin">
         {% block listeler %}
         {% endblock %}
