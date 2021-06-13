@@ -22,7 +22,7 @@
 
 {% block form %}
     <form method="POST" class="post-form" action="">{% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn" type="submit" style=""><h4>Gönder</h4></button>
+        {{ form.as_p }}
+        <button class="btn" type="submit" style=""><h4>Gönder</h4></button>
     </form>
 {% endblock %}

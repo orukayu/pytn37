@@ -15,7 +15,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .alinlik {
   display: grid;
-  background-color: #9bb7d4;
+  background-color: #6495ed;
   grid-template-columns: 1fr 33% 1fr;
   grid-template-rows: 60px;
   gap: 0px 0px;
@@ -76,6 +76,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-area: ortaustmenu;
   max-width: fit-content;
   margin: auto;
+  text-align: center;
 }
 
 .m1 { grid-area: m1; }
@@ -90,11 +91,11 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .icerik {
   display: grid;
-  grid-template-columns: auto 1fr 1fr auto;
+  grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr;
   gap: 0px 5px;
   grid-template-areas:
-    "solicerik ortaicerik ortaicerik sagicerik";
+    "solicerik ortaicerik sagicerik";
   grid-area: icerik;
 }
 
@@ -102,7 +103,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .ortaicerik {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto;
   gap: 1vh 0px;
   grid-template-areas:
@@ -120,9 +121,18 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   text-align: center;
 }
 
+@media (max-width: 576px) {
+  .baslik h2, .altmetin h2 {
+    text-align: justify;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
 .posticerik {
   grid-area: posticerik;
   text-align: -webkit-center;
+  margin: auto;
 }
 
 @media (max-width: 576px) {
@@ -134,9 +144,9 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .ustliste {
   grid-area: ustliste;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1vw 3vw;
-  padding: 10px;
+  grid-template-columns: 25vw 25vw;
+  grid-gap: 1em 1em;
+  margin: auto;
 }
 
 .altmetin { grid-area: altmetin; }
@@ -146,20 +156,31 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .altbolum {
   display: grid;
   background-color: black;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    "solalt ortaalt ortaalt sagalt";
+    "solalt ortaalt sagalt";
   grid-area: altbolum;
   position: fixed;
   bottom: 0;
   width: 100%;
 }
 
+.altbolum button {
+  float: right;
+}
+
 .solalt { grid-area: solalt; }
 
-.ortaalt { grid-area: ortaalt; }
+.ortaalt {
+  grid-area: ortaalt;
+  margin: auto;
+}
+
+.ortaalt p {
+  float: left;
+}
 
 .sagalt { grid-area: sagalt; }
 
@@ -189,7 +210,6 @@ h1, h2 {
   color: white;
   padding-left: 10px;
   padding-right: 10px;
-  width: 100%;
 }
 .btn:hover {
   background-color: white;
@@ -197,7 +217,10 @@ h1, h2 {
 }
 input {
   border-radius: 4px;
-  width: 150px;
+  width: 70vw;
+  max-width: 500px;
+  height: 20px;
+  background-color: lightcyan;
 }
 
 .liste {
