@@ -61,6 +61,7 @@ def mecralar(request, mecra):
     else:
         posts = Postlar.objects.filter(mecra=mecra,)
         form = TalepFormu()
+
     return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'form': form})
 
 # profil sayfası için views tanımlama

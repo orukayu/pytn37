@@ -15,7 +15,7 @@
         <meta property="og:title" content="Merak Edilen Güncel Paylaşımlar"/>
         <meta property="og:description" content="Sizde Gündemi Belirleyen Sosyal Medya Paylaşımları ile Her An Güncel Kalın" />
         <meta property="og:image" content="/static/media/thump.jpg"/>
-        <meta property="og:url" content="https://www.yenipost.com/tumpostlar"/>
+        <meta property="og:url" content="https://www.yenipost.com"/>
         <meta property="og:site_name" content="Yenipost.com"/>
 
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'media/favicon.ico' %}"/>
@@ -57,6 +57,7 @@
                 <div class="sagustmenu"></div>
             </div>
             <div class="icerik">
+                {% block 404 %}
                 <div class="solicerik"></div>
                 <div class="ortaicerik">
                 {% block sayfalar %}
@@ -70,6 +71,7 @@
                 {% endblock %}
                 </div>
                 <div class="sagicerik"></div>
+                {% endblock %}
             </div>
             <div class="altbolum">
                 <div class="solalt"></div>

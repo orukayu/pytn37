@@ -1,15 +1,20 @@
 {% extends 'uygpostblog/temel.html' %}
 
 {% block content %}
+    <div>
+        <h2>
+            Sadece {{ mecraadi }} paylaşımları listelenmektedir.
+        </h2>
+    </div>
     {% for post in posts %}
     <div style="height: 2vh; margin-bottom: 2vh;">
         <div style="float: left;">
             <!-- <h3><a href="{% url 'anasayfamiz' %}">{{ post.mecra }} Postları</a></h3> -->
-            <button onclick="window.location.href='{% url 'anasayfamiz' %}';">{{ post.mecra }} Postları</button>
+            <button onclick="window.location.href='{% url 'anasayfamiz' %}';">{{ post.mecra }}</button>
         </div>
         <div style="float: right;">
             <!-- <h3><a href="{% url 'profilsayfasi' post.profil %}">{{ post.profil }}</a></h3> -->
-            <button onclick="window.location.href='{% url 'profilsayfasi' post.profil %}';">{{ post.profil }}</button>
+            <button onclick="window.location.href='{% url 'profilsayfasi' post.profil %}';">{{ post.profil }} postları</button>
         </div>
     </div>
     <div style="margin-bottom: 2vh;">

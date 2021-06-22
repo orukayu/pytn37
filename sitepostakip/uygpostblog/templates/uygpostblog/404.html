@@ -1,31 +1,29 @@
 {% extends 'uygpostblog/temel.html' %}
 
-{% block ustmenu %}
-<div class="sayfalar">
-    <div>
-        <h1>
-            404 Hata Sayfası
-        </h1>
-    </div>
-    <div>
-    	<h3>
-    		Sayfa Aranıyor!!!<br>
-    		Sayfaaaaaaaaa ...<br>
-    		Sayfaaaaaaaaaa ...<br>
-    		Sayfaaaaaaaaaaa ...<br>
-    		Sayfaaaaaaaaaaaa ...<br>
-    		Sayfa Malesef Bulunamadı.<br>
-    		Adres'te hata olabilir.<br>
-    		Lütfen aşağıda ki linkleri kullanarak yeniden deneyiniz.
-    	</h3>
-    </div>
-    <div>
-    	<h2>
-    		<a href="{% url 'anasayfamiz' %}">Anasayfa</a><br>
-    		<a href="{% url 'takiplistesi' %}">Takip Listesi</a><br>
-    		<a href="{% url 'taleplistesi' %}">Talep Listesi</a><br>
-    		<a href="{% url 'tesekkurlistesi' %}">Teşekkür Listesi</a><br>
-    	</h2>
-    </div>
+{% block 404 %}
+<div>
+    <h1>
+        404 Hata Sayfası
+    </h1>
+</div>
+<div>
+	<h3>
+		Sayfa Aranıyor!!!<br>
+		Sayfaaaaaaaaa ...<br>
+		Sayfaaaaaaaaaa ...<br>
+		Sayfaaaaaaaaaaa ...<br>
+		Sayfaaaaaaaaaaaa ...<br>
+		Sayfa Malesef Bulunamadı.<br>
+		Adres'te hata olabilir.<br>
+		Lütfen aşağıda ki linkleri kullanarak yeniden deneyiniz.
+	</h3>
+</div>
+<div>
+	<h2>
+		<a href="{% url 'anasayfamiz' %}">Anasayfa</a><br>
+		<a href="{% url 'takiplistesi' %}">Takip Listesi</a><br>
+		<a href="{% url 'taleplistesi' %}">Talep Listesi</a><br>
+		<a href="{% url 'tesekkurlistesi' %}">Teşekkür Listesi</a><br>
+	</h2>
 </div>
 {% endblock %}

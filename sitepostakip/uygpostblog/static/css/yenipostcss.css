@@ -15,7 +15,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .alinlik {
   display: grid;
-  background-color: #6495ed;
+  background-image: radial-gradient(circle, #adc4f0, #6495ed);
   grid-template-columns: 1fr 33% 1fr;
   grid-template-rows: 60px;
   gap: 0px 0px;
@@ -147,6 +147,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-template-columns: 25vw 25vw;
   grid-gap: 1em 1em;
   margin: auto;
+  text-align: center;
 }
 
 .altmetin { grid-area: altmetin; }
@@ -191,7 +192,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 h1 a {
     font-family: 'Metamorphous', cursive;
-    text-shadow: 2px 2px 5px black;
+    text-shadow: -5px 5px 8px black;
     text-rendering: optimizeSpeed;
     color: white;
     text-decoration: none;
@@ -199,6 +200,10 @@ h1 a {
 
 h1, h2 {
   font-family: 'Metamorphous';
+}
+
+h2 {
+  font-size: 1.2em;
 }
 
 .btn {
@@ -228,4 +233,20 @@ input {
   grid-template-columns: 1fr 1fr;
   grid-gap: 1vw 3vw;
   padding: 10px;
+}
+
+button {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 10vw;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
 }
