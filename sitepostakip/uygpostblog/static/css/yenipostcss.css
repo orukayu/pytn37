@@ -15,7 +15,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .alinlik {
   display: grid;
-  background-image: radial-gradient(circle, #adc4f0, #6495ed);
+  background-image: radial-gradient(circle, #000000, #6495ed);
   grid-template-columns: 1fr 33% 1fr;
   grid-template-rows: 60px;
   gap: 0px 0px;

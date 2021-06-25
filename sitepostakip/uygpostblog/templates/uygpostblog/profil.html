@@ -1,6 +1,11 @@
 {% extends 'uygpostblog/temel.html' %}
 
 {% block content %}
+    <div>
+        <h2>
+            Sadece {{ profiladi }} postları listelenmektedir.
+        </h2>
+    </div>
     {% for post in posts %}
     <div style="height: 2vh; margin-bottom: 2vh;">
         <div style="float: left;">
@@ -9,7 +14,7 @@
         </div>
         <div style="float: right;">
             <!-- <h3><a href="{% url 'anasayfamiz' %}">{{ post.profil }} Paylaşımları</a></h3> -->
-            <button onclick="window.location.href='{% url 'anasayfamiz' %}';">{{ post.profil }}</button>
+            <button onclick="window.location.href='{% url 'anasayfamiz' %}';">Geri Dön ></button>
         </div>
     </div>
     <div style="margin-bottom: 2vh;">

@@ -60,9 +60,10 @@ def mecralar(request, mecra):
             return redirect('mecrasayfasi', mecra=mecra)
     else:
         posts = Postlar.objects.filter(mecra=mecra,)
+        mecraadi = Mecralar.objects.all().get(id=mecra)
         form = TalepFormu()
 
-    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'form': form})
+    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'form': form, 'mecraadi':mecraadi})
 
 # profil sayfası için views tanımlama
 
@@ -75,8 +76,10 @@ def profiller(request, profil):
             return redirect('profilsayfasi', profil=profil)
     else:
         posts = Postlar.objects.filter(profil=profil,)
+        profiladi = profil
+        # profiladi = Postlar.objects.get(profil=profil)[0]
         form = TalepFormu()
-    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'form': form})
+    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'form': form, 'profiladi':profiladi})
 
 def takiptekiler(request):
     if request.method == "POST":

@@ -56,7 +56,7 @@ class Mecralar(models.Model):
     mecra = models.TextField()
 
     class Meta:
-        ordering = ['id',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
+        ordering = ['mecra',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
 
     def __str__(self):
         return self.mecra
