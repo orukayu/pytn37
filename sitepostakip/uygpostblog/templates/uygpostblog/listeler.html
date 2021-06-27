@@ -9,10 +9,10 @@
     <div class="liste">
         {% for lis in lis %}
             <div>
-                <h3><a href="{% url 'profilsayfasi' lis.profil %}">{{ lis.profil }}</a></h3>
+                <button class="govdebtn" onclick="window.location.href='{% url 'profilsayfasi' lis.profil %}';">{{ lis.profil }}</button>
             </div>
             <div>
-                <h3><a target="_blank" href="{{ lis.link }}">{{ baslik }} sayfası</a></h3>
+                <button class="govdebtn" onClick="javascript:window.open('{{ lis.link }}', '_blank');">{{ baslik }} sayfası</button>
             </div>
         {% endfor %}
     </div>

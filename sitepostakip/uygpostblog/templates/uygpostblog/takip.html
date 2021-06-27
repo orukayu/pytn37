@@ -10,7 +10,7 @@
     <div class="ustliste">
         {% for mec in mec %}
             <div>
-                <button onclick="window.location.href='{% url 'listesayfasi' mec.mecra %}';">{{ mec.mecra }}</button>
+                <button class="govdebtn" onclick="window.location.href='{% url 'listesayfasi' mec.mecra %}';">{{ mec.mecra }}</button>
             </div>
         {% endfor %}
     </div>
