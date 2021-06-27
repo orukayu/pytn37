@@ -3,7 +3,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .tamsayfa {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: max-content 1fr 1fr 1fr;
+  grid-template-rows: auto auto 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "alinlik alinlik alinlik alinlik"
@@ -92,7 +92,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .icerik {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto 1fr;
   grid-template-rows: 1fr;
   gap: 0px 5px;
   grid-template-areas:
@@ -123,7 +123,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 }
 
 @media (max-width: 576px) {
-  .baslik h2, .altmetin h2 {
+  .baslik h2, .posticerik h2, .altmetin h2 {
     text-align: justify;
     margin-left: 25px;
     margin-right: 25px;
@@ -134,6 +134,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-area: posticerik;
   text-align: -webkit-center;
   margin: auto;
+  width: 100%;
 }
 
 @media (max-width: 576px) {
@@ -145,7 +146,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .ustliste {
   grid-area: ustliste;
   display: grid;
-  grid-template-columns: 25vw 25vw;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 1em 1em;
   margin: auto;
   text-align: center;
@@ -175,6 +176,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .altbolum button {
   float: right;
+  margin-top: 17px;
 }
 
 .solalt { grid-area: solalt; }
@@ -236,7 +238,7 @@ input {
 
 .liste {
   display: inline-grid;
-  grid-template-columns: 25vw 25vw;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 1em 1em;
   padding: 10px;
 }

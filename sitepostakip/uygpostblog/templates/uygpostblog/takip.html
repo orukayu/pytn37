@@ -4,12 +4,13 @@
 
     <div class="baslik">
         <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
+    </div>
+    <div class="posticerik">
         <h2>Takip edilen sosyal medya profillerini görmek için ilgili mecraya tıklayınız;</h2>
     </div>
-    <div class="posticerik"></div>
     <div class="ustliste">
         {% for mec in mec %}
-            <div>
+            <div style="min-width: 25vw;">
                 <button class="govdebtn" onclick="window.location.href='{% url 'listesayfasi' mec.mecra %}';">{{ mec.mecra }}</button>
             </div>
         {% endfor %}

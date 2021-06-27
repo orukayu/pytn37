@@ -3,17 +3,19 @@
 {% block sayfalar %}
 	<div class="baslik">
         <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
-	    <h2>Haber niteliği taşıyan mecralar, kaliteli içerik üreten profiller veya sizce takip edilmesi gereken sosyal medya hesaplarının bilgilerini bizim ile paylaştığınız teşekkür ederiz.</h2>
     </div>
     <div class="posticerik">
         <div>
-            <h2>Talep Listesi</h2>
+            <h2>Haber niteliği taşıyan mecralar, kaliteli içerik üreten profiller veya sizce takip edilmesi gereken sosyal medya hesaplarının bilgilerini bizim ile paylaştığınız için teşekkür ederiz.</h2>
         </div>
         <div>
-            <hr style="margin-top: -15px;"/>
+            <h2 style="text-align: center;">Talep Listesi</h2>
+        </div>
+        <div>
+            <hr style="margin-top: -15px; width: 33%;"/>
         </div>
     </div>
-	<div>
+	<div class="ustliste">
         {% for kast in kast %}
             <div class="tlpliste">
                 <div>
@@ -24,7 +26,7 @@
     </div>
     <div class="altmetin">
 	    <h2>
-            Listemize katkıda bulunmak için twitter, instagram, youtube, tiktok gibi mecralardan profil önerilerilerinizi sayfanın altında ki form ile paylaşabilirsiniz.
+            Listemize katkıda bulunmak için twitter, instagram, youtube, tiktok gibi mecralardan profil önerilerilerinizi sayfanın altında ki form ile gönderebilirsiniz.
 	    </h2>
     </div>
 {% endblock %}
@@ -32,6 +34,6 @@
 {% block form %}
     <form method="POST" class="post-form" action="">{% csrf_token %}
         {{ form.as_p }}
-        <button class="formbtn" type="submit" style=""><h4>Gönder</h4></button>
+        <button class="formbtn" type="submit" style=""><h3 style="margin: auto;">Gönder</h3></button>
     </form>
 {% endblock %}
