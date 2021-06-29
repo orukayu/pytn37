@@ -52,7 +52,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .ustmenu {
   display: grid;
   height: fit-content;
-  background-color: rgba(146, 26, 208, .5);
+  background-color: rgba(252,162,5,0.75);
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr;
   gap: 0px 0px;
@@ -130,6 +130,15 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   }
 }
 
+@media (min-width: 960px) {
+  .baslik h2, .posticerik h2, .altmetin h2 {
+    width: 50%;
+    text-align: justify;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
 .posticerik {
   grid-area: posticerik;
   text-align: -webkit-center;
@@ -155,7 +164,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .altmetin {
   grid-area: altmetin;
-  text-align: center;
+  text-align: -webkit-center;
 }
 
 .sagicerik { grid-area: sagicerik; }
@@ -252,6 +261,7 @@ input {
   text-align: center;
   width: 100%;
   height: 2em;
+  text-transform: capitalize;
 }
 
 .govdebtn:hover {
