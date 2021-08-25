@@ -15,14 +15,13 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .alinlik {
   display: grid;
-  background-image: radial-gradient(circle, #000000, #6495ed);
-  grid-template-columns: 1fr 33% 1fr;
+  background: black;
+  grid-template-columns: auto auto auto;
   grid-template-rows: 60px;
   gap: 0px 0px;
   grid-template-areas:
     "solalinlik merkezalinlik sagalinlik";
   grid-area: alinlik;
-  font-size: 0.75em;
 }
 
 .solalinlik {
@@ -30,21 +29,20 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   margin-left: 1rem;
 }
 
-@media (max-width: 576px) {
-  .solalinlik h1 a {
-    font-size: large;
-  }
+.solalinlik h1 {
+  margin-top: 10px;
+}
+
+.solalinlik img {
+  height: -webkit-fill-available;
+  height: 45px;
+  float: left;
+  margin-top: 10px;
 }
 
 .merkezalinlik {
   grid-area: merkezalinlik;
   text-align: center;
-}
-
-.merkezalinlik img {
-  height: -webkit-fill-available;
-  padding: 4px;
-  filter: drop-shadow(0 0 5px rgba(0,0,0,.7));
 }
 
 .sagalinlik { grid-area: sagalinlik; }
@@ -207,15 +205,14 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 }
 
 h1 a {
-    font-family: 'Metamorphous', cursive;
-    text-shadow: -5px 5px 8px black;
+    font-family: 'Shrikhand', cursive;
     text-rendering: optimizeSpeed;
-    color: #fdb843;
+    color: #fdb943;
     text-decoration: none;
-}
-
-h1, h2 {
-  font-family: 'Metamorphous';
+    letter-spacing: 0.05em;
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: smaller;
 }
 
 h2 {
