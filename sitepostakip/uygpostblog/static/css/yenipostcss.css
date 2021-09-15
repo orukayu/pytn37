@@ -12,11 +12,12 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
     "altbolum altbolum altbolum altbolum";
   overflow: auto;
   background-color: #ececec;
+  align-items: start;
 }
 
 .alinlik {
   display: grid;
-  background: black;
+  background: #243238;
   grid-template-columns: auto auto auto;
   grid-template-rows: 60px;
   gap: 0px 0px;
@@ -34,16 +35,19 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   margin-top: 0px;
 }
 
-.solalinlik img {
-  height: -webkit-fill-available;
-  height: 2.5rem;
-  float: left;
-  margin-top: 10px;
+.solust a {
+  color: white;
+  letter-spacing: 0.07em;
+}
+
+.solalt {
+  margin-top: -40px !important;
 }
 
 .merkezalinlik {
   grid-area: merkezalinlik;
   text-align: center;
+  color: white;
 }
 
 .sagalinlik {
@@ -73,6 +77,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   z-index: 1;
   backdrop-filter: blur(3px);
   background-color: #dadadaa1;
+  box-shadow: 0px 2px 2px 0px #dadada;
 }
 
 .solustmenu { grid-area: solustmenu; }
@@ -83,20 +88,32 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    "m1 m2 m3 m4";
+    "oum-1 oum-2 oum-3 oum-4";
   grid-area: ortaustmenu;
   max-width: fit-content;
   margin: auto;
   text-align: center;
 }
 
-.m1 { grid-area: m1; }
+.oum-1 {
+  grid-area: oum-1;
+}
 
-.m2 { grid-area: m2; }
+.oum-2 {
+  grid-area: oum-2;
+}
 
-.m3 { grid-area: m3; }
+.oum-3 {
+  grid-area: oum-3;
+}
 
-.m4 { grid-area: m4; }
+.oum-4 {
+  grid-area: oum-4;
+}
+
+.oum-1:hover, .oum-2:hover, .oum-3:hover, .oum-4:hover {
+  background-color: black;
+}
 
 .sagustmenu { grid-area: sagustmenu; }
 
@@ -185,7 +202,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .altbolum {
   display: grid;
-  background-color: #c7c7c7;
+  background-color: #ffdc9e;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr;
   gap: 0px 0px;
@@ -222,8 +239,8 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 h1 a {
     font-family: 'Shrikhand', cursive;
-    text-rendering: optimizeSpeed;
     color: #fdb943;
+    text-rendering: optimizeSpeed;
     text-decoration: none;
     font-weight: 500;
     font-size: 1.3rem;
@@ -236,7 +253,7 @@ h2 {
 .menubtn {
   border: none;
   background-color: inherit;
-  font-size: 16px;
+  font-size: 0.7em;
   font-weight: 600;
   cursor: pointer;
   display: inline-block;
@@ -244,12 +261,13 @@ h2 {
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-  height: auto;
+  height: 100%;
+  text-transform: uppercase;
 }
 .menubtn:hover {
-  background-color: black;
   color: #fdb943;
 }
+
 input {
   border-radius: 4px;
   width: 70vw;

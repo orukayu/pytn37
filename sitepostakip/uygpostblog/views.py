@@ -16,6 +16,10 @@ from .serializers import PostlarSerializer
 from .forms import TalepFormu
 from django.shortcuts import redirect
 
+# Tarih için eklemeler
+
+import datetime
+
 
 def hepsi(request):
 
@@ -91,7 +95,14 @@ def takiptekiler(request):
     else:
         form = TalepFormu()
         mec = Mecralar.objects.values('mecra').order_by('mecra').distinct()
-        args = {'form': form, 'mec': mec}
+        sonkayit = Takipler.objects.values('bas_tarihi').order_by('-bas_tarihi').last()['bas_tarihi']
+        sonuncu = (sonkayit.strftime("%d.%m.%Y"))
+
+        # Şimdi ki tarihi yazdırmak için kullanılan kodlar. Sayfa da {{ tarih }} etiketi ile kullanılabilinir.
+        # x = datetime.datetime.now()
+        # tarih = (x.strftime("%d.%m.%Y"))
+
+        args = {'form': form, 'mec': mec, 'sonuncu': sonuncu}
     return render(request, 'uygpostblog/takip.html', args)
 
 def taleptekiler(request):
