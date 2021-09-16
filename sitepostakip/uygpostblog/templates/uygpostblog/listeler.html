@@ -8,11 +8,11 @@
     </div>
     <div class="liste">
         {% for lis in lis %}
-            <div style="min-width: 25vw;">
-                <button class="govdebtn" onclick="window.location.href='{% url 'profilsayfasi' lis.profil %}';">{{ lis.profil }}</button>
+            <div>
+                <button class="govdebtn liste" onclick="window.location.href='{% url 'profilsayfasi' lis.profil %}';">{{ lis.profil }}</button>
             </div>
-            <div style="min-width: 25vw;">
-                <button class="govdebtn" onClick="javascript:window.open('{{ lis.link }}', '_blank');">{{ baslik }} sayfası</button>
+            <div>
+                <button class="govdebtn liste" onClick="javascript:window.open('{{ lis.link }}', '_blank');">{{ baslik }} sayfası</button>
             </div>
         {% endfor %}
     </div>

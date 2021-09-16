@@ -151,5 +151,8 @@ def listeler(request, mecra):
         lis = Takipler.objects.filter(mecra_id=numara).order_by('profil').distinct()
         mec = Mecralar.objects.values('mecra').order_by('mecra').distinct()
 
-        args = {'form': form, 'lis': lis, 'baslik':baslik, 'numara':numara, 'mec':mec}
+        sonkayit = Takipler.objects.values('bas_tarihi').order_by('-bas_tarihi').last()['bas_tarihi']
+        sonuncu = (sonkayit.strftime("%d.%m.%Y"))
+
+        args = {'form': form, 'lis': lis, 'baslik':baslik, 'numara':numara, 'mec':mec, 'sonuncu': sonuncu}
     return render(request, 'uygpostblog/listeler.html', args)
