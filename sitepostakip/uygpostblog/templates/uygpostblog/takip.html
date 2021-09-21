@@ -11,7 +11,7 @@
     <div class="ustliste">
         {% for mec in mec %}
         <div>
-            <button class="govdebtn" onclick="window.location.href='{% url 'listesayfasi' mec.mecra %}';">{{ mec.mecra }}</button>
+            <button class="govdebtn" onclick="window.location.href='{% url 'listesayfasi' mec.mecra %}';"><i class="fa-brands fa-{{ mec.mecra }}"></i>  {{ mec.mecra }}</button>
         </div>
         {% endfor %}
     </div>

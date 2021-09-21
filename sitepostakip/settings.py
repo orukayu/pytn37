@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sitepostakip.uygpostblog',
     'rest_framework',
+    'fontawesome-free',
 ]
 
 MIDDLEWARE = [
