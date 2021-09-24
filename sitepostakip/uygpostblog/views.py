@@ -131,8 +131,13 @@ def tesekkurler(request):
 # 404 sayfası için ekleme, diğer eklemeler uygulamanın değil proje urls.py dosyasında
 
 def kiriklink(request, exception):
-    form = TalepFormu()
-    return render(request,'uygpostblog/404.html', {'form': form})
+    return render(request,'uygpostblog/404.html', {})
+
+# 500 sayfası için ekleme, diğer eklemeler uygulamanın değil proje urls.py dosyasında
+
+def hatalikomut(request, exception=None):
+    return render(request,'uygpostblog/500.html', {})
+
 
 # Takip sayfasında ki mecra ismine basınca, o mecraya ait listenin gösterileceği sayfa
 

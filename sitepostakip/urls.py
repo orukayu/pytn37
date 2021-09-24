@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-# 404 sayfası için ekleme
+# 404 ve 500 sayfası için ekleme
 from django.conf.urls import handler404
+from django.conf.urls import handler500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('sitepostakip.uygpostblog.urls')),
 ]
 
-# 404 sayfası için ekleme
+# 404 ve 500 sayfası için ekleme
 handler404 = 'sitepostakip.uygpostblog.views.kiriklink'
+handler500 = 'sitepostakip.uygpostblog.views.hatalikomut'
