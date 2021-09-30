@@ -5,13 +5,22 @@
     <div class="baslik">
         <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
     </div>
-    <div class="posticerik">
-        <h2>Yenipost olarak takip ettiğimiz sosyal medya profillerinin güncel listesine aşağıda ki mecra başlıklarından ulaşabilirsiniz, hatta dilerseniz bu listeleri dosya olarakta indirebilirsiniz; <b>{{ sonuncu }}</b> Güncelleme tarihli dosya için tıklayınız...</h2>
+    <div class="ustmetin">
+        <h1>
+            <span style="color: white;">Takip</span> Listesi
+        </h1>
+        <h2>
+            Yenipost olarak takip ettiğimiz sosyal medya profillerinin güncel listesine aşağıda ki mecra başlıklarından ulaşabilirsiniz, hatta dilerseniz bu listelerin dosya halini indirebilirsiniz; <e>{{ sonuncu }}</e> Güncelleme tarihli dosya için tıklayınız...
+        </h2>
     </div>
+    <div class="posticerik"></div>
     <div class="ustliste">
         {% for mec in mec %}
         <div>
-            <button class="govdebtn" onclick="window.location.href='{% url 'listesayfasi' mec.mecra %}';"><i class="fa-brands fa-{{ mec.mecra }}"></i>  {{ mec.mecra }}</button>
+            <button class="govdebtn" onclick="window.location.href='{% url 'listesayfasi' mec.mecra %}';">
+                <div style="float: left; width: 2vw; min-width: 25px; margin-left: 2vw;"><i class="fa-brands fa-{{ mec.mecra }}"></i></div>
+                <div>{{ mec.mecra }}</div>
+            </button>
         </div>
         {% endfor %}
     </div>

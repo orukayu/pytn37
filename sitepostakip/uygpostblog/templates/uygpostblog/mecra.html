@@ -3,26 +3,22 @@
 {% block content %}
     <div>
         <h2>
-            Takip ettiğimiz profil veya hesapların <b>{{ mecraadi }}</b> paylaşımlarına hoşgeldiniz. Dilerseniz tüm postları görmek için ana sayfaya geri dönebilir veya aralarından istediğiniz bir profile ait postların listelenmesini de sağlayabilirsiniz. 
+            Takip ettiğimiz profil ve hesapların <e>{{ mecraadi }}</e> paylaşımları listelenmektedir. Dilerseniz sayfamızda ki tüm postları görmek için ana sayfaya geri dönebilir veya sadece istediğiniz bir profile ait <e>{{ mecraadi }}</e> postlarının listelenmesini de sağlayabilirsiniz.
         </h2>
     </div>
     {% for post in posts %}
-    <div style="height: 2vh; margin-bottom: 2vh;">
-        <div style="float: left;">
-            <!-- <h3><a href="{% url 'anasayfamiz' %}">{{ post.mecra }} Postları</a></h3> -->
+    <div class="link">
+        <div class="mecra">
             <button class="govdebtn"  onclick="window.location.href='{% url 'anasayfamiz' %}';">< Geri Dön</button>
         </div>
-        <div style="float: right;">
-            <!-- <h3><a href="{% url 'profilsayfasi' post.profil %}">{{ post.profil }}</a></h3> -->
+        <div class="profil">
             <button class="govdebtn"  onclick="window.location.href='{% url 'profilsayfasi' post.profil %}';">{{ post.profil }} postları</button>
         </div>
     </div>
-    <div style="margin-bottom: 2vh;">
-        <div>
-            {% autoescape off %}
+    <div class="post">
+        {% autoescape off %}
             {{ post.embed }}
-            {% endautoescape %}
-        </div>
+        {% endautoescape %}
     </div>
     {% endfor %}
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'uygpostblog/takip.html' %}
 
 {% block listeler %}
-    <div>
+    <div class="aciklama">
         <h2>
             Aşağıda <b>{{ baslik }}</b> da takip edilen profillerin güncel listesini ve {{ baslik }} sayfalarını görebilirsiniz;
         </h2>
@@ -9,10 +9,10 @@
     <div class="liste">
         {% for lis in lis %}
             <div>
-                <button class="govdebtn liste" onclick="window.location.href='{% url 'profilsayfasi' lis.profil %}';">{{ lis.profil }}</button>
+                <button class="govdebtn" onclick="window.location.href='{% url 'profilsayfasi' lis.profil %}';"><t>{{ lis.profil }}</t></button>
             </div>
             <div>
-                <button class="govdebtn liste" onClick="javascript:window.open('{{ lis.link }}', '_blank');">{{ baslik }} sayfası</button>
+                <button class="govdebtn" onClick="javascript:window.open('{{ lis.link }}', '_blank');"><t>{{ baslik }} sayfası</t></button>
             </div>
         {% endfor %}
     </div>

@@ -3,26 +3,22 @@
 {% block content %}
     <div>
         <h2>
-            Bu sayfada sadece <b>{{ profiladi }}</b> postları listelenmektedir. Dilerseniz ilgili mecrada ki bütün paylaşımlara ulaşabilir veya geri dön butonu ile ana sayfada ki bütün postları görebilirsiniz.
+            <e>{{ profiladi }}</e> postlarına hoşgeldiniz. Dilerseniz ilgili mecrada ki diğer hesaplarında paylaşımlarına ulaşabilir veya geri dön butonu ile ana sayfada ki tüm postları görebilirsiniz.
         </h2>
     </div>
     {% for post in posts %}
-    <div style="height: 2vh; margin-bottom: 2vh;">
-        <div style="float: left;">
-            <!-- <h3><a href="{% url 'mecrasayfasi' post.mecra %}">{{ post.mecra }}</a></h3> -->
+    <div class="link">
+        <div class="mecra">
             <button class="govdebtn"  onclick="window.location.href='{% url 'mecrasayfasi' post.mecra_id %}';">{{ post.mecra }} paylaşımları</button>
         </div>
-        <div style="float: right;">
-            <!-- <h3><a href="{% url 'anasayfamiz' %}">{{ post.profil }} Paylaşımları</a></h3> -->
+        <div class="profil">
             <button class="govdebtn"  onclick="window.location.href='{% url 'anasayfamiz' %}';">Geri Dön ></button>
         </div>
     </div>
-    <div style="margin-bottom: 2vh;">
-        <div>
-            {% autoescape off %}
+    <div class="post">
+        {% autoescape off %}
             {{ post.embed }}
-            {% endautoescape %}
-        </div>
+        {% endautoescape %}
     </div>
     {% endfor %}
 {% endblock %}
