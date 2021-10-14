@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from .models import Postlar
-from .models import Takipler
+from .models import Profiller
 from .models import Talepler
 from .models import Mecralar
+from .models import Müşteriler
+from .models import Görünümler
 
 # APİ için eklemeler
 
@@ -20,24 +22,17 @@ from django.shortcuts import redirect
 
 import datetime
 
+# Ana sayfada yani Tüm Postlar sayfasının görünüm kodları,
+# Sadece Görünümleri Açık olan ve Bitiş Tarihleri geçmemiş profillerin postları listelenir.
 
 def hepsi(request):
-
-    # Bu kısım Talepformunun kaydedilebilmesi için eklenmiştir.
-    
-    if request.method == "POST":
-        form = TalepFormu(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('/')
-    else:
-
-    # Buradan aşağısı postların ve talep formunun anasayfada gözükmesi içindir.
-
-        posts = Postlar.objects.all()
-        form = TalepFormu()
-    return render(request, 'uygpostblog/hepsi.html', {'posts': posts, 'form': form})
+    # şimdiki zamanı tanımlamak için zmn
+    zmn = datetime.datetime.now()
+    # Profiller tablosunda Görünümü 1 (Açık) olanlar ile Bitiş Tarihleri geçmemiş olanların id sinin listesi
+    acik = Profiller.objects.values_list('id', flat=True).filter(Görünüm=1, Bit_Tarihi__gte=zmn)
+    # Profil__in komutu ile liste olarak gelen id leri Postlar tablosunda filitrele
+    posts = Postlar.objects.filter(Profil__in=acik)
+    return render(request, 'uygpostblog/hepsi.html', {'posts': posts,})
 
 # APİ için eklemeler
 
@@ -55,57 +50,65 @@ class PostlarListesi(APIView):
 
 # mecra sayfası için views tanımlama
 
-def mecralar(request, mecra):
-    if request.method == "POST":
-        form = TalepFormu(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('mecrasayfasi', mecra=mecra)
-    else:
-        posts = Postlar.objects.filter(mecra=mecra,)
-        mecraadi = Mecralar.objects.all().get(id=mecra)
-        form = TalepFormu()
+def mecralar(request, Mecra):
+    mecraadi = Mecra
 
-    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'form': form, 'mecraadi':mecraadi})
+    numara = Mecralar.objects.filter(Mecra=mecraadi).get()
+    posts = Postlar.objects.filter(Mecra=numara)
+    
+    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'mecraadi':mecraadi})
 
 # profil sayfası için views tanımlama
 
-def profiller(request, profil):
-    if request.method == "POST":
-        form = TalepFormu(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('profilsayfasi', profil=profil)
-    else:
-        posts = Postlar.objects.filter(profil=profil,)
-        profiladi = profil
-        # profiladi = Postlar.objects.get(profil=profil)[0]
-        form = TalepFormu()
-    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'form': form, 'profiladi':profiladi})
+def profiller(request, Profil):
+    profiladi = Profil
+
+    numara = Profiller.objects.filter(Profil=profiladi).get()
+    posts = Postlar.objects.filter(Profil=numara)
+    
+    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'profiladi':profiladi})
+
+# Post paylaşım sayfası için views tanımlama
+
+def postlar(request, pk):
+    posts = Postlar.objects.filter(pk=pk)
+    return render(request, 'uygpostblog/paylas.html', {'posts': posts,})
+
+# Takip Listesi için görünüm kodları
 
 def takiptekiler(request):
-    if request.method == "POST":
-        form = TalepFormu(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('takiplistesi')
-    else:
-        form = TalepFormu()
-        mec = Mecralar.objects.values('mecra').order_by('mecra').distinct()
-        sonkayit = Takipler.objects.values('bas_tarihi').order_by('-bas_tarihi').last()['bas_tarihi']
-        sonuncu = (sonkayit.strftime("%d.%m.%Y"))
+    mec = Mecralar.objects.values('Mecra').order_by('Mecra').distinct()
+    sonkayit = Profiller.objects.values('Bas_Tarihi').order_by('Bas_Tarihi').last()['Bas_Tarihi']
+    sonuncu = (sonkayit.strftime("%d.%m.%Y"))
 
-        # Şimdi ki tarihi yazdırmak için kullanılan kodlar. Sayfa da {{ tarih }} etiketi ile kullanılabilinir.
-        # x = datetime.datetime.now()
-        # tarih = (x.strftime("%d.%m.%Y"))
+    # Şimdi ki tarihi yazdırmak için kullanılan kodlar. Sayfa da {{ tarih }} etiketi ile kullanılabilinir.
+    # x = datetime.datetime.now()
+    # tarih = (x.strftime("%d.%m.%Y"))
 
-        args = {'form': form, 'mec': mec, 'sonuncu': sonuncu}
+    args = {'mec': mec, 'sonuncu': sonuncu}
     return render(request, 'uygpostblog/takip.html', args)
 
+# Takip sayfasında ki mecra ismine basınca, o mecraya ait listenin gösterileceği sayfa fonksiyonu
+
+def listeler(request, Mecra):
+    baslik = Mecra
+
+    numara = Mecralar.objects.filter(Mecra=baslik).get()
+    lis = Profiller.objects.filter(Mecra=numara).order_by('Profil').distinct()
+
+    # mec formülü listelerin takip sayfasında çıkmasından ötürü bulunmak zorunda
+    mec = Mecralar.objects.values('Mecra').order_by('Mecra').distinct()
+
+    sonkayit = Profiller.objects.values('Bas_Tarihi').order_by('-Bas_Tarihi').last()['Bas_Tarihi']
+    sonuncu = (sonkayit.strftime("%d.%m.%Y"))
+
+    args = {'baslik':baslik, 'lis': lis, 'mec':mec, 'sonuncu': sonuncu}
+    return render(request, 'uygpostblog/listeler.html', args)
+
+# Talep edilenler ve yeni profil talepleri için Talep Listesi sayfasının görünümü
+
 def taleptekiler(request):
+    # if ile else arasında ki komutlar talep formunun çalışması içindir.
     if request.method == "POST":
         form = TalepFormu(request.POST)
         if form.is_valid():
@@ -114,19 +117,13 @@ def taleptekiler(request):
             return redirect('taleplistesi')
     else:
         form = TalepFormu()
-        kast = Talepler.objects.order_by('talep')
+        kast = Talepler.objects.order_by('Talep')
     return render(request, 'uygpostblog/talep.html', {'form': form, 'kast': kast})
 
+# Teşekkürler sayfası için görünüm kodları
+
 def tesekkurler(request):
-    if request.method == "POST":
-        form = TalepFormu(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('tesekkurlistesi')
-    else:
-        form = TalepFormu()
-    return render(request, 'uygpostblog/tesekkur.html', {'form': form})
+    return render(request, 'uygpostblog/tesekkur.html', {})
 
 # 404 sayfası için ekleme, diğer eklemeler uygulamanın değil proje urls.py dosyasında
 
@@ -139,25 +136,10 @@ def hatalikomut(request, exception=None):
     return render(request,'uygpostblog/500.html', {})
 
 
-# Takip sayfasında ki mecra ismine basınca, o mecraya ait listenin gösterileceği sayfa
+# Veribankasından veri çekme sayfasında yani deneme sayfasının görünüm kodları
 
-def listeler(request, mecra):
-    if request.method == "POST":
-        form = TalepFormu(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('listesayfasi', mecra=mecra)
-    else:
-        form = TalepFormu()
-        baslik = mecra
-
-        numara = Mecralar.objects.filter(mecra=baslik).get()
-        lis = Takipler.objects.filter(mecra_id=numara).order_by('profil').distinct()
-        mec = Mecralar.objects.values('mecra').order_by('mecra').distinct()
-
-        sonkayit = Takipler.objects.values('bas_tarihi').order_by('-bas_tarihi').last()['bas_tarihi']
-        sonuncu = (sonkayit.strftime("%d.%m.%Y"))
-
-        args = {'form': form, 'lis': lis, 'baslik':baslik, 'numara':numara, 'mec':mec, 'sonuncu': sonuncu}
-    return render(request, 'uygpostblog/listeler.html', args)
+def denemeler(request):
+    bt = datetime.datetime.now()
+    acik = Profiller.objects.values_list('id', flat=True).filter(Görünüm=1, Bit_Tarihi__gte=bt)
+    posts = Postlar.objects.filter(Profil__in=acik)
+    return render(request, 'uygpostblog/d.html', {'acik': acik, 'posts': posts})

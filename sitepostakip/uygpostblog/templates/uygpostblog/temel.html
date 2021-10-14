@@ -1,5 +1,6 @@
 {% load static %}
-<!doctype html>
+{% load social_share %}
+<!DOCTYPE html>
 <html lang="tr">
     <head>
         <title>Yenipost ile Gündemi Keşfet</title>
@@ -52,23 +53,22 @@
             <div class="ustmenu">
                 <div class="solustmenu"></div>
                 <div class="ortaustmenu">
-                    <div class="oum-1">
+                    <div class="oum-1 czg">
                         <button class="menubtn" onclick="location.href='{% url 'anasayfamiz' %}';">Tüm Postlar</button>
                     </div>
-                    <div class="oum-2">
+                    <div class="oum-2 czg">
                         <button class="menubtn" onclick="location.href='{% url 'takiplistesi' %}';">Takip Listesi</button>
                     </div>
-                    <div class="oum-3">
+                    <div class="oum-3 czg">
                         <button class="menubtn" onclick="location.href='{% url 'taleplistesi' %}';">Talep Listesi</button>
                     </div>
-                    <div class="oum-4">
+                    <div class="oum-4 czg">
                         <button class="menubtn" onclick="location.href='{% url 'tesekkurlistesi' %}';">Teşekkür Listesi</button>
                     </div>
                 </div>
                 <div class="sagustmenu"></div>
             </div>
             <div class="icerik">
-                {% block hatalar %}
                 <div class="solicerik"></div>
                 <div class="ortaicerik">
                 {% block sayfalar %}
@@ -83,7 +83,6 @@
                 {% endblock %}
                 </div>
                 <div class="sagicerik"></div>
-                {% endblock %}
             </div>
             <div class="altbolum">
                 <div class="solalt"></div>

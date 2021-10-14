@@ -3,25 +3,25 @@
 {% block sayfalar %}
     <div class="baslik">
         <h2>
-            {{ mecraadi }} Paylaşımları
+            Post Paylaşım Sayfası
         </h2>
     </div>
     <div class="ustmetin">
         <p>
-            Takip ettiğimiz profil ve hesapların <e>{{ mecraadi }}</e> paylaşımları listelenmektedir. Dilerseniz sayfamızda ki tüm postları görmek için ana sayfaya geri dönebilir veya sadece istediğiniz bir profile ait <e>{{ mecraadi }}</e> postlarının listelenmesini de sağlayabilirsiniz.
+            Aşağıda ki renkli paylaşım butonlarımız ile siz de bu post'u sosyal medya hesaplarınızda yayınlayabilir veya mesaj olarak gönderebilirsiniz.
         </p>
     </div>
     <div class="posticerik">
         {% for post in posts %}
         <div class="link">
             <div class="mecra">
-                <button class="govdebtn"  onclick="window.location.href='{% url 'anasayfamiz' %}';"><i class="fas fa-home"></i> Geri Dön</button>
+                <button class="govdebtn"  onclick="window.location.href='{% url 'mecrasayfasi' post.Mecra %}';">{{ post.Mecra }} paylaşımları</button>
             </div>
             <div class="profil">
                 <button class="govdebtn"  onclick="window.location.href='{% url 'profilsayfasi' post.Profil %}';">{{ post.Profil }} postları</button>
             </div>
             <div class="paylas">
-                <button class="govdebtn" onclick="window.location.href='{% url 'postsayfasi' post.pk %}';">Post sayfası <i class="fa-solid fa-share"></i></button>
+                <button class="govdebtn"  onclick="window.location.href='{% url 'anasayfamiz' %}';"><i class="fas fa-home"></i> Ana Sayfa</button>
             </div>
         </div>
         <div class="post">

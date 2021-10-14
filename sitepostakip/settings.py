@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'sitepostakip.uygpostblog',
     'rest_framework',
     'fontawesome-free',
+    'django_social_share',
 ]
 
 MIDDLEWARE = [
@@ -54,10 +55,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'sitepostakip.urls'
 
-TEMPLATES = [
+TEMPLATES=[
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,9 +69,26 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-        },
+        }
     },
 ]
+
+# Sosyal paylaşım butonu için değişiklik yapılmamış hali
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
 
 WSGI_APPLICATION = 'sitepostakip.wsgi.application'
 

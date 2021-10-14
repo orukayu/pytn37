@@ -21,25 +21,21 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   grid-template-columns: auto auto auto;
   grid-template-rows: 60px;
   gap: 0px 0px;
-  grid-template-areas:
-    "solalinlik merkezalinlik sagalinlik";
-  grid-area: alinlik;
-}
+  grid-template-areas: 
+    "solalinlik merkezalinlik sagalinlik"; 
+  }
 
-.solalinlik {
-  grid-area: solalinlik;
+.solalinlik { 
   margin-left: 0.5rem;
   line-height: 1rem;
 }
 
-.merkezalinlik {
-  grid-area: merkezalinlik;
+.merkezalinlik { 
   text-align: center;
   color: white;
 }
 
-.sagalinlik {
-  grid-area: sagalinlik;
+.sagalinlik { 
   text-align: right;
   margin-right: 0.5rem;
 }
@@ -59,7 +55,6 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   gap: 0px 0px;
   grid-template-areas:
     "solustmenu ortaustmenu sagustmenu";
-  grid-area: ustmenu;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -68,7 +63,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   box-shadow: 0px 2px 2px 0px #dadadaa1;
 }
 
-.solustmenu { grid-area: solustmenu; }
+.solustmenu {}
 
 .ortaustmenu {
   display: grid;
@@ -77,30 +72,27 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   gap: 0px 0px;
   grid-template-areas:
     "oum-1 oum-2 oum-3 oum-4";
-  grid-area: ortaustmenu;
   max-width: fit-content;
   margin: auto;
   text-align: center;
 }
 
-.oum-1 {
-  grid-area: oum-1;
-}
+.oum-1 {}
 
-.oum-2 {
-  grid-area: oum-2;
-}
+.oum-2 {}
 
-.oum-3 {
-  grid-area: oum-3;
-}
+.oum-3 {}
 
 .oum-4 {
-  grid-area: oum-4;
+  border-right: 1px solid #cfcfcf;
 }
 
 .oum-1:hover, .oum-2:hover, .oum-3:hover, .oum-4:hover {
   background-color: black;
+}
+
+.czg {
+  border-left: 1px solid #cfcfcf;
 }
 
 .sagustmenu { grid-area: sagustmenu; }
@@ -109,10 +101,10 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr;
-  gap: 0px 5px;
+  gap: 0px 0px;
   grid-template-areas:
     "solicerik ortaicerik sagicerik";
-  grid-area: icerik;
+  margin-top: 1vh;
 }
 
 .solicerik { grid-area: solicerik; }
@@ -121,28 +113,26 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto auto;
-  gap: 1vh 0px;
+  gap: 0px 0px;
   grid-template-areas:
     "baslik"
     "ustmetin"
     "posticerik"
     "ustliste"
     "altmetin";
-  grid-area: ortaicerik;
   max-width: fit-content;
   margin: auto;
 }
 
-.baslik {
-  grid-area: baslik;
+.baslik { 
   text-align: center;
 }
 
-.ustmetin {
-  grid-area: ustmetin;
+.ustmetin { 
   text-align: -webkit-center;
 }
 
+/*
 @media (min-width: 960px) {
   .ustmetin h2, .posticerik h2, .altmetin h2 {
     width: 50%;
@@ -161,59 +151,98 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
     font-family: 'Righteous', cursive;
   }
 }
+*/
 
-.posticerik {
-  grid-area: posticerik;
+.posticerik { 
   display: flex;
   flex-direction: column;
   gap: 1vh;
   text-align: -webkit-center;
 }
 
-.posticerik h1 {
+.posticerik h2 {
   text-shadow: 0px 2px 2px black;
 }
 
+/*
 @media (max-width: 576px) {
   .link .govdebtn {
     font-size: smaller;
   }
 }
+*/
 
-.link {}
-
-.mecra {
-  float: left;
+.link {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 1vw;
+  grid-template-areas: "mecra profil paylas";
+  max-width: fit-content;
+  margin: auto;
+  text-align: center;
 }
 
-.profil {
-  float: right;
+.link button {
+  text-align: center;
 }
+
+.mecra {}
+
+.profil {}
+
+.paylas {}
 
 .post {
   width: -webkit-fill-available;
 }
 
+.gonder {
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
+}
 
-.ustliste {
-  grid-area: ustliste;
+/* pyls Sosyal medya paylaşım butonları için oluşturulan class */
+
+.pyls {
+  font-family: 'Righteous';
+  color: #ececec;
+  font-size: 0.8rem;
+}
+
+.pyls:hover {
+  color: #fdb943;
+}
+
+/* cizgi, postların arasında kalan sosyal medya paylaşım butonunun hangi posta ait olduğunu belirtir */
+.cizgi {
+  height: 1vh;
+  margin-top: -1.5vh;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid;
+  border-top: none;
+  border-color: #ececec;
+  box-shadow: 0px 2px 2px 0px #a9a9a9, 1px 2px 2px 0px #a9a9a9, -1px 2px 2px 0px #a9a9a9;
+}
+
+
+.ustliste { 
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.5em 1em;
   margin: auto;
   text-align: center;
   word-wrap:break-word;
-  min-width: 50%;
+  width: clamp(300px, 100%, 450px);
 }
 
-@media (max-width: 960px) {
-  .ustliste {
-    width: -webkit-fill-available;
-  }
+.ustliste button {
+    font-size: 1rem;
 }
 
-.altmetin {
-  grid-area: altmetin;
+.altmetin { 
   display: grid;
   grid-template-columns: 1fr;
   text-align: -webkit-center;
@@ -230,17 +259,20 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   min-width: 50%;
 }
 
-.sagicerik { grid-area: sagicerik; }
+.liste button {
+    font-size: 0.9rem;
+}
+
+.sagicerik {}
 
 .altbolum {
   display: grid;
-  background-color: #cfcfcf;
+  background-color: #002738;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "solalt ortaalt sagalt";
-  grid-area: altbolum;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -251,18 +283,20 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   margin-top: 17px;
 }
 
-.solalt { grid-area: solalt; }
+.solalt {}
 
-.ortaalt {
-  grid-area: ortaalt;
+.ortaalt { 
   margin: auto;
 }
 
 .ortaalt p {
   float: left;
+  text-indent: inherit;
 }
 
-.sagalt { grid-area: sagalt; }
+.sagalt {}
+
+
 
 
 
@@ -270,25 +304,36 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 
 
-h1 {
+h1, h2 {
   font-family: 'Shrikhand', cursive;
   color: #ff9400;
   text-rendering: optimizeSpeed;
   text-decoration: none;
+  text-transform: capitalize;
   font-weight: 500;
   font-size: 1.3rem;
   text-shadow: 0px 2px 2px black;
 }
 
 h2 {
+  font-size: clamp(1.4rem, 1.8vw, 2rem);
+}
+
+p {
   font-size: inherit;
   color: #243248;
+  text-align: justify;
+  text-indent: 5vw;
+  font-family: 'Righteous', cursive;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 a {
   font-family: 'Shrikhand', cursive;
   color: #ff9400;
   text-decoration: none;
+  text-transform: none;
 }
 
 input {
@@ -299,27 +344,28 @@ input {
   background-color: #ececec;
 }
 
-iframe {
-  margin: 0px 0px !important;
-  width: 640px !important;
-}
-
-img {
+img { 
   display: block;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  width: auto;
+  height: auto;
 }
+
+iframe {}
 
 t {
   padding-left: 1vw;
 }
 
+/*
 @media (max-width: 576px) {
   t {
     font-size: smaller;
   }
 }
+*/
 
 e {
   color: #ff9400;
@@ -333,8 +379,9 @@ e {
 }
 
 .govdebtn {
-  color: black;
-  font-size: 16px;
+  color: #243238;
+  font-family: 'Righteous';
+  font-size: 0.8rem;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -347,25 +394,47 @@ e {
 }
 
 .govdebtn:hover {
-  background-color: black;
+  background-color: #243238;
   color: #fdb943;
 }
 
 
 .menubtn {
   border: none;
-  background-color: inherit;
-  font-size: 0.7em;
-  font-weight: 600;
+  background-color: inherit; 
   cursor: pointer;
   display: inline-block;
   color: black;
   padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-  height: 100%;
+  padding-right: 10px; 
   text-transform: uppercase;
+  font-family: 'Righteous', cursive;
 }
 .menubtn:hover {
   color: #fdb943;
+}
+
+.facebook-this {
+  background-color: rgb(59, 89, 152);
+  padding: 5px;
+}
+
+.tweet-this {
+  background-color: rgb(29, 161, 242);
+  padding: 5px;
+}
+
+.mail-this {
+  background-color: rgb(242, 110, 42);
+  padding: 5px;
+}
+
+.telegram-this {
+  background-color: rgb(0, 136, 204);
+  padding: 5px;
+}
+
+.whatsapp-this {
+  background-color: rgb(77, 194, 71);
+  padding: 5px;
 }

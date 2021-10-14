@@ -4,60 +4,74 @@ from django.utils import timezone
 # Create your models here.
 
 class Postlar(models.Model):
-    mecra = models.ForeignKey('uygpostblog.Mecralar', on_delete=models.CASCADE)
-    #Tabloya mecra_id adında bağlantılı sütun ekler bu yüzden adının mecra olması şart.
-    #İlk sırada olmasıda form doldururken ilk seçeneğin bu olması için.
-    #Mecralar modeli aşağıda kaldığı için yolu '' işaretleri arasında gösterdim.
-    profil = models.TextField()
-    embed = models.TextField()
-    tarih = models.DateTimeField(
+    # Django tablo için ilk anahtarı otomatik oluşturur fakat illa biz tanımlamak istersek aşağıda ki gibi yapabiliriz.
+    # PostID = models.AutoField(primary_key = True)
+    Post = models.TextField()
+    # ForeignKey oluştururken komut adı sadece tabloda ne şekilde yazacağını belirtir.
+    Profil = models.ForeignKey('uygpostblog.Profiller', on_delete=models.CASCADE)
+    Mecra = models.ForeignKey('uygpostblog.Mecralar', on_delete=models.CASCADE)
+    Post_Tarihi = models.DateTimeField(
         default=timezone.now)
 
     class Meta:
-        ordering = ['-tarih',]  # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor
+        ordering = ['-Post_Tarihi',]  # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor
 
     def __str__(self):
-        return self.profil
+        return self.Post
 
 # Takip listesi için model oluşturulur
 
-class Takipler(models.Model):
-    mecra = models.ForeignKey('uygpostblog.Mecralar', on_delete=models.CASCADE)
-    #Tabloya mecra_id adında bağlantılı sütun ekler bu yüzden adının mecra olması şart.
-    #İlk sırada olmasıda form doldururken ilk seçeneğin bu olması için.
-    #Mecralar modeli aşağıda kaldığı için yolu '' işaretleri arasında gösterdim.
-    profil = models.TextField()
-    link = models.TextField()
-    bas_tarihi = models.DateTimeField(
-        default=timezone.now)
+class Profiller(models.Model):
+    Mecra = models.ForeignKey('uygpostblog.Mecralar', on_delete=models.CASCADE)
+    #İlk sırada olması form doldururken ilk seçeneğin bu olması için.
+    Profil = models.TextField()
+    Link = models.TextField()
+    Bas_Tarihi = models.DateTimeField(default=timezone.now)
+    Bit_Tarihi = models.DateTimeField(default=0)
+    Müşteri = models.ForeignKey('uygpostblog.Müşteriler', on_delete=models.CASCADE, default=2)
+    Görünüm = models.ForeignKey('uygpostblog.Görünümler', on_delete=models.CASCADE, default=1)
 
     class Meta:
-        ordering = ['id',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
+        ordering = ['Profil',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
 
     def __str__(self):
-        return self.profil
+        return self.Profil
 
 # Talep formu için model oluşturulur
 
 class Talepler(models.Model):
-    talep = models.TextField()
-    tal_tarihi = models.DateTimeField(
+    Tal_Tarihi = models.DateTimeField(
         default=timezone.now)
+    Talep = models.TextField()
 
     class Meta:
-        ordering = ['talep',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
+        ordering = ['-Tal_Tarihi',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
 
     def __str__(self):
-        return self.talep
+        return self.Talep
 
 # Mecralar formu için model oluşturulur, yukarıda olmasının nedeni Takipler modelinde Foreignkey kullandığım için
 
 class Mecralar(models.Model):
-    mecra = models.TextField()
-
-    class Meta:
-        ordering = ['mecra',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
+    Mecra = models.TextField()
 
     def __str__(self):
-        return self.mecra
+        return self.Mecra
 
+
+# Müşteriler tablosu oluşturma
+
+class Müşteriler(models.Model):
+    Müşteri = models.TextField()
+
+    def __str__(self):
+        return self.Müşteri
+
+
+# Görünümler tablosu oluşturma
+
+class Görünümler(models.Model):
+    Görünüm = models.TextField()
+
+    def __str__(self):
+        return self.Görünüm

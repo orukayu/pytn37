@@ -1,28 +1,22 @@
 {% extends 'uygpostblog/temel.html' %}
 
-{% block hatalar %}
-
-<h1>
-    404 Hatalı<br>
-    Adres Sayfası
-</h1>
-
-<h3>
-	Sayfa Aranıyor!!!<br>
-	Sayfaaaa ...<br>
-	Sayfaaaaaa ...<br>
-	Sayfaaaaaaaa ...<br>
-	Sayfaaaaaaaaaaaa ...<br>
-	Sayfa Malesef Bulunamadı.<br>
-	Adres'te hata olabilir.<br>
-	Lütfen aşağıda ki bağlantıları kullanarak yeniden deneyiniz.
-</h3>
-
-<h2>
-	<a href="{% url 'anasayfamiz' %}">Tüm Postlar</a><br>
-	<a href="{% url 'takiplistesi' %}">Takip Listesi</a><br>
-	<a href="{% url 'taleplistesi' %}">Talep Listesi</a><br>
-	<a href="{% url 'tesekkurlistesi' %}">Teşekkür Listesi</a><br>
-</h2>
-
+{% block sayfalar %}
+<div class="baslik">
+	<h2>
+    	404<br>
+    	Hatalı Adres Sayfası
+	</h2>
+</div>
+<div class="ustmetin">
+	<p>
+		Sayfa Aranıyor!!!<br>
+		Sayfaaaa ...<br>
+		Sayfaaaaaa ...<br>
+		Sayfaaaaaaaa ...<br>
+		Sayfaaaaaaaaaaaa ...<br>
+		Sayfa Malesef Bulunamadı.<br>
+		Adres'te hata olabilir.<br>
+		Lütfen yukarıda ki bağlantıları kullanarak yeniden deneyiniz.
+	</p>
+</div>
 {% endblock %}

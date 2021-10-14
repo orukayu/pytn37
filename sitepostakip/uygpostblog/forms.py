@@ -5,8 +5,8 @@ class TalepFormu(forms.ModelForm):
 
     class Meta:
         model = Talepler
-        fields = ('talep',)
-        labels = {"talep" : ""}
+        fields = ('Talep',)
+        labels = {"Talep" : ""}
         widgets = {
-        	'talep': forms.TextInput(attrs={'placeholder': 'youtube/güldürgüldür, instagram/@mosalah vb. profil önerilerini'}),
+        	'Talep': forms.TextInput(attrs={'placeholder': 'youtube/güldürgüldür, instagram/@mosalah vb. profil önerilerini'}),
         }

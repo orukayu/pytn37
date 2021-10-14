@@ -15,17 +15,28 @@ urlpatterns = [
 
     # mecra ve profil başlıklarına tıklayınca gidilecek sayfalar için
 
-    path('Mecra/<str:mecra>/', views.mecralar, name='mecrasayfasi'),
-    path('Profil/<str:profil>/', views.profiller, name='profilsayfasi'),
+    path('mecra/<str:Mecra>/', views.mecralar, name='mecrasayfasi'),
+    path('profil/<str:Profil>/', views.profiller, name='profilsayfasi'),
+    path('post/<int:pk>/', views.postlar, name='postsayfasi'),
 
     # üstmenüde ki linklerin urlleri
 
-    path('TakipListesi/', views.takiptekiler, name='takiplistesi'),
-    path('TalepListesi/', views.taleptekiler, name='taleplistesi'),
-    path('TesekkurListesi/', views.tesekkurler, name='tesekkurlistesi'),
+    path('takiplistesi/', views.takiptekiler, name='takiplistesi'),
+    path('taleplistesi/', views.taleptekiler, name='taleplistesi'),
+    path('tesekkurlistesi/', views.tesekkurler, name='tesekkurlistesi'),
 
     # Takip sayfasında ki mecralara tıklayınca gidilecek sayfanın URL si
 
-    path('TakipListesi/<str:mecra>/', views.listeler, name='listesayfasi'),
+    path('takiplistesi/<str:Mecra>/', views.listeler, name='listesayfasi'),
+
+    # URL ye yazıpta gitmeye çalışırsa
+
+    path('mecra/', views.takiptekiler, name='mecra404'),
+    path('profil/', views.takiptekiler, name='profil404'),
+    path('post/', views.takiptekiler, name='paylas404'),
+
+    # Deneme sayfası için url tayini
+
+    path('d/', views.denemeler, name='denemelistesi'),
 
 ]

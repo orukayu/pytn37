@@ -1,19 +1,26 @@
 {% extends 'uygpostblog/temel.html' %}
-
+{% load social_share %}
 {% block content %}
     {% for post in posts %}
         <div class="link">
             <div class="mecra">
-                <button class="govdebtn" onclick="window.location.href='{% url 'mecrasayfasi' post.mecra_id %}';">{{ post.mecra }} paylaşımları</button>
+                <button class="govdebtn" onclick="window.location.href='{% url 'mecrasayfasi' post.Mecra %}';">{{ post.Mecra }} paylaşımları</button>
             </div>
             <div class="profil">
-                <button class="govdebtn" onclick="window.location.href='{% url 'profilsayfasi' post.profil %}';">{{ post.profil }} postları</button>
+                <button class="govdebtn" onclick="window.location.href='{% url 'profilsayfasi' post.Profil %}';">{{ post.Profil }} postları</button>
+            </div>
+            <div class="paylas">
+                <button class="govdebtn" onclick="window.location.href='{% url 'postsayfasi' post.pk %}';">Post sayfası <i class="fa-solid fa-share"></i></button>
             </div>
         </div>
         <div class="post">
             {% autoescape off %}
-                {{ post.embed }}
+                {{ post.Post }}
             {% endautoescape %}
+        </div>
+        <div class="gonder">
+        </div>
+        <div class="cizgi">
         </div>
     {% endfor %}
 {% endblock %}

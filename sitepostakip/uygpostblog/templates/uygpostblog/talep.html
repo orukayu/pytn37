@@ -1,26 +1,24 @@
 {% extends 'uygpostblog/temel.html' %}
-
+{% load social_share %}
 {% block sayfalar %}
 	<div class="baslik">
         <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
+        <h2>Talep Listesi</h2>
     </div>
     <div class="ustmetin">
+        <p>
+            Haber niteliği taşıyan mecralar, kaliteli içerik üreten profiller veya takip edilmesi gereken sosyal medya hesaplarının bilgilerini bizim ile paylaştığınız için teşekkür ederiz.
+        </p>
         <div>
-            <h1><span style="color: white;">Talep</span> Listesi</h1>
-        </div>
-        <div>
-            <h2>Haber niteliği taşıyan mecralar, kaliteli içerik üreten profiller veya takip edilmesi gereken sosyal medya hesaplarının bilgilerini bizim ile paylaştığınız için teşekkür ederiz.</h2>
-        </div>
-        <div>
-            <h2 style="text-align: center; color: rgb(255 148 0);">
+            <h3>
                 <i class="fa-brands fa-twitter"></i>
                 <i class="fa-brands fa-instagram"></i>
                 <i class="fa-brands fa-facebook"></i>
-                <span style="color: black; margin-left: 1vw; margin-right: 1vw;">Önerilen Profiller</span>
+                <span style="margin-left: 1vw; margin-right: 1vw;">Önerilen Profiller</span>
                 <i class="fa-brands fa-tiktok"></i>
                 <i class="fa-brands fa-youtube"></i>
                 <i class="fa-brands fa-pinterest"></i>
-            </h2>
+            </h3>
         </div>
         <div>
             <hr style="margin-top: -15px; width: 33%; min-width: 50%;"/>
@@ -29,14 +27,14 @@
     <div class="posticerik"></div>
 	<div class="ustliste">
         {% for kast in kast %}
-            <h3>{{ kast.talep }}</h3>
+            <h3>{{ kast.Talep }}</h3>
         {% endfor %}
     </div>
     <div class="altmetin">
         <div class="aciklama">
-            <h2>
+            <p>
                 Listemize katkıda bulunmak için twitter, instagram, youtube, tiktok gibi mecralardan profil önerilerilerinizi sayfanın altında ki form ile gönderebilirsiniz.
-            </h2>
+            </p>
         </div>
     </div>
 {% endblock %}

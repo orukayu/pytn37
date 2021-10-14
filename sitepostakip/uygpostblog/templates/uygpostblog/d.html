@@ -1,0 +1,9 @@
+{% extends 'uygpostblog/temel.html' %}
+{% block sayfalar %}
+
+{{ acik }}
+{% for post in posts %}
+{{ post.Post }}
+{% endfor %}
+
+{% endblock %}
