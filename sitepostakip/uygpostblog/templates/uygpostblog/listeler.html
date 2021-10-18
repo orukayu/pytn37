@@ -9,10 +9,10 @@
     <div class="liste">
         {% for lis in lis %}
             <div>
-                <button class="govdebtn" onclick="window.location.href='{% url 'profilsayfasi' lis.Profil %}';"><t>{{ lis.Profil }} postları</t></button>
+                <button class="govdebtn t" onclick="window.location.href='{% url 'profilsayfasi' lis.Profil %}';">{{ lis.Profil }} postları</button>
             </div>
             <div>
-                <button class="govdebtn" onClick="javascript:window.open('{{ lis.Link }}', '_blank');"><t>{{ baslik }} sayfasına git</t></button>
+                <button class="govdebtn t" onClick="javascript:window.open('{{ lis.Link }}', '_blank');">{{ baslik }} sayfasına git</button>
             </div>
         {% endfor %}
     </div>

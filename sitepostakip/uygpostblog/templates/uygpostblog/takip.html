@@ -19,8 +19,8 @@
     <div class="ustliste">
         {% for mec in mec %}
         <div>
-            <button class="govdebtn" onclick="window.location.href='{% url 'listesayfasi' mec.Mecra %}';">
-                <div style="float: left; width: 2vw; min-width: 25px; margin-left: 2vw;"><i class="fa-brands fa-{{ mec.Mecra }}"></i></div>
+            <button class="govdebtn ikili" onclick="window.location.href='{% url 'listesayfasi' mec.Mecra %}';">
+                <div><i class="fa-brands fa-{{ mec.Mecra }}"></i></div>
                 <div>{{ mec.Mecra }}</div>
             </button>
         </div>

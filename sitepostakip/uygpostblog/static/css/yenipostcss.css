@@ -1,4 +1,4 @@
-html, body, .tamsayfa { height: 100%; margin: 0; }
+html, body { height: 100%; margin: 0; }
 
 .tamsayfa {
   display: grid;
@@ -9,9 +9,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
     "alinlik"
     "ustmenu"
     "icerik"
-    "altbolum";
-  overflow: auto;
-  background-color: #ececec;
+    "altbolum"; 
   align-items: start;
 }
 
@@ -95,7 +93,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   border-left: 1px solid #cfcfcf;
 }
 
-.sagustmenu { grid-area: sagustmenu; }
+.sagustmenu {}
 
 .icerik {
   display: grid;
@@ -107,7 +105,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   margin-top: 1vh;
 }
 
-.solicerik { grid-area: solicerik; }
+.solicerik {}
 
 .ortaicerik {
   display: grid;
@@ -119,17 +117,20 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
     "ustmetin"
     "posticerik"
     "ustliste"
-    "altmetin";
-  max-width: fit-content;
-  margin: auto;
-}
-
-.baslik { 
+    "altmetin"; 
+  margin-left: 1vw;
+  margin-right: 1vw;
   text-align: center;
+  text-align: -webkit-center;
+  text-align: -moz-center;
 }
 
-.ustmetin { 
-  text-align: -webkit-center;
+.baslik {}
+
+.ustmetin {
+  max-width: 90ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*
@@ -156,8 +157,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 .posticerik { 
   display: flex;
   flex-direction: column;
-  gap: 1vh;
-  text-align: -webkit-center;
+  gap: 1vh; 
 }
 
 .posticerik h2 {
@@ -179,8 +179,7 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
   gap: 0px 1vw;
   grid-template-areas: "mecra profil paylas";
   max-width: fit-content;
-  margin: auto;
-  text-align: center;
+  margin: auto; 
 }
 
 .link button {
@@ -195,6 +194,8 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 .post {
   width: -webkit-fill-available;
+  width: fit-content;
+  margin: auto;
 }
 
 .gonder {
@@ -217,46 +218,55 @@ html, body, .tamsayfa { height: 100%; margin: 0; }
 
 /* cizgi, postların arasında kalan sosyal medya paylaşım butonunun hangi posta ait olduğunu belirtir */
 .cizgi {
-  height: 1vh;
-  margin-top: -1.5vh;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  border: 1px solid;
-  border-top: none;
-  border-color: #ececec;
-  box-shadow: 0px 2px 2px 0px #a9a9a9, 1px 2px 2px 0px #a9a9a9, -1px 2px 2px 0px #a9a9a9;
+  border: 1px solid rgb(255 148 3 / 50%);
 }
 
 
 .ustliste { 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 0.5em 1em;
-  margin: auto;
+  grid-gap: 0.5em 1em; 
   text-align: center;
   word-wrap:break-word;
-  width: clamp(300px, 100%, 450px);
+  max-width: 90ch;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .ustliste button {
     font-size: 1rem;
 }
 
+.ikili {
+  display: grid;
+  grid-template-columns: 25px 1fr;
+  gap: 0 10px;
+  align-items: center;
+  padding-left: 3vw;
+  padding-right: 1vw;
+}
+
 .altmetin { 
   display: grid;
-  grid-template-columns: 1fr;
-  text-align: -webkit-center;
+  grid-template-columns: 1fr; 
   margin-bottom: 58px;
 }
 
-.aciklama {}
+.aciklama {
+  max-width: 90ch;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .liste {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.5em 1em;
-  margin: auto;
-  min-width: 50%;
+  max-width: 90ch;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .liste button {
@@ -323,10 +333,11 @@ p {
   font-size: inherit;
   color: #243248;
   text-align: justify;
-  text-indent: 5vw;
+  text-indent: 2vw;
   font-family: 'Righteous', cursive;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  line-height: 1.5rem;
 }
 
 a {
@@ -338,6 +349,7 @@ a {
 
 input {
   border-radius: 4px;
+  border: none;
   width: 70vw;
   max-width: 500px;
   height: 20px;
@@ -355,8 +367,9 @@ img {
 
 iframe {}
 
-t {
-  padding-left: 1vw;
+.t {
+  padding-left: 3vw;
+  padding-right: 1vw;
 }
 
 /*
@@ -389,8 +402,7 @@ e {
   width: 100%;
   height: 2em;
   text-transform: capitalize;
-  background-color: #dadada;
-  padding: revert;
+  background-color: #dadada; 
 }
 
 .govdebtn:hover {
