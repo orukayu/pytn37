@@ -8,20 +8,26 @@
     </div>
     <div class="ustmetin">
         <p>
-            Takip ettiğimiz profil ve hesapların <e>{{ mecraadi }}</e> paylaşımları listelenmektedir. Dilerseniz sayfamızda ki tüm postları görmek için ana sayfaya geri dönebilir veya sadece istediğiniz bir profile ait <e>{{ mecraadi }}</e> postlarının listelenmesini de sağlayabilirsiniz.
+            Takip ettiğimiz profil ve hesapların <e>{{ mecraadi }}</e> paylaşımları listelenmektedir. Dilerseniz tüm paylaşımları görmek için ana sayfaya geri dönebilir veya sadece istediğiniz bir profile/hesaba ait <e>{{ mecraadi }}</e> postlarının listelenmesini de sağlayabilirsiniz. Post sayfasına giderek, sadece o paylaşımı kendi sosyal mecralarınızda da paylaşabilirsiniz.
         </p>
     </div>
     <div class="posticerik">
         {% for post in posts %}
         <div class="link">
             <div class="mecra">
-                <button class="govdebtn"  onclick="window.location.href='{% url 'anasayfamiz' %}';"><i class="fas fa-home"></i> Geri Dön</button>
+                <a href="{% url 'anasayfamiz' %}">
+                    <button class="govdebtn"><i class="fas fa-home"></i> Ana Sayfa</button>
+                </a>
             </div>
             <div class="profil">
-                <button class="govdebtn"  onclick="window.location.href='{% url 'profilsayfasi' post.Profil %}';">{{ post.Profil }} postları</button>
+                <a href="{% url 'profilsayfasi' post.Profil %}">
+                    <button class="govdebtn">{{ post.Profil }} postları</button>
+                </a>
             </div>
             <div class="paylas">
-                <button class="govdebtn" onclick="window.location.href='{% url 'postsayfasi' post.pk %}';">Post sayfası <i class="fa-solid fa-share"></i></button>
+                <a href="{% url 'postsayfasi' post.pk %}">
+                    <button class="govdebtn">Post sayfası <i class="fas fa-share-alt"></i></button>
+                </a>
             </div>
         </div>
         <div class="post">
@@ -30,7 +36,7 @@
             {% endautoescape %}
         </div>
         <div class="gonder">
-            {% post_to_facebook object_or_url "Facebook" link_class="pyls" %}
+            {% post_to_facebook object_or_url "facebook" link_class="pyls" %}
             {% post_to_twitter "YeniPost: {{object.title}}" object_or_url "Twitter" link_class="pyls" %}
             {% send_email object.title "YeniPost: {{object.title}}" object_or_url "E-mail" link_class="pyls" %}
             {% post_to_telegram "Telegram" object_or_url "Telegram" link_class="pyls" %}

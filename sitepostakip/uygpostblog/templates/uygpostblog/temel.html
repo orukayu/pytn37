@@ -45,6 +45,10 @@
                     </h1>
                 </div>
                 <div class="merkezalinlik">
+                    <form action="{% url 'aramasayfasi' %}" method="get">
+                        <input name="kelime" type="text" placeholder="Ara...">
+                        <i class="fas fa-search buyutec"></i>
+                    </form>
                 </div>
                 <div class="sagalinlik">
                     <img src="/static/media/yenipostlogo.svg" alt="Yenipost Logo"/>
@@ -54,16 +58,24 @@
                 <div class="solustmenu"></div>
                 <div class="ortaustmenu">
                     <div class="oum-1 czg">
-                        <button class="menubtn" onclick="location.href='{% url 'anasayfamiz' %}';">Tüm Postlar</button>
+                        <a href="{% url 'anasayfamiz' %}">
+                            <button class="menubtn">Tüm Postlar</button>
+                        </a>
                     </div>
                     <div class="oum-2 czg">
-                        <button class="menubtn" onclick="location.href='{% url 'takiplistesi' %}';">Takip Listesi</button>
+                        <a href="{% url 'takiplistesi' %}">
+                            <button class="menubtn">Takip Listesi</button>
+                        </a>
                     </div>
                     <div class="oum-3 czg">
-                        <button class="menubtn" onclick="location.href='{% url 'taleplistesi' %}';">Talep Listesi</button>
+                        <a href="{% url 'taleplistesi' %}">
+                            <button class="menubtn">Talep Listesi</button>
+                        </a>
                     </div>
                     <div class="oum-4 czg">
-                        <button class="menubtn" onclick="location.href='{% url 'tesekkurlistesi' %}';">Teşekkür Listesi</button>
+                        <a href="{% url 'tesekkurlistesi' %}">
+                            <button class="menubtn">Teşekkür Listesi</button>
+                        </a>
                     </div>
                 </div>
                 <div class="sagustmenu"></div>

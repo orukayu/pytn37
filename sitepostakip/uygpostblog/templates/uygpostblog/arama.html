@@ -1,0 +1,27 @@
+{% extends 'uygpostblog/temel.html' %}
+{% block sayfalar %}
+
+
+    <div class="baslik">
+        <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
+        <h2>Arama Sonuçları</h2>
+    </div>
+    <div class="ustmetin"></div>
+    <div class="posticerik"></div>
+    <div class="ustliste">
+        {% for Profiller in object_list %}
+            <div>
+                <a href="{% url 'profilsayfasi' Profiller.Profil %}">
+                    <button class="govdebtn t">{{ Profiller.Profil }}</button>
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'mecrasayfasi' Profiller.Mecra %}">
+                    <button class="govdebtn t">{{ Profiller.Mecra }}</button>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="altmetin"></div>
+
+{% endblock %}

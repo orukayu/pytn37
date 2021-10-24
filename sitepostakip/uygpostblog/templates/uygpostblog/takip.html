@@ -19,10 +19,12 @@
     <div class="ustliste">
         {% for mec in mec %}
         <div>
-            <button class="govdebtn ikili" onclick="window.location.href='{% url 'listesayfasi' mec.Mecra %}';">
-                <div><i class="fa-brands fa-{{ mec.Mecra }}"></i></div>
-                <div>{{ mec.Mecra }}</div>
-            </button>
+            <a href="{% url 'listesayfasi' mec.Mecra %}">
+                <button class="govdebtn ikili">
+                    <div><i class="fa-brands fa-{{ mec.Mecra }}"></i></div>
+                    <div>{{ mec.Mecra }}</div>
+                </button>
+            </a>
         </div>
         {% endfor %}
     </div>

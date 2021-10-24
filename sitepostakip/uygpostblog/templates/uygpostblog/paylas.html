@@ -15,13 +15,19 @@
         {% for post in posts %}
         <div class="link">
             <div class="mecra">
-                <button class="govdebtn"  onclick="window.location.href='{% url 'mecrasayfasi' post.Mecra %}';">{{ post.Mecra }} paylaşımları</button>
+                <a href="{% url 'mecrasayfasi' post.Mecra %}">
+                    <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
+                </a>
             </div>
             <div class="profil">
-                <button class="govdebtn"  onclick="window.location.href='{% url 'profilsayfasi' post.Profil %}';">{{ post.Profil }} postları</button>
+                <a href="{% url 'profilsayfasi' post.Profil %}">
+                    <button class="govdebtn">{{ post.Profil }} postları</button>
+                </a>
             </div>
             <div class="paylas">
-                <button class="govdebtn"  onclick="window.location.href='{% url 'anasayfamiz' %}';"><i class="fas fa-home"></i> Ana Sayfa</button>
+                <a href="{% url 'anasayfamiz' %}">
+                    <button class="govdebtn"><i class="fas fa-home"></i> Ana Sayfa</button>
+                </a>
             </div>
         </div>
         <div class="post">

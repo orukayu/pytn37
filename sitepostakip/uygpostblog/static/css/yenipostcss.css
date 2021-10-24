@@ -15,8 +15,8 @@ html, body { height: 100%; margin: 0; }
 
 .alinlik {
   display: grid;
-  background: #243238;
-  grid-template-columns: auto auto auto;
+  background-color: #00608b;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 60px;
   gap: 0px 0px;
   grid-template-areas: 
@@ -29,12 +29,12 @@ html, body { height: 100%; margin: 0; }
 }
 
 .merkezalinlik { 
-  text-align: center;
-  color: white;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 }
 
-.sagalinlik { 
-  text-align: right;
+.sagalinlik {
   margin-right: 0.5rem;
 }
 
@@ -131,46 +131,18 @@ html, body { height: 100%; margin: 0; }
   max-width: 90ch;
   margin-left: auto;
   margin-right: auto;
-}
-
-/*
-@media (min-width: 960px) {
-  .ustmetin h2, .posticerik h2, .altmetin h2 {
-    width: 50%;
-    text-align: justify;
-    font-weight: inherit;
-    font-family: 'Righteous', cursive;
-  }
-}
-
-@media (max-width: 959px) {
-  .ustmetin h2, .posticerik h2, .altmetin h2 {
-    text-align: justify;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    font-weight: inherit;
-    font-family: 'Righteous', cursive;
-  }
-}
-*/
+} 
 
 .posticerik { 
   display: flex;
   flex-direction: column;
   gap: 1vh; 
+  align-items: center;
 }
 
 .posticerik h2 {
   text-shadow: 0px 2px 2px black;
-}
-
-/*
-@media (max-width: 576px) {
-  .link .govdebtn {
-    font-size: smaller;
-  }
-}
-*/
+} 
 
 .link {
   display: grid;
@@ -219,6 +191,7 @@ html, body { height: 100%; margin: 0; }
 /* cizgi, postların arasında kalan sosyal medya paylaşım butonunun hangi posta ait olduğunu belirtir */
 .cizgi {
   border: 1px solid rgb(255 148 3 / 50%);
+  width: clamp(45vw, 90vw, 90ch);
 }
 
 
@@ -286,12 +259,7 @@ html, body { height: 100%; margin: 0; }
   position: fixed;
   bottom: 0;
   width: 100%;
-}
-
-.altbolum button {
-  float: right;
-  margin-top: 17px;
-}
+} 
 
 .solalt {}
 
@@ -348,12 +316,12 @@ a {
 }
 
 input {
-  border-radius: 4px;
+  border-radius: 15px;
   border: none;
-  width: 70vw;
-  max-width: 500px;
-  height: 20px;
+  height: 28px;
   background-color: #ececec;
+  width: clamp(20vw, 33vw, 75ch);
+  padding-left: 2vh;
 }
 
 img { 
@@ -449,4 +417,27 @@ e {
 .whatsapp-this {
   background-color: rgb(77, 194, 71);
   padding: 5px;
+}
+
+.buyutec {
+  position: absolute;
+  top: 22px;
+  transform: translateX(-175%);
+  color: #757575;
+}
+
+.gonderbutonu {
+  position: absolute;
+  top: 15px;
+  transform: translateX(-112%);
+  border-radius: 0px 16px 16px 0px;
+  border: 1px solid;
+  height: 32px;
+  background-color: #ff9400;
+}
+
+.gonderbutonu:hover {
+  background-color: #243238;
+  color: #fdb943;
+  border: none;
 }

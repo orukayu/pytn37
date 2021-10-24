@@ -22,6 +22,24 @@ from django.shortcuts import redirect
 
 import datetime
 
+# Arama formu için eklemeler
+
+from django.db.models import Q
+from django.views.generic import ListView
+
+    
+class SearchResultsView(ListView):
+    model = Profiller
+    template_name = 'uygpostblog/arama.html'
+        
+    def get_queryset(self):
+        query = self.request.GET.get('kelime')
+        obje = Profiller.objects.filter(
+            Q(Profil__icontains=query)
+        )
+        return obje
+
+
 # Ana sayfada yani Tüm Postlar sayfasının görünüm kodları,
 # Sadece Görünümleri Açık olan ve Bitiş Tarihleri geçmemiş profillerin postları listelenir.
 
@@ -96,10 +114,10 @@ def listeler(request, Mecra):
     numara = Mecralar.objects.filter(Mecra=baslik).get()
     lis = Profiller.objects.filter(Mecra=numara).order_by('Profil').distinct()
 
-    # mec formülü listelerin takip sayfasında çıkmasından ötürü bulunmak zorunda
+    # mec formülü listelerin takip sayfasının altında çıkmasından ötürü bulunmak zorunda
     mec = Mecralar.objects.values('Mecra').order_by('Mecra').distinct()
 
-    sonkayit = Profiller.objects.values('Bas_Tarihi').order_by('-Bas_Tarihi').last()['Bas_Tarihi']
+    sonkayit = Profiller.objects.values('Bas_Tarihi').order_by('Bas_Tarihi').last()['Bas_Tarihi']
     sonuncu = (sonkayit.strftime("%d.%m.%Y"))
 
     args = {'baslik':baslik, 'lis': lis, 'mec':mec, 'sonuncu': sonuncu}
@@ -139,7 +157,8 @@ def hatalikomut(request, exception=None):
 # Veribankasından veri çekme sayfasında yani deneme sayfasının görünüm kodları
 
 def denemeler(request):
-    bt = datetime.datetime.now()
-    acik = Profiller.objects.values_list('id', flat=True).filter(Görünüm=1, Bit_Tarihi__gte=bt)
-    posts = Postlar.objects.filter(Profil__in=acik)
-    return render(request, 'uygpostblog/d.html', {'acik': acik, 'posts': posts})
+        #arama = Aramalar.objects.values('Arama').last()['Arama']
+        #sonuc = Profiller.objects.filter(Q(Profil__icontains=arama) | Q(Mecra__icontains=arama))
+
+    return render(request, 'uygpostblog/deneme.html', {})
+

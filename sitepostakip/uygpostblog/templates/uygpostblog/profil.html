@@ -8,7 +8,7 @@
     </div>
     <div class="ustmetin">
         <p>
-            <e>{{ profiladi }}</e> postlarına hoşgeldiniz. Dilerseniz ilgili mecrada ki diğer hesaplarında paylaşımlarına ulaşabilir veya geri dön butonu ile ana sayfada ki tüm postları görebilirsiniz.
+            <e>{{ profiladi }}</e> postlarına hoşgeldiniz. Dilerseniz ilgili mecrada ki diğer profil veya hesaplarında paylaşımlarına ulaşabilir yada geri dön butonu ile ana sayfada ki tüm postları görebilirsiniz. Post sayfasına giderek, sadece o paylaşımı kendi sosyal mecralarınızda da paylaşabilirsiniz.
         </p>
     </div>
     <div class="posticerik">
@@ -18,10 +18,10 @@
                 <button class="govdebtn"  onclick="window.location.href='{% url 'mecrasayfasi' post.Mecra %}';">{{ post.Mecra }} paylaşımları</button>
             </div>
             <div class="profil">
-                <button class="govdebtn"  onclick="window.location.href='{% url 'anasayfamiz' %}';"><i class="fas fa-home"></i> Geri Dön</button>
+                <button class="govdebtn"  onclick="window.location.href='{% url 'anasayfamiz' %}';"><i class="fas fa-home"></i> Ana Sayfa</button>
             </div>
             <div class="paylas">
-                <button class="govdebtn" onclick="window.location.href='{% url 'postsayfasi' post.pk %}';">Post sayfası <i class="fa-solid fa-share"></i></button>
+                <button class="govdebtn" onclick="window.location.href='{% url 'postsayfasi' post.pk %}';">Post sayfası <i class="fas fa-share-alt"></i></button>
             </div>
         </div>
         <div class="post">
