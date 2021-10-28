@@ -6,10 +6,29 @@
         <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
         <h2>Arama Sonuçları</h2>
     </div>
-    <div class="ustmetin"></div>
+    <div class="ustmetin">
+        <p>
+            Aradığınız değeri içeren sosyal medya profilleri ve hesap bilgileri ile onlara ait mecraların listesidir. Bağlantıları tıklayarak İlgili mecra postlarına veya profil paylaşımlarına ulaşabilirsiniz.
+        </p>
+        {% if metin|length >= 1 %}
+            {% if metin == " " %}
+            <p>
+                Aranan Kelime : <e>BOŞLUK</e>
+            </p>
+            {% else %}
+            <p>
+                Aranan Kelime : <e>{{ metin }}</e>
+            </p>
+            {% endif %}
+        {% else %}
+        <p>
+            Aranan Kelime : <e>YOK</e>
+        </p>
+        {% endif %}
+    </div>
     <div class="posticerik"></div>
     <div class="ustliste">
-        {% for Profiller in object_list %}
+        {% for Profiller in sonuc %}
             <div>
                 <a href="{% url 'profilsayfasi' Profiller.Profil %}">
                     <button class="govdebtn t">{{ Profiller.Profil }}</button>
@@ -22,6 +41,16 @@
             </div>
         {% endfor %}
     </div>
-    <div class="altmetin"></div>
-
+    <div class="altmetin">
+        <div class="aciklama">
+            {% if metin|length >= 1 %}
+                {% if sonuc|length >= 1 %}
+                {% else %}
+                    <p><e>DİKKAT:</e> Aranan kelime ile eşleşen bir profil bulunamadı, lütfen başka bir ihtimal deneyiniz.</p>
+                {% endif %}
+            {% else %}
+                <p><e>HATA:</e> Arama için herhangi bir değer girmediniz!</p>
+            {% endif %}
+        </div>
+    </div> 
 {% endblock %}

@@ -25,19 +25,7 @@ import datetime
 # Arama formu için eklemeler
 
 from django.db.models import Q
-from django.views.generic import ListView
 
-    
-class SearchResultsView(ListView):
-    model = Profiller
-    template_name = 'uygpostblog/arama.html'
-        
-    def get_queryset(self):
-        query = self.request.GET.get('kelime')
-        obje = Profiller.objects.filter(
-            Q(Profil__icontains=query)
-        )
-        return obje
 
 
 # Ana sayfada yani Tüm Postlar sayfasının görünüm kodları,
@@ -154,11 +142,24 @@ def hatalikomut(request, exception=None):
     return render(request,'uygpostblog/500.html', {})
 
 
-# Veribankasından veri çekme sayfasında yani deneme sayfasının görünüm kodları
+# deneme sayfasının görünüm kodları
 
 def denemeler(request):
         #arama = Aramalar.objects.values('Arama').last()['Arama']
         #sonuc = Profiller.objects.filter(Q(Profil__icontains=arama) | Q(Mecra__icontains=arama))
 
     return render(request, 'uygpostblog/deneme.html', {})
+
+
+# Arama formu için arama sayfasının görünüm kodları
+
+def aramalar(request):
+    metin = request.GET.get('kelime')
+    if metin:
+        queryset = (Q(Profil__icontains=metin))
+        sonuc = Profiller.objects.filter(queryset).distinct()
+    else:
+
+        sonuc = []
+    return render(request, 'uygpostblog/arama.html', {'sonuc':sonuc, 'metin':metin})
 

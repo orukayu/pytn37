@@ -171,9 +171,9 @@ html, body { height: 100%; margin: 0; }
 }
 
 .gonder {
-  display: flex;
+  display: grid;
   gap: 1vw;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* pyls Sosyal medya paylaşım butonları için oluşturulan class */
@@ -272,6 +272,10 @@ html, body { height: 100%; margin: 0; }
   text-indent: inherit;
 }
 
+.ortaalt input {
+  min-width: 250px;
+}
+
 .sagalt {}
 
 
@@ -290,7 +294,7 @@ h1, h2 {
   text-transform: capitalize;
   font-weight: 500;
   font-size: 1.3rem;
-  text-shadow: 0px 2px 2px black;
+  text-shadow: 0px 2px 2px #363636;
 }
 
 h2 {
@@ -320,8 +324,9 @@ input {
   border: none;
   height: 28px;
   background-color: #ececec;
-  width: clamp(20vw, 33vw, 75ch);
-  padding-left: 2vh;
+  width: clamp(20vw, 33vw, 60ch);
+  padding-left: 1rem;
+  padding-right: 40px;
 }
 
 img { 
@@ -350,8 +355,7 @@ iframe {}
 
 e {
   color: #ff9400;
-  font-family: 'Shrikhand';
-  text-shadow: 1px 0px 1px black;
+  font-family: 'Shrikhand'; 
 }
 
 

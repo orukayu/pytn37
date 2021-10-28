@@ -1,6 +1,5 @@
 from django.urls import path
-from . import views
-from .views import SearchResultsView
+from . import views 
 
 # postakiplogo.svg dosyası gibi sabit medyaların bütün sayfalarda çıkmasını sağlıyor.
 
@@ -39,6 +38,9 @@ urlpatterns = [
     # Deneme sayfası için url tayini
 
     path('d/', views.denemeler, name='denemesayfasi'),
-    path('aranan/', SearchResultsView.as_view(), name='aramasayfasi'),
+
+    # Arama sayfası için url tayini
+
+    path('aranan/', views.aramalar, name='aramasayfasi'),
 
 ]

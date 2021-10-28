@@ -3,4 +3,10 @@
 
 <h2>Deneme Sayfası</h2>
 
+
+<form method='GET' action="{% url 'searchsayfa' %}">
+    <input type="text" name="q" placeholder="Search posts"/>
+    <input type="submit"  value="gonder"/>
+</form>
+
 {% endblock %}
