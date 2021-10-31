@@ -6,4 +6,4 @@ class PostlarSerializer(serializers.ModelSerializer):
         model = Postlar
         # fields = ('alis','satis') // belirtilen kisimlari ceker.
         # fields = '__all__' // tum kisimlari ceker.
-        fields = ('mecra','profil','embed')
+        fields = ('Mecra','Profil','Post')

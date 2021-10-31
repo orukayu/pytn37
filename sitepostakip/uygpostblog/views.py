@@ -145,9 +145,8 @@ def hatalikomut(request, exception=None):
 # deneme sayfasının görünüm kodları
 
 def denemeler(request):
-        #arama = Aramalar.objects.values('Arama').last()['Arama']
-        #sonuc = Profiller.objects.filter(Q(Profil__icontains=arama) | Q(Mecra__icontains=arama))
-
+    #arama = Aramalar.objects.values('Arama').last()['Arama']
+    #sonuc = Profiller.objects.filter(Q(Profil__icontains=arama) | Q(Mecra__icontains=arama))
     return render(request, 'uygpostblog/deneme.html', {})
 
 

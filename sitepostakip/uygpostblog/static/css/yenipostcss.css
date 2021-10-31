@@ -156,6 +156,7 @@ html, body { height: 100%; margin: 0; }
 
 .link button {
   text-align: center;
+  height: 3em;
 }
 
 .mecra {}
@@ -338,7 +339,9 @@ img {
   height: auto;
 }
 
-iframe {}
+iframe {
+  max-width: 100%;
+}
 
 .t {
   padding-left: 3vw;
