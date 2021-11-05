@@ -20,7 +20,7 @@
         <meta property="og:url" content="https://www.yenipost.com"/>
         <meta property="og:site_name" content="Yenipost.com"/>
         
-        <link rel="shortcut icon" href="{% static 'media/favicon.svg' %}" sizes="any" type="image/svg+xml">
+        <link rel="shortcut icon" href="{% static '/media/favicon.svg' %}" sizes="any" type="image/svg+xml">
         <link rel="stylesheet" type="text/css" href="{% static 'css/yenipostcss.css' %}"/>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,22 +37,20 @@
     <body>
         <div class="tamsayfa">
             <div class="alinlik">
-                <div class="solalinlik">
+                <div class="solalinlik"></div>
+                <div class="merkezalinlik">
                     <h1>
                         <a href="/" title="Anasayfa">
                             <span style="color: white; letter-spacing: 0.15rem;">YENİ</span><br>POST
                         </a>
-                    </h1>
-                </div>
-                <div class="merkezalinlik">
-                    <form action="{% url 'aramasayfasi' %}" method="GET">
+                    </h1> 
+                    <form action="{% url 'aramasayfasi' %}" method="GET"> 
                         <input name="kelime" type="text" placeholder="Ara...">
                         <i class="fas fa-search buyutec"></i>
                     </form>
+                    <img src="/static/media/yenipostlogo.svg"/> 
                 </div>
-                <div class="sagalinlik">
-                    <img src="/static/media/yenipostlogo.svg" alt="Yenipost Logo"/>
-                </div>
+                <div class="sagalinlik"></div>
             </div>
             <div class="ustmenu">
                 <div class="solustmenu"></div>

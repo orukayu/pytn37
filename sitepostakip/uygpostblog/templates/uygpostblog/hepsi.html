@@ -2,6 +2,7 @@
 {% load social_share %}
 {% block content %}
     {% for post in posts %}
+    <div class="pencere">
         <div class="link">
             <div class="mecra">
                 <a href="{% url 'mecrasayfasi' post.Mecra %}">
@@ -24,9 +25,7 @@
                 {{ post.Post }}
             {% endautoescape %}
         </div>
-        <div class="gonder">
-        </div>
-        <div class="cizgi">
-        </div>
+        <div class="gonder"></div>
+    </div>
     {% endfor %}
 {% endblock %}
