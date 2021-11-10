@@ -33,75 +33,53 @@
         <link rel="stylesheet" type="text/css" href="{% static 'fontawesome_free/css/solid.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'fontawesome_free/css/all.min.css' %}">
 
-    </head>
-    <body>
-        <div class="tamsayfa">
-            <div class="alinlik">
-                <div class="solalinlik"></div>
-                <div class="merkezalinlik">
-                    <h1>
-                        <a href="/" title="Anasayfa">
-                            <span style="color: white; letter-spacing: 0.15rem;">YENİ</span><br>POST
-                        </a>
-                    </h1> 
-                    <form action="{% url 'aramasayfasi' %}" method="GET"> 
-                        <input name="kelime" type="text" placeholder="Ara...">
-                        <i class="fas fa-search buyutec"></i>
-                    </form>
-                    <img src="/static/media/yenipostlogo.svg"/> 
-                </div>
-                <div class="sagalinlik"></div>
-            </div>
-            <div class="ustmenu">
-                <div class="solustmenu"></div>
-                <div class="ortaustmenu">
-                    <div class="oum-1 czg">
-                        <a href="{% url 'anasayfamiz' %}">
-                            <button class="menubtn">Tüm Postlar</button>
-                        </a>
-                    </div>
-                    <div class="oum-2 czg">
-                        <a href="{% url 'takiplistesi' %}">
-                            <button class="menubtn">Takip Listesi</button>
-                        </a>
-                    </div>
-                    <div class="oum-3 czg">
-                        <a href="{% url 'taleplistesi' %}">
-                            <button class="menubtn">Talep Listesi</button>
-                        </a>
-                    </div>
-                    <div class="oum-4 czg">
-                        <a href="{% url 'tesekkurlistesi' %}">
-                            <button class="menubtn">Teşekkür Listesi</button>
-                        </a>
-                    </div>
-                </div>
-                <div class="sagustmenu"></div>
-            </div>
-            <div class="icerik">
-                <div class="solicerik"></div>
-                <div class="ortaicerik">
-                {% block sayfalar %}
-                    <div class="baslik"></div>
-                    <div class="ustmetin"></div>
-                    <div class="posticerik">
-                    {% block content %}
-                    {% endblock %}
-                    </div>
-                    <div class="ustliste"></div>
-                    <div class="altmetin"></div>
-                {% endblock %}
-                </div>
-                <div class="sagicerik"></div>
-            </div>
-            <div class="altbolum">
-                <div class="solalt"></div>
-                <div class="ortaalt">
-                {% block form %}
-                {% endblock %}
-                </div>
-                <div class="sagalt"></div>
-            </div>
-        </div>
-    </body>
-</html>
+        <!-- Bu Bir Açıklama Satırıdır -->
+
+    </head> 
+    {% block bodyid %}
+    <body id="anasayfa">
+    {% endblock %}
+        <div class="alinlik">
+            <div class="merkezalinlik">
+                <h1>
+                    <a href="/" title="Anasayfa">
+                        <span style="color: white; letter-spacing: 0.15rem;">YENİ</span><br>POST
+                    </a>
+                </h1> 
+                <form action="{% url 'aramasayfasi' %}" method="GET"> 
+                    <input name="kelime" type="text" placeholder="Ara...">
+                    <i class="fas fa-search buyutec"></i>
+                </form>
+                <img src="/static/media/yenipostlogo.svg"/> 
+            </div> 
+        </div> 
+        <div class="ustmenu">
+            <div class="ortaustmenu">
+                <a href="{% url 'anasayfamiz' %}" id="um1">Tüm Postlar</a>
+                <a href="{% url 'takiplistesi' %}" id="um2">Takip Listesi</a>
+                <a href="{% url 'taleplistesi' %}" id="um3">Talep Listesi</a>
+                <a href="{% url 'tesekkurlistesi' %}" id="um4">Teşekkür Listesi</a>
+            </div> 
+        </div> 
+        <div class="icerik">
+            <div class="ortaicerik">
+            {% block sayfalar %}
+                <div class="baslik"></div>
+                <div class="ustmetin"></div>
+                <div class="posticerik">
+                {% block content %}
+                {% endblock %} 
+                </div> 
+                <div class="ustliste"></div>
+                <div class="altmetin"></div>
+            {% endblock %}
+            </div> 
+        </div> 
+        <div class="altbolum">
+            <div class="ortaalt">
+            {% block form %}
+            {% endblock %}
+            </div> 
+        </div> 
+    </body> 
+</html> 

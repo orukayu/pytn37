@@ -1,44 +1,22 @@
 html, body {
-  height: 100%;
+  display: contents;
   margin: 0;
-  background-color: #e9e9e9;
-}
-
-.tamsayfa {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: auto auto 1fr auto;
-  gap: 0px 0px;
-  grid-template-areas:
-    "alinlik"
-    "ustmenu"
-    "icerik"
-    "altbolum"; 
-  align-items: start;
-}
+  background-color: #e5e5e580; 
+} 
 
 .alinlik {
-  display: grid;
+  display: flex;
   background-color: #00608b;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: 60px;
-  gap: 0px 0px;
-  grid-template-areas: 
-    "solalinlik merkezalinlik sagalinlik";
-  justify-items: center; 
-}
-
-.solalinlik {}
+  justify-content: center;
+} 
 
 .merkezalinlik { 
   display: flex;
   justify-items: center;
   line-height: 1rem;
   align-items: center;
-  gap: 0 50px;
-}
-
-.sagalinlik {}
+  gap: 0 40px;
+} 
 
 .merkezalinlik img {
   height: -webkit-fill-available;
@@ -46,13 +24,7 @@ html, body {
 }
 
 .ustmenu {
-  display: grid;
-  height: fit-content;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "solustmenu ortaustmenu sagustmenu";
+  display: flex;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -60,81 +32,47 @@ html, body {
   background-color: #dadadaa1;
   box-shadow: 0px 2px 2px 0px #dadadaa1;
   border-bottom: 1px solid #c9c9c9;
-}
-
-.solustmenu {}
+  justify-content: center;
+  text-align: center;
+} 
 
 .ortaustmenu {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "oum-1 oum-2 oum-3 oum-4";
-  max-width: fit-content;
-  margin: auto;
-  text-align: center;
-}
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+} 
 
-.oum-1 {}
-
-.oum-2 {}
-
-.oum-3 {}
-
-.oum-4 {
-  border-right: 1px solid #cfcfcf;
-}
-
-.oum-1:hover, .oum-2:hover, .oum-3:hover, .oum-4:hover {
-  background-color: black;
-}
-
-.czg {
-  border-left: 1px solid #cfcfcf;
-}
-
-.sagustmenu {}
+#um1:hover, #um2:hover, #um3:hover, #um4:hover {
+  background-color: #243248;
+  color: #ff9400;
+} 
 
 .icerik {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "solicerik ortaicerik sagicerik"; 
-}
-
-.solicerik {}
+  display: flex;
+  justify-content: center;
+} 
 
 .ortaicerik {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto auto;
-  gap: 0px 0px;
-  grid-template-areas:
-    "baslik"
-    "ustmetin"
-    "posticerik"
-    "ustliste"
-    "altmetin";
+  display: flex;
+  flex-direction: column;
   text-align: center;
   text-align: -webkit-center;
   text-align: -moz-center;
 }
 
-.baslik {}
+.baslik {
+}
 
-.ustmetin {
-  max-width: 90ch;
+.ustmetin { 
   margin-left: auto;
   margin-right: auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
 } 
 
 .posticerik { 
   display: flex;
   flex-direction: column;
-  gap: 1vh; 
+  gap: 1.5vh; 
   align-items: center;
 }
 
@@ -147,6 +85,7 @@ html, body {
   padding-top: 10px;
   width: 100%;
   box-shadow: 0px 0px 2px 0px #939393;
+  border-radius: 15px;
 }
 
 .link {
@@ -248,25 +187,16 @@ html, body {
 
 .liste button {
     font-size: 0.9rem;
-}
-
-.sagicerik {}
-
-.altbolum {
-  display: grid;
-  background-color: #002738;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "solalt ortaalt sagalt";
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 } 
 
-.solalt {}
-
+.altbolum {
+  display: flex;
+  background-color: #002738; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%;
+} 
+ 
 .ortaalt { 
   margin: auto;
 }
@@ -278,11 +208,7 @@ html, body {
 
 .ortaalt input {
   min-width: 250px;
-}
-
-.sagalt {}
-
-
+} 
 
 
 
@@ -298,7 +224,7 @@ h1, h2 {
   text-transform: capitalize;
   font-weight: 500;
   font-size: 1.3rem;
-  text-shadow: 0px 2px 2px #363636;
+  text-shadow: 0px 2px 0px #363636;
 }
 
 h2 {
@@ -319,6 +245,7 @@ p {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   line-height: 1.5rem;
+  max-width: 65ch;
 }
 
 a {
@@ -326,6 +253,17 @@ a {
   color: #ff9400;
   text-decoration: none;
   text-transform: none;
+}
+
+.ortaustmenu a {
+  font-family: 'Righteous', cursive;
+  padding-left: 0.6vw;
+  padding-right: 0.6vw;
+  color: #243248;
+}
+
+.aciklama a {
+  color: #243248;
 }
 
 input {
@@ -399,24 +337,7 @@ e {
 }
 .menubtn:hover {
   color: #fdb943;
-}
-
-
-.mailbtn {
-  font-size: 1.5rem;
-  border-radius: 15px;
-  background-color: white;
-  border: none;
-  padding: 1vw 2vw;
-  box-shadow: inset 0 0 0 1px;
-}
-
-.mailbtn:hover {
-  background-color: #243238;
-  color: #fdb943;
-  box-shadow: none;
-}
-
+} 
 
 .facebook-this {
   background-color: rgb(59, 89, 152);
@@ -464,4 +385,12 @@ e {
   background-color: #243238;
   color: #fdb943;
   border: none;
+}
+
+
+/* Bu kısımdan aşağısı üstmenü'nün sayfaya göre şekil alması için eklenmiştir!!! */
+
+#takip #um2, #talep #um3, #tesekkur #um4 {
+  background-color: #243248;
+  color: #ff9400;
 }
