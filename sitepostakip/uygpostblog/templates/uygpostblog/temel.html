@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html lang="tr">
     <head>
+        {% block title %}
         <title>Yenipost ile Gündemi Keşfet</title>
+        {% endblock %}
         <meta charset="utf-8"/>
         <meta name="theme-color" content="#FF9400">
         <link rel="canonical" href="https://www.yenipost.com/"/>
@@ -76,10 +78,8 @@
             </div> 
         </div> 
         <div class="altbolum">
-            <div class="ortaalt">
-            {% block form %}
-            {% endblock %}
-            </div> 
-        </div> 
+        {% block form %}
+        {% endblock %} 
+        </div>
     </body> 
 </html> 

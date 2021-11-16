@@ -1,5 +1,8 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
+{% block title %}
+<title>Yenipost - Talep Listesi</title>
+{% endblock %}
 {% block bodyid %}
 <body id="talep">
 {% endblock %}
@@ -44,8 +47,11 @@
 {% endblock %}
 
 {% block form %}
-    <form method="POST" class="post-form" action="">{% csrf_token %}
-        {{ form.as_p }}
-        <button class="gonderbutonu" type="submit" style="">Gönder</button>
-    </form>
+    <div class="solalt"></div>
+    <div class="ortaalt">
+        <form method="POST" class="post-form" action="">{% csrf_token %}
+            {{ form.as_p }}
+            <button class="gonderbutonu" type="submit" style="">Gönder</button>
+        </form>
+    </div>
 {% endblock %}

@@ -1,4 +1,7 @@
 {% extends 'uygpostblog/temel.html' %}
+{% block title %}
+<title>Yenipost - Arama Sayfası</title>
+{% endblock %}
 {% block sayfalar %} 
     <div class="baslik">
         <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
@@ -7,7 +10,7 @@
     </div>
     <div class="ustmetin">
         <p>
-            Aradığınız değeri içeren sosyal medya profilleri ve hesap bilgileri ile onlara ait mecraların listesidir. Bağlantıları tıklayarak İlgili mecra postlarına veya profil paylaşımlarına ulaşabilirsiniz.
+            Aradığınız kelimeyi içeren sosyal medya profil adları veya hesap bilgileri ile onlara ait mecraların listesidir. Bağlantıları tıklayarak İlgili mecra postlarına veya profil paylaşımlarına ulaşabilirsiniz.
         </p>
         {% if metin|length >= 1 %}
             {% if metin == " " %}

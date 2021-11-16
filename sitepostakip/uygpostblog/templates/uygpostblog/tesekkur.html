@@ -1,5 +1,8 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
+{% block title %}
+<title>Yenipost - Teşekkür Listesi</title>
+{% endblock %}
 {% block bodyid %}
 <body id="tesekkur">
 {% endblock %}
@@ -15,44 +18,62 @@
 <div class="posticerik"></div>
 <div class="ustliste">
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://tutorial.djangogirls.org/tr/', '_blank');">Djangogirls Tutorial</button>
+        <a href="https://tutorial.djangogirls.org/tr/" target="_blank">
+            <button class="govdebtn t">Djangogirls Tutorial</button>
+        </a>
     </div>
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://olcay.dev/', '_blank');">olcay.dev</button>
+        <a href="https://olcay.dev/" target="_blank">
+            <button class="govdebtn t">olcay.dev</button>
+        </a>
     </div>
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://www.w3schools.com/', '_blank');">w3schools.com</button>
+        <a href="https://www.w3schools.com/" target="_blank">
+            <button class="govdebtn t">w3schools.com</button>
+        </a>
     </div>
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://medium.com/@burakakyol07/django-ve-django-rest-framework-kullanarak-restful-api-olu%C5%9Fturmak-2-a3359a451661', '_blank');">Burak AKYOL</button>
+        <a href="https://medium.com/@burakakyol07/django-ve-django-rest-framework-kullanarak-restful-api-olu%C5%9Fturmak-2-a3359a451661" target="_blank">
+            <button class="govdebtn t">Burak AKYOL</button>
+        </a>
     </div>
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://medium.com/python/python-requests-mod%C3%BCl%C3%BC-4af79ebdb8c8', '_blank');">Sinan ERDİNÇ</button>
+        <a href="https://medium.com/python/python-requests-mod%C3%BCl%C3%BC-4af79ebdb8c8" target="_blank">
+            <button class="govdebtn t">Sinan ERDİNÇ</button>
+        </a>
     </div>
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://artificial.design/archives/2018/05/23/svg-animation.html', '_blank');">Artificial Design</button>
+        <a href="https://artificial.design/archives/2018/05/23/svg-animation.html" target="_blank">
+            <button class="govdebtn t">Artificial Design</button>
+        </a>
     </div>
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://www.youtube.com/c/MaxGoodridgeTech/featured', '_blank');">Max Goodridge</button>
+        <a href="https://www.youtube.com/c/MaxGoodridgeTech/featured" target="_blank">
+            <button class="govdebtn t">Max Goodridge</button>
+        </a>
     </div>
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q/featured', '_blank');">Dev Ed</button>
+        <a href="https://www.youtube.com/c/DevEd/videos" target="_blank">
+            <button class="govdebtn t">Dev Ed</button>
+        </a>
     </div>
     <div>
-        <button class="govdebtn t" onClick="javascript:window.open('https://stackoverflow.com/', '_blank');">stackoverflow.com</button>
+        <a href="https://stackoverflow.com/" target="_blank">
+            <button class="govdebtn t">stackoverflow.com</button>
+        </a>
     </div>
 </div>
 <div class="altmetin">
     <div class="aciklama">
-        <p>Siz de projemiz hakkında ki fikirlerinizi paylaşmak veya destek olup yardım etmek için lütfen bizim ile irtibata geçiniz.</p>
+        <p>Siz de projemiz hakkında ki fikirlerinizi paylaşmak veya destek olup yardım etmek için lütfen bizim ile iletişime geçiniz.</p>
         <h2>İletişim</h2>
         <p style="text-align: center; text-indent: inherit;">
             <a href="mailto:oktaybayram@hotmail.com">
-                E-Posta&nbsp;<i class="far fa-envelope"></i>
+                <i class="far fa-envelope"></i>&nbsp;E-Posta 
             </a>
             &emsp;&emsp;&emsp;
             <a href="https://wa.me/905468314488" target="_blank">
-                WhatsApp&nbsp;<i class="fab fa-whatsapp"></i>
+                <i class="fab fa-whatsapp"></i>&nbsp;WhatsApp
             </a>
         </p>
         

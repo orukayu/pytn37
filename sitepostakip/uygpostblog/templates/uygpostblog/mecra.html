@@ -1,5 +1,8 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
+{% block title %}
+<title>Yenipost - {{ mecraadi }} paylaşımları</title>
+{% endblock %}
 {% block sayfalar %}
     <div class="baslik">
         <h2>
@@ -28,7 +31,7 @@
                 </div>
                 <div class="paylas">
                     <a href="{% url 'postsayfasi' post.pk %}">
-                        <button class="govdebtn">Post sayfası <i class="fas fa-share-alt"></i></button>
+                        <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
                     </a>
                 </div>
             </div>
@@ -38,11 +41,11 @@
                 {% endautoescape %}
             </div>
             <div class="gonder">
-                {% post_to_facebook object_or_url "Facebook" link_class="pyls" %}
-                {% post_to_twitter "YeniPost: {{object.title}}" object_or_url "Twitter" link_class="pyls" %}
-                {% send_email object.title "YeniPost: {{object.title}}" object_or_url "E-Mail" link_class="pyls" %}
-                {% post_to_telegram "Telegram" object_or_url "Telegram" link_class="pyls" %}
-                {% post_to_whatsapp object_or_url "WhatsApp" link_class="pyls" %}
+                {% post_to_facebook object_or_url "Facebook" link_class="smda-p" %}
+                {% post_to_twitter "YeniPost: {{object.title}}" object_or_url "Twitter" link_class="smda-p" %}
+                {% send_email object.title "YeniPost: {{object.title}}" object_or_url "E-Mail" link_class="smda-p" %}
+                {% post_to_telegram "Telegram" object_or_url "Telegram" link_class="smda-p" %}
+                {% post_to_whatsapp object_or_url "WhatsApp" link_class="smda-p" %}
             </div>
         </div> 
         {% endfor %}
