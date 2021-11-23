@@ -20,7 +20,7 @@ html, body {
 
 .merkezalinlik img {
   height: -webkit-fill-available;
-  height: 35px; 
+  height: 40px; 
 }
 
 .ustmenu {
@@ -125,6 +125,8 @@ html, body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   padding-bottom: 10px;
   max-width: fit-content;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* smda-p Sosyal medya da paylaşım butonları için oluşturulan class */
@@ -164,7 +166,7 @@ html, body {
 .altmetin { 
   display: grid;
   grid-template-columns: 1fr; 
-  margin-bottom: 58px;
+  margin-bottom: 75px;
 }
 
 .aciklama {
@@ -196,11 +198,28 @@ html, body {
 } 
 
 #tesekkur .altbolum {
-  position: relative;
+  position: relative; 
+  z-index: -1;
+}
+
+.altsatır {
+  width: 85ch;
+  margin: auto;
+}
+
+.solalt {
+  position: absolute;
+  bottom: -100px;
+  z-index: -1;
 }
  
 .ortaalt { 
   margin: auto;
+} 
+
+.ortaalt h1 {
+  font-size: 1.1rem;
+  padding-right: 1.5vw;
 }
 
 .ortaalt p {
@@ -211,6 +230,12 @@ html, body {
 .ortaalt input {
   min-width: 250px;
 } 
+
+.sagalt {
+  z-index: 1;
+  text-align: right;
+  padding-right: 1.5vw;
+}
 
 
 
@@ -328,26 +353,31 @@ e {
 .facebook-this {
   background-color: rgb(59, 89, 152);
   padding: 5px;
+  border-radius: 7px; 
 }
 
 .tweet-this {
   background-color: rgb(29, 161, 242);
   padding: 5px;
+  border-radius: 7px;
 }
 
 .mail-this {
   background-color: rgb(242, 110, 42);
   padding: 5px;
+  border-radius: 7px;
 }
 
 .telegram-this {
   background-color: rgb(0, 136, 204);
   padding: 5px;
+  border-radius: 7px;
 }
 
 .whatsapp-this {
   background-color: rgb(77, 194, 71);
   padding: 5px;
+  border-radius: 7px;
 }
 
 .buyutec {

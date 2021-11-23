@@ -46,8 +46,7 @@
     </div>
 {% endblock %}
 
-{% block form %}
-    <div class="solalt"></div>
+{% block form %} 
     <div class="ortaalt">
         <form method="POST" class="post-form" action="">{% csrf_token %}
             {{ form.as_p }}

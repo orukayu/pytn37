@@ -1,12 +1,14 @@
 {% load static %}
 {% load social_share %}
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr-TR" prefix="og: http://ogp.me/ns#">
+    {% load pwa %}
     <head>
         {% block title %}
         <title>Yenipost ile Gündemi Keşfet</title>
         {% endblock %}
         <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="theme-color" content="#FF9400">
         <link rel="canonical" href="https://www.yenipost.com/"/>
         <meta name="robots" content="all"/>
@@ -16,11 +18,19 @@
         <meta name="publisher" content="Python Django"/>
 
         <meta property="og:type" content="website"/>
+        <meta property="og:locale" content="tr_TR">
         <meta property="og:title" content="Sosyal Medya Trendleri"/>
         <meta property="og:description" content="Sizde Gündemi Belirleyen Sosyal Medya Paylaşımları ile Her An Güncel Kalın" />
         <meta property="og:image" content="https://www.yenipost.com/static/media/thump.jpg"/>
         <meta property="og:url" content="https://www.yenipost.com"/>
-        <meta property="og:site_name" content="Yenipost.com"/>
+        <meta property="og:site_name" content="Yenipost.com"/> 
+
+        <meta name="msapplication-TileImage" content="https://www.yenipost.com/static/media/icons/icon-144x144.png">
+        <meta name="msapplication-TileColor" content="#FF9400">
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="apple-touch-fullscreen" content="yes">
         
         <link rel="shortcut icon" href="{% static '/media/favicon.svg' %}" sizes="any" type="image/svg+xml">
         <link rel="stylesheet" type="text/css" href="{% static 'css/yenipostcss.css' %}"/>
@@ -35,6 +45,8 @@
         <link rel="stylesheet" type="text/css" href="{% static 'fontawesome_free/css/solid.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'fontawesome_free/css/all.min.css' %}">
 
+
+        {% progressive_web_app_meta %}
         <!-- Bu Bir Açıklama Satırıdır -->
 
     </head> 

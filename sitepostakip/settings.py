@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'fontawesome-free',
     'django_social_share',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -141,4 +142,66 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+PWA_APP_NAME = 'YeniPost'
+PWA_APP_SHORT_NAME = 'YeniPost'
+PWA_APP_DESCRIPTION = 'Gündemi Belirleyen Sosyal Medya Paylaşımları ve Haberler'
+PWA_APP_THEME_COLOR = '#FF9400'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'tr-TR'
+PWA_APP_ICONS = [
+    {
+        'src': 'static/media/icons/icon-72x72.png',
+        'sizes': '72x72'
+    },
+    {
+        'src': 'static/media/icons/icon-96x96.png',
+        'sizes': '96x96'
+    },
+    {
+        'src': 'static/media/icons/icon-128x128.png',
+        'sizes': '128x128'
+    },
+    {
+        'src': 'static/media/icons/icon-144x144.png',
+        'sizes': '144x144'
+    },
+    {
+        'src': 'static/media/icons/icon-152x152.png',
+        'sizes': '152x152'
+    },
+    {
+        'src': 'static/media/icons/icon-192x192.png',
+        'sizes': '192x192'
+    },
+    {
+        'src': 'static/media/icons/icon-384x384.png',
+        'sizes': '384x384'
+    },
+    {
+        'src': 'static/media/icons/icon-512x512.png',
+        'sizes': '512x512'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/media/icons/icon-152x152.png',
+        'sizes': '152x152'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': 'static/images/icon.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]

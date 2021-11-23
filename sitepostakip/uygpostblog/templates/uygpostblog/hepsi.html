@@ -1,31 +1,31 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
-{% block content %}
-    {% for post in posts %}
-    <div class="pencere">
-        <div class="link">
-            <div class="mecra">
-                <a href="{% url 'mecrasayfasi' post.Mecra %}">
-                    <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
-                </a>
-            </div>
-            <div class="profil">
-                <a href="{% url 'profilsayfasi' post.Profil %}">
-                    <button class="govdebtn">{{ post.Profil }} postları</button>
-                </a>
-            </div>
-            <div class="paylas">
-                <a href="{% url 'postsayfasi' post.pk %}">
-                    <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
-                </a>
-            </div>
-        </div>
-        <div class="post">
-            {% autoescape off %}
-                {{ post.Post }}
-            {% endautoescape %}
-        </div>
-        <div class="gonder"></div>
-    </div>
-    {% endfor %}
-{% endblock %}
+            {% block content %}
+                {% for post in posts %}
+                    <div class="pencere">
+                        <div class="link">
+                            <div class="mecra">
+                                <a href="{% url 'mecrasayfasi' post.Mecra %}">
+                                    <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
+                                </a>
+                            </div>
+                            <div class="profil">
+                                <a href="{% url 'profilsayfasi' post.Profil %}">
+                                    <button class="govdebtn">{{ post.Profil }} postları</button>
+                                </a>
+                            </div>
+                            <div class="paylas">
+                                <a href="{% url 'postsayfasi' post.pk %}">
+                                    <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="post">
+                            {% autoescape off %}
+                                {{ post.Post }}
+                            {% endautoescape %}
+                        </div>
+                        <div class="gonder"></div>
+                    </div>
+                {% endfor %}
+            {% endblock %}

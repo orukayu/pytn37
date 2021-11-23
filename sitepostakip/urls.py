@@ -24,6 +24,7 @@ from django.conf.urls import handler500
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('sitepostakip.uygpostblog.urls')),
+    path('', include('pwa.urls')),
 ]
 
 # 404 ve 500 sayfası için ekleme
