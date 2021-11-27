@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'wx!uc3xq-pf@f4gvggz8nd6md1(n1_n@364tdnf98di)in*yc)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.yenipost.com']
 
@@ -37,12 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'sitepostakip.uygpostblog',
     'rest_framework',
     'fontawesome-free',
     'django_social_share',
     'pwa',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -142,10 +146,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 PWA_APP_NAME = 'YeniPost'
 PWA_APP_SHORT_NAME = 'YeniPost'
@@ -156,52 +158,78 @@ PWA_APP_DISPLAY = 'standalone'
 PWA_APP_SCOPE = '/'
 PWA_APP_ORIENTATION = 'any'
 PWA_APP_START_URL = '/'
-PWA_APP_STATUS_BAR_COLOR = 'default'
-PWA_APP_DIR = 'ltr'
-PWA_APP_LANG = 'tr-TR'
-PWA_APP_ICONS = [
+PWA_APP_STATUS_BAR_COLOR = 'default' 
+PWA_APP_ICONS = [ 
     {
         'src': 'static/media/icons/icon-72x72.png',
-        'sizes': '72x72'
+        'sizes': '72x72',
+        'type': 'image/png',
+        'purpose': 'any'
     },
     {
         'src': 'static/media/icons/icon-96x96.png',
-        'sizes': '96x96'
+        'sizes': '96x96',
+        'type': 'image/png',
+        'purpose': 'any'
     },
     {
         'src': 'static/media/icons/icon-128x128.png',
-        'sizes': '128x128'
+        'sizes': '128x128',
+        'type': 'image/png',
+        'purpose': 'any'
     },
     {
         'src': 'static/media/icons/icon-144x144.png',
-        'sizes': '144x144'
+        'sizes': '144x144',
+        'type': 'image/png',
+        'purpose': 'any'
     },
     {
         'src': 'static/media/icons/icon-152x152.png',
-        'sizes': '152x152'
+        'sizes': '152x152',
+        'type': 'image/png',
+        'purpose': 'any'
     },
     {
         'src': 'static/media/icons/icon-192x192.png',
-        'sizes': '192x192'
+        'sizes': '192x192',
+        'type': 'image/png',
+        'purpose': 'any'
     },
     {
         'src': 'static/media/icons/icon-384x384.png',
-        'sizes': '384x384'
+        'sizes': '384x384',
+        'type': 'image/png',
+        'purpose': 'any'
     },
     {
         'src': 'static/media/icons/icon-512x512.png',
-        'sizes': '512x512'
+        'sizes': '512x512',
+        'type': 'image/png',
+        'purpose': 'any'
     }
 ]
 PWA_APP_ICONS_APPLE = [
     {
-        'src': '/media/icons/icon-152x152.png',
-        'sizes': '152x152'
+        'src': 'static/media/icons/icon-160x160.png',
+        'sizes': '160x160',
+        'type': 'image/png',
+        'purpose': 'any'
     }
 ]
 PWA_APP_SPLASH_SCREEN = [
     {
-        'src': 'static/images/icon.png',
+        'src': 'static/media/icons/splash.png',
         'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
     }
 ]
+PWA_APP_PREFER_RELATED_APPLICATIONS = True,
+PWA_APP_RELATED_APPLICATIONS = [
+    {
+        'platform': 'play',
+        'url': 'https://play.google.com/store/apps/details?id=com.yenipost.twa',
+        'id': 'com.yenipost.twa'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'tr-TR'

@@ -1,55 +1,55 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
 {% block title %}
-<title>Yenipost - {{ profiladi|title }} Postları</title>
+        <title>Yenipost - {{ profiladi|title }} Postları</title>
 {% endblock %}
 {% block sayfalar %}
-    <div class="baslik">
-        <h2>
-            {{ profiladi }}<br>
-            Postları
-        </h2>
-    </div>
-    <div class="ustmetin">
-        <p>
-            <e>{{ profiladi }}</e> postlarına hoşgeldiniz. Dilerseniz ilgili mecrada ki diğer profil veya hesaplarında paylaşımlarına ulaşabilir yada geri dön butonu ile ana sayfada ki tüm postları görebilirsiniz. Post sayfasına giderek, sadece o paylaşımı kendi sosyal mecralarınızda da paylaşabilirsiniz.
-        </p>
-    </div>
-    <div class="posticerik">
-        {% for post in posts %}
-        <div class="pencere">
-            <div class="link">
-                <div class="mecra">
-                    <a href="{% url 'anasayfamiz' %}">
-                        <button class="govdebtn"><i class="fas fa-home"></i> Ana Sayfa</button>
-                    </a>
+                <div class="baslik">
+                    <h2>
+                        {{ profiladi }}<br>
+                        Postları
+                    </h2>
                 </div>
-                <div class="profil">
-                    <a href="{% url 'mecrasayfasi' post.Mecra %}">
-                        <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
-                    </a>
+                <div class="ustmetin">
+                    <p>
+                        <e>{{ profiladi|title }}</e>'ın postlarına hoşgeldiniz. Dilerseniz ilgili mecrada ki diğer profil veya hesaplarında paylaşımlarına ulaşabilir yada geri dön butonu ile ana sayfada ki tüm postları görebilirsiniz. Post sayfasına giderek, sadece o paylaşımı kendi sosyal mecralarınızda da paylaşabilirsiniz.
+                    </p>
                 </div>
-                <div class="paylas">
-                    <a href="{% url 'postsayfasi' post.pk %}">
-                        <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
-                    </a>
+                <div class="posticerik">
+                    {% for post in posts %}
+                    <div class="pencere">
+                        <div class="link">
+                            <div class="mecra">
+                                <a href="{% url 'anasayfamiz' %}">
+                                    <button class="govdebtn"><i class="fas fa-home"></i> Ana Sayfa</button>
+                                </a>
+                            </div>
+                            <div class="profil">
+                                <a href="{% url 'mecrasayfasi' post.Mecra %}">
+                                    <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
+                                </a>
+                            </div>
+                            <div class="paylas">
+                                <a href="{% url 'postsayfasi' post.pk %}">
+                                    <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="post">
+                            {% autoescape off %}
+                            {{ post.Post }}
+                            {% endautoescape %}
+                        </div>
+                        <div class="gonder">
+                            {% post_to_facebook object_or_url "Facebook" link_class="smda-p" %}
+                            {% post_to_twitter "YeniPost: {{object.title}}" object_or_url "Twitter" link_class="smda-p" %}
+                            {% send_email object.title "YeniPost: {{object.title}}" object_or_url "E-Mail" link_class="smda-p" %}
+                            {% post_to_telegram "Telegram" object_or_url "Telegram" link_class="smda-p" %}
+                            {% post_to_whatsapp object_or_url "WhatsApp" link_class="smda-p" %}
+                        </div>
+                    </div>
+                    {% endfor %} 
                 </div>
-            </div>
-            <div class="post">
-                {% autoescape off %}
-                    {{ post.Post }}
-                {% endautoescape %}
-            </div>
-            <div class="gonder">
-                {% post_to_facebook object_or_url "Facebook" link_class="smda-p" %}
-                {% post_to_twitter "YeniPost: {{object.title}}" object_or_url "Twitter" link_class="smda-p" %}
-                {% send_email object.title "YeniPost: {{object.title}}" object_or_url "E-Mail" link_class="smda-p" %}
-                {% post_to_telegram "Telegram" object_or_url "Telegram" link_class="smda-p" %}
-                {% post_to_whatsapp object_or_url "WhatsApp" link_class="smda-p" %}
-            </div>
-        </div>
-        {% endfor %} 
-    </div>
-    <div class="ustliste"></div>
-    <div class="altmetin"></div>
+                <div class="ustliste"></div>
+                <div class="altmetin"></div>
 {% endblock %}

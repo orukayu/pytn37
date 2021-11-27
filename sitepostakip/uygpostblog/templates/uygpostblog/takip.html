@@ -1,41 +1,41 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
 {% block title %}
-<title>Yenipost - Takip Listesi</title>
+        <title>Yenipost - Takip Listesi</title>
 {% endblock %}
 {% block bodyid %}
-<body id="takip">
+    <body id="takip">
 {% endblock %}
 {% block sayfalar %}
-    <div class="baslik">
-        <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
-        <h2>Takip<br>
-            Listesi
-        </h2>
-    </div>
-    <div class="ustmetin">
-        <p>
-            Yenipost olarak takip ettiğimiz sosyal medya profillerinin güncel listesine aşağıda ki mecra başlıklarından ulaşabilirsiniz, dilerseniz bu listelerin dosya halinide indirebilirsiniz;
-        </p>
-        <p>
-            <e>{{ sonuncu }}</e> 'de güncellenmiş dosya için tıklayınız...
-        </p>
-    </div>
-    <div class="posticerik"></div>
-    <div class="ustliste">
-        {% for mec in mec %}
-        <div>
-            <a href="{% url 'listesayfasi' mec.Mecra %}">
-                <button class="govdebtn ikili">
-                    <div><i class="fa-brands fa-{{ mec.Mecra }}"></i></div>
-                    <div>{{ mec.Mecra }}</div>
-                </button>
-            </a>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="altmetin">
-        {% block listeler %}
-        {% endblock %}
-    </div>
+                <div class="baslik">
+                    <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
+                    <h2>Takip<br>
+                        Listesi
+                    </h2>
+                </div>
+                <div class="ustmetin">
+                    <p>
+                        Yenipost olarak takip ettiğimiz sosyal medya profillerinin güncel listesine aşağıda ki mecra başlıklarından ulaşabilirsiniz, dilerseniz bu listelerin dosya halinide indirebilirsiniz;
+                    </p>
+                    <p>
+                        <e>{{ sonuncu }}</e> 'de güncellenmiş dosya için tıklayınız...
+                    </p>
+                </div>
+                <div class="posticerik"></div>
+                <div class="ustliste">
+                    {% for mec in mec %}
+                    <div>
+                        <a href="{% url 'listesayfasi' mec.Mecra %}">
+                            <button class="govdebtn ikili">
+                                <div><i class="fa-brands fa-{{ mec.Mecra }}"></i></div>
+                                <div>{{ mec.Mecra }}</div>
+                            </button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="altmetin">
+                    {% block listeler %}
+                    {% endblock %}
+                </div>
 {% endblock %}

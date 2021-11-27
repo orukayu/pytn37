@@ -1,56 +1,56 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
 {% block title %}
-<title>Yenipost - Talep Listesi</title>
+        <title>Yenipost - Talep Listesi</title>
 {% endblock %}
 {% block bodyid %}
-<body id="talep">
+    <body id="talep">
 {% endblock %}
 {% block sayfalar %}
-	<div class="baslik">
-        <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
-        <h2>Talep<br>
-        Listesi</h2>
-    </div>
-    <div class="ustmetin">
-        <p>
-            Haber niteliği taşıyan mecralar, kaliteli içerik üreten profiller veya takip edilmesi gereken sosyal medya hesaplarının bilgilerini bizim ile paylaştığınız için teşekkür ederiz.
-        </p>
-        <div style="padding-bottom: 15px;">
-            <h3>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-facebook"></i>
-                <span style="margin-left: 1vw; margin-right: 1vw;">Önerilen Profiller</span>
-                <i class="fa-brands fa-tiktok"></i>
-                <i class="fa-brands fa-youtube"></i>
-                <i class="fa-brands fa-pinterest"></i>
-            </h3>
-        </div>
-        <div>
-            <hr style="margin-top: -15px; width: 33%; min-width: 50%;"/>
-        </div>
-    </div>
-    <div class="posticerik"></div>
-	<div class="ustliste">
-        {% for kast in kast %}
-            <h3>{{ kast.Talep }}</h3>
-        {% endfor %}
-    </div>
-    <div class="altmetin">
-        <div class="aciklama">
-            <p>
-                Listemize katkıda bulunmak için twitter, instagram, youtube, tiktok gibi mecralardan profil önerilerilerinizi sayfanın altında ki form ile gönderebilirsiniz.
-            </p>
-        </div>
-    </div>
+            	<div class="baslik">
+                    <img src="/static/media/postakiplogo.svg" alt="Post Takip Animasyonu" style="height: 15vh;"/>
+                    <h2>Talep<br>
+                    Listesi</h2>
+                </div>
+                <div class="ustmetin">
+                    <p>
+                        Haber niteliği taşıyan mecralar, kaliteli içerik üreten profiller veya takip edilmesi gereken sosyal medya hesaplarının bilgilerini bizim ile paylaştığınız için teşekkür ederiz.
+                    </p>
+                    <div style="padding-bottom: 15px;">
+                        <h3>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <span style="margin-left: 1vw; margin-right: 1vw;">Önerilen Profiller</span>
+                            <i class="fa-brands fa-tiktok"></i>
+                            <i class="fa-brands fa-youtube"></i>
+                            <i class="fa-brands fa-pinterest"></i>
+                        </h3>
+                    </div>
+                    <div>
+                        <hr style="margin-top: -15px; width: 33%; min-width: 50%;"/>
+                    </div>
+                </div>
+                <div class="posticerik"></div>
+            	<div class="ustliste">
+                    {% for kast in kast %}
+                        <h3>{{ kast.Talep }}</h3>
+                    {% endfor %}
+                </div>
+                <div class="altmetin">
+                    <div class="aciklama">
+                        <p>
+                            Listemize katkıda bulunmak için twitter, instagram, youtube, tiktok gibi mecralardan profil önerilerilerinizi sayfanın altında ki form ile gönderebilirsiniz.
+                        </p>
+                    </div>
+                </div>
 {% endblock %}
 
 {% block form %} 
-    <div class="ortaalt">
-        <form method="POST" class="post-form" action="">{% csrf_token %}
-            {{ form.as_p }}
-            <button class="gonderbutonu" type="submit" style="">Gönder</button>
-        </form>
-    </div>
+            <div class="ortaalt">
+                <form method="POST" class="post-form" action="">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="gonderbutonu" type="submit" style="">Gönder</button>
+                </form>
+            </div>
 {% endblock %}

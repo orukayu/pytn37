@@ -3,7 +3,7 @@ from .models import Postlar
 from .models import Profiller
 from .models import Talepler
 from .models import Mecralar
-from .models import Müşteriler
+from .models import Musteriler
 from .models import Görünümler
 
 # APİ için eklemeler

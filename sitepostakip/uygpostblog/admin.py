@@ -3,7 +3,7 @@ from .models import Postlar
 from .models import Profiller
 from .models import Talepler
 from .models import Mecralar
-from .models import Müşteriler
+from .models import Musteriler
 from .models import Görünümler
 
 # Register your models here.
@@ -20,7 +20,7 @@ class TaleplerAdmin(admin.ModelAdmin):
 class MecralarAdmin(admin.ModelAdmin):
     list_display = ('id', 'Mecra')
 
-class MüşterilerAdmin(admin.ModelAdmin):
+class MusterilerAdmin(admin.ModelAdmin):
     list_display = ('id', 'Müşteri')
 
 class GörünümlerAdmin(admin.ModelAdmin):
@@ -31,5 +31,5 @@ admin.site.register(Postlar,PostlarAdmin)
 admin.site.register(Profiller,ProfillerAdmin)
 admin.site.register(Talepler,TaleplerAdmin)
 admin.site.register(Mecralar,MecralarAdmin)
-admin.site.register(Müşteriler,MüşterilerAdmin)
+admin.site.register(Musteriler,MusterilerAdmin)
 admin.site.register(Görünümler,GörünümlerAdmin)

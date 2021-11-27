@@ -1,23 +1,23 @@
 {% extends 'uygpostblog/takip.html' %}
 {% load social_share %}
 {% block listeler %}
-    <div class="aciklama">
-        <p>
-            Aşağıda <e>{{ baslik }}</e> da takip edilen profillerin güncel listesini ve {{ baslik }} sayfalarını görebilirsiniz;
-        </p>
-    </div>
-    <div class="liste">
-        {% for lis in lis %}
-            <div>
-                <a href="{% url 'profilsayfasi' lis.Profil %}">
-                    <button class="govdebtn t">{{ lis.Profil }} postları</button>
-                </a>
-            </div>
-            <div>
-                <a href="{{ lis.Link }}" target="_blank">
-                    <button class="govdebtn t">{{ baslik }} sayfasına git</button>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
+                    <div class="aciklama">
+                        <p>
+                            Aşağıda <e>{{ baslik }}</e> da takip edilen profillerin güncel listesini ve {{ baslik }} sayfalarını görebilirsiniz;
+                        </p>
+                    </div>
+                    <div class="liste">
+                        {% for lis in lis %}
+                        <div>
+                            <a href="{% url 'profilsayfasi' lis.Profil %}">
+                                <button class="govdebtn t">{{ lis.Profil }} postları</button>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ lis.Link }}" target="_blank">
+                                <button class="govdebtn t">{{ baslik }} sayfasına git</button>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
 {% endblock %}

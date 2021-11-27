@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+import datetime
 
 # Create your models here.
 
@@ -27,8 +28,8 @@ class Profiller(models.Model):
     Profil = models.TextField()
     Link = models.TextField()
     Bas_Tarihi = models.DateTimeField(default=timezone.now)
-    Bit_Tarihi = models.DateTimeField(default=0)
-    Müşteri = models.ForeignKey('uygpostblog.Müşteriler', on_delete=models.CASCADE, default=2)
+    Bit_Tarihi = models.DateTimeField(default=datetime.datetime(2050, 1, 1))
+    Müşteri = models.ForeignKey('uygpostblog.Musteriler', on_delete=models.CASCADE, default=2)
     Görünüm = models.ForeignKey('uygpostblog.Görünümler', on_delete=models.CASCADE, default=1)
 
     class Meta:
@@ -61,8 +62,11 @@ class Mecralar(models.Model):
 
 # Müşteriler tablosu oluşturma
 
-class Müşteriler(models.Model):
+class Musteriler(models.Model):
     Müşteri = models.TextField()
+
+    class Meta:
+      verbose_name_plural = "Müşterilers" # Bu Meta ile model'in veribankasında ki adını istediğimiz gibi koyabiliyoruz
 
     def __str__(self):
         return self.Müşteri
