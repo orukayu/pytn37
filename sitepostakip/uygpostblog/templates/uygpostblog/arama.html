@@ -32,12 +32,12 @@
                 <div class="ustliste">
                     {% for Profiller in sonuc %}
                         <div>
-                            <a href="{% url 'profilsayfasi' Profiller.Profil %}">
+                            <a href="{% url 'profilsayfasi' PK=Profiller.pk PROFIL=Profiller.Url %}">
                                 <button class="govdebtn t">{{ Profiller.Profil }}</button>
                             </a>
                         </div>
                         <div>
-                            <a href="{% url 'mecrasayfasi' Profiller.Mecra %}">
+                            <a href="{% url 'mecrasayfasi' PK=Profiller.Mecra_id MECRA=Profiller.Mecra %}">
                                 <button class="govdebtn t">{{ Profiller.Mecra }}</button>
                             </a>
                         </div>

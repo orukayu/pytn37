@@ -12,7 +12,7 @@ class ProfillerSiteMap(Sitemap):
         return Profiller.objects.all()
 
     def location(self, obj):
-        return '/profil/<int:pk>/%s' % (obj.Profil)
+        return '/profil/%s' % (obj.Profil)
 
 
 
@@ -25,7 +25,7 @@ class MecralarSiteMap(Sitemap):
         return Mecralar.objects.all()
 
     def location(self, obj: Mecralar) -> str:
-        return '/mecra/%s' % (obj.Mecra)
+        return '/mecra/%s' % (obj.pk)
  
 
 

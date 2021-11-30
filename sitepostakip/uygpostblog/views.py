@@ -38,7 +38,8 @@ def hepsi(request):
     acik = Profiller.objects.values_list('id', flat=True).filter(Görünüm=1, Bit_Tarihi__gte=zmn)
     # Profil__in komutu ile liste olarak gelen id leri Postlar tablosunda filitrele
     posts = Postlar.objects.filter(Profil__in=acik)
-    return render(request, 'uygpostblog/hepsi.html', {'posts': posts,})
+    prof = Profiller.objects.all()
+    return render(request, 'uygpostblog/hepsi.html', {'posts': posts, 'prof':prof})
 
 # APİ için eklemeler
 
@@ -56,29 +57,31 @@ class PostlarListesi(APIView):
 
 # mecra sayfası için views tanımlama
 
-def mecralar(request, Mecra):
-    mecraadi = Mecra
+def mecralar(request, PK, MECRA):
+    mecraadi = MECRA
 
     numara = Mecralar.objects.filter(Mecra=mecraadi).get()
     posts = Postlar.objects.filter(Mecra=numara)
-    
-    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'mecraadi':mecraadi})
+    prof = Profiller.objects.all()
+    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'mecraadi':mecraadi, 'prof':prof})
 
 # profil sayfası için views tanımlama
 
-def profiller(request, Profil):
-    profiladi = Profil
+def profiller(request, PK, PROFIL):
+    profiladi = PROFIL
 
-    numara = Profiller.objects.filter(Profil=profiladi).get()
+    numara = Profiller.objects.filter(Url=profiladi).get()
     posts = Postlar.objects.filter(Profil=numara)
-    
-    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'profiladi':profiladi})
+
+    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'numara':numara})
 
 # Post paylaşım sayfası için views tanımlama
 
-def postlar(request, pk):
-    posts = Postlar.objects.filter(pk=pk)
-    return render(request, 'uygpostblog/paylas.html', {'posts': posts,})
+def postlar(request, PK):
+    postno = PK
+    posts = Postlar.objects.filter(pk=PK)
+    prof = Profiller.objects.all()   
+    return render(request, 'uygpostblog/paylas.html', {'posts': posts, 'postno': postno, 'prof': prof})
 
 # Takip Listesi için görünüm kodları
 
@@ -96,15 +99,14 @@ def takiptekiler(request):
 
 # Takip sayfasında ki mecra ismine basınca, o mecraya ait listenin gösterileceği sayfa fonksiyonu
 
-def listeler(request, Mecra):
-    baslik = Mecra
+def listeler(request, MECRA):
+    baslik = MECRA
 
     numara = Mecralar.objects.filter(Mecra=baslik).get()
     lis = Profiller.objects.filter(Mecra=numara).order_by('Profil').distinct()
 
-    # mec formülü listelerin takip sayfasının altında çıkmasından ötürü bulunmak zorunda
-    mec = Mecralar.objects.values('Mecra').order_by('Mecra').distinct()
-
+    # mec, sonkayit ve sonuncu formülleri takip sayfasının altında çıkmasından ötürü bulunmak zorunda
+    mec = Mecralar.objects.values('Mecra').order_by('Mecra').distinct() 
     sonkayit = Profiller.objects.values('Bas_Tarihi').order_by('Bas_Tarihi').last()['Bas_Tarihi']
     sonuncu = (sonkayit.strftime("%d.%m.%Y"))
 
@@ -144,11 +146,18 @@ def hatalikomut(request, exception=None):
 
 # deneme sayfasının görünüm kodları
 
-def denemeler(request):
-    #arama = Aramalar.objects.values('Arama').last()['Arama']
-    #sonuc = Profiller.objects.filter(Q(Profil__icontains=arama) | Q(Mecra__icontains=arama))
-    return render(request, 'uygpostblog/deneme.html', {})
+def denemeler1(request):
+    # şimdiki zamanı tanımlamak için zmn
+    zmn = datetime.datetime.now()
+    # Profiller tablosunda Görünümü 1 (Açık) olanlar ile Bitiş Tarihleri geçmemiş olanların id sinin listesi
+    acik = Profiller.objects.values_list('id', flat=True).filter(Görünüm=1, Bit_Tarihi__gte=zmn)
+    # Profil__in komutu ile liste olarak gelen id leri Postlar tablosunda filitrele
+    posts = Postlar.objects.filter(Profil__in=acik)
+    aydi = Profiller.objects.all()
+    return render(request, 'uygpostblog/deneme1.html', {'posts': posts, 'aydi': aydi})
 
+def denemeler2(request, PK, PROFIL):
+    return render(request,'uygpostblog/deneme2.html', {})
 
 # Arama formu için arama sayfasının görünüm kodları
 

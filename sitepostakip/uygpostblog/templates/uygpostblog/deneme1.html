@@ -5,21 +5,21 @@
                     <div class="pencere">
                         <div class="link">
                             <div class="mecra">
-                                <a href="{% url 'mecrasayfasi' PK=post.Mecra_id MECRA=post.Mecra %}">
+                                <a href="">
                                     <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
                                 </a>
                             </div>
                             <div class="profil">
-                                {% for prof in prof %}
-                                    {% if prof.id == post.Profil_id %}
-                                    <a href="{% url 'profilsayfasi' PK=post.Profil_id PROFIL=prof.Url %}">
+                                {% for aydi in aydi %}
+                                    {% if aydi.id == post.Profil_id %}
+                                    <a href="{% url 'deneme2sayfasi' PK=post.Profil_id PROFIL=aydi.Url %}">
                                         <button class="govdebtn">{{ post.Profil }} postları</button>
                                     </a>
                                     {% endif %}
                                 {% endfor %}
                             </div>
                             <div class="paylas">
-                                <a href="{% url 'postsayfasi' PK=post.pk %}">
+                                <a href="">
                                     <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
                                 </a>
                             </div>

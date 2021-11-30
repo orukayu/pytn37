@@ -25,12 +25,16 @@
                                 </a>
                             </div>
                             <div class="profil">
-                                <a href="{% url 'profilsayfasi' post.Profil %}">
-                                    <button class="govdebtn">{{ post.Profil }} postları</button>
-                                </a>
+                                {% for prof in prof %}
+                                    {% if prof.id == post.Profil_id %}
+                                    <a href="{% url 'profilsayfasi' PK=post.Profil_id PROFIL=prof.Url %}">
+                                        <button class="govdebtn">{{ post.Profil }} postları</button>
+                                    </a>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                             <div class="paylas">
-                                <a href="{% url 'postsayfasi' post.pk %}">
+                                <a href="{% url 'postsayfasi' PK=post.pk %}">
                                     <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
                                 </a>
                             </div>

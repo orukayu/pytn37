@@ -12,7 +12,9 @@ class PostlarAdmin(admin.ModelAdmin):
     list_display = ('id', 'Mecra', 'Profil', 'Post_Tarihi')
 
 class ProfillerAdmin(admin.ModelAdmin):
-    list_display = ('id', 'Mecra', 'Profil', 'Link', 'Bas_Tarihi', 'Bit_Tarihi', 'Müşteri', 'Görünüm')
+    list_display = ('id', 'Mecra', 'Profil', 'Url', 'Link', 'Bas_Tarihi', 'Bit_Tarihi', 'Müşteri', 'Görünüm')
+    # prepopulated ile Profil'e yazdığımız herşey aynı anda Slug'a da yazıyor.
+    prepopulated_fields = {'Url': ('Profil',)}
 
 class TaleplerAdmin(admin.ModelAdmin):
     list_display = ('id', 'Talep', 'Tal_Tarihi')

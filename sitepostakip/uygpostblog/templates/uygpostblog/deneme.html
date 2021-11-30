@@ -1,6 +1,17 @@
 {% extends 'uygpostblog/temel.html' %}
 {% block sayfalar %}
 
-<h2>Deneme Sayfası</h2> 
+                {% for post in posts %}
+                    <div class="pencere">
+                        <div class="link">
+                            <div class="mecra">
+                                <a href="{% url 'mecrasayfs' pk=aydi.pk %}">
+                                    <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="gonder"></div>
+                    </div>
+                {% endfor %}
 
 {% endblock %}

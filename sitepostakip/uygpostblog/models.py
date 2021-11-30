@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 import datetime
 
@@ -15,6 +16,7 @@ class Postlar(models.Model):
         default=timezone.now)
 
     class Meta:
+        verbose_name_plural = "Postlar" # Admin sayfasında ki adını istediğimiz gibi koyabiliyoruz
         ordering = ['-Post_Tarihi',]  # Kaydedilen Postlar'ın hangi başlığa göre sıralanacağını belirliyor
 
     def __str__(self):
@@ -26,6 +28,7 @@ class Profiller(models.Model):
     Mecra = models.ForeignKey('uygpostblog.Mecralar', on_delete=models.CASCADE)
     #İlk sırada olması form doldururken ilk seçeneğin bu olması için.
     Profil = models.TextField()
+    Url = models.SlugField(null=False, unique=True)
     Link = models.TextField()
     Bas_Tarihi = models.DateTimeField(default=timezone.now)
     Bit_Tarihi = models.DateTimeField(default=datetime.datetime(2050, 1, 1))
@@ -34,6 +37,7 @@ class Profiller(models.Model):
 
     class Meta:
         ordering = ['Profil',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
+        verbose_name_plural = "Profiller" # Admin sayfasında ki adını istediğimiz gibi koyabiliyoruz
 
     def __str__(self):
         return self.Profil
@@ -46,6 +50,7 @@ class Talepler(models.Model):
     Talep = models.TextField()
 
     class Meta:
+        verbose_name_plural = "Talepler" # Admin sayfasında ki adını istediğimiz gibi koyabiliyoruz
         ordering = ['-Tal_Tarihi',]  # Tablonun hangi başlığa göre sıralanacağını belirliyor
 
     def __str__(self):
@@ -55,6 +60,9 @@ class Talepler(models.Model):
 
 class Mecralar(models.Model):
     Mecra = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Mecralar" # Admin sayfasında ki adını istediğimiz gibi koyabiliyoruz
 
     def __str__(self):
         return self.Mecra
@@ -66,7 +74,7 @@ class Musteriler(models.Model):
     Müşteri = models.TextField()
 
     class Meta:
-      verbose_name_plural = "Müşterilers" # Bu Meta ile model'in veribankasında ki adını istediğimiz gibi koyabiliyoruz
+        verbose_name_plural = "Müşteriler" # Admin sayfasında ki adını istediğimiz gibi koyabiliyoruz
 
     def __str__(self):
         return self.Müşteri
@@ -76,6 +84,9 @@ class Musteriler(models.Model):
 
 class Görünümler(models.Model):
     Görünüm = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Görünümler" # Admin sayfasında ki adını istediğimiz gibi koyabiliyoruz
 
     def __str__(self):
         return self.Görünüm

@@ -9,7 +9,7 @@
                     <div class="liste">
                         {% for lis in lis %}
                         <div>
-                            <a href="{% url 'profilsayfasi' lis.Profil %}">
+                            <a href="{% url 'profilsayfasi' PK=lis.pk PROFIL=lis.Url %}">
                                 <button class="govdebtn t">{{ lis.Profil }} postları</button>
                             </a>
                         </div>

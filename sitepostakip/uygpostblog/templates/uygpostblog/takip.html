@@ -25,7 +25,7 @@
                 <div class="ustliste">
                     {% for mec in mec %}
                     <div>
-                        <a href="{% url 'listesayfasi' mec.Mecra %}">
+                        <a href="{% url 'listesayfasi' MECRA=mec.Mecra %}">
                             <button class="govdebtn ikili">
                                 <div><i class="fa-brands fa-{{ mec.Mecra }}"></i></div>
                                 <div>{{ mec.Mecra }}</div>

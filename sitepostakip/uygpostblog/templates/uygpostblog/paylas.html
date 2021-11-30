@@ -6,7 +6,7 @@
 {% block sayfalar %}
                 <div class="baslik">
                     <h2>
-                        Post<br>
+                        {{ postno }}. Post<br>
                         Sayfası
                     </h2>
                 </div>
@@ -25,14 +25,18 @@
                                 </a>
                             </div>
                             <div class="profil">
-                                <a href="{% url 'mecrasayfasi' post.Mecra %}">
+                                <a href="{% url 'mecrasayfasi' PK=post.Mecra_id MECRA=post.Mecra %}">
                                     <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
                                 </a>
                             </div>
                             <div class="paylas">
-                                <a href="{% url 'profilsayfasi' post.Profil %}">
-                                    <button class="govdebtn">{{ post.Profil }} postları</button>
-                                </a>
+                                {% for prof in prof %}
+                                    {% if prof.id == post.Profil_id %}
+                                    <a href="{% url 'profilsayfasi' PK=post.Profil_id PROFIL=prof.Url %}">
+                                        <button class="govdebtn">{{ post.Profil }} postları</button>
+                                    </a>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="post">

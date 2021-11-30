@@ -5,7 +5,7 @@ from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticSiteMap, MecralarSiteMap, ProfillerSiteMap
 
 sitemaps = {
-    'static':StaticSiteMap,
+    'staticmaps':StaticSiteMap,
     'mecramaps':MecralarSiteMap,
     'profilmaps':ProfillerSiteMap
 }
@@ -19,9 +19,9 @@ urlpatterns = [
 
     # mecra ve profil başlıklarına tıklayınca gidilecek sayfalar için
 
-    path('mecra/<str:Mecra>/', views.mecralar, name='mecrasayfasi'),
-    path('profil/<str:Profil>/', views.profiller, name='profilsayfasi'),
-    path('post/<int:pk>/', views.postlar, name='postsayfasi'),
+    path('mecra/<int:PK>/<str:MECRA>/', views.mecralar, name='mecrasayfasi'),
+    path('profil/<int:PK>/<slug:PROFIL>/', views.profiller, name='profilsayfasi'),
+    path('post/<int:PK>/', views.postlar, name='postsayfasi'),
 
     # üstmenüde ki linklerin urlleri
 
@@ -31,7 +31,7 @@ urlpatterns = [
 
     # Takip sayfasında ki mecralara tıklayınca gidilecek sayfanın URL si
 
-    path('takiplistesi/<str:Mecra>/', views.listeler, name='listesayfasi'),
+    path('takiplistesi/<str:MECRA>/', views.listeler, name='listesayfasi'),
 
     # URL ye yazıpta gitmeye çalışırsa
 
@@ -39,11 +39,7 @@ urlpatterns = [
     path('profil/', views.takiptekiler, name='profil404'),
     path('post/', views.takiptekiler, name='paylas404'),
 
-    # Deneme sayfası için url tayini
-
-    path('d/', views.denemeler, name='denemesayfasi'),
-
-    # Arama sayfası için url tayini
+    # Arama sayfası için url tayini 
 
     path('aranan/', views.aramalar, name='aramasayfasi'),
 
@@ -54,5 +50,10 @@ urlpatterns = [
     # Sitemaps için url tayini
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
+    # Deneme sayfası için url tayini
+
+    path('d/', views.denemeler1, name='deneme1sayfasi'),
+    path('prof/<int:PK>/<str:PROFIL>/', views.denemeler2, name='deneme2sayfasi'),
 
 ]

@@ -1,18 +1,18 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
 {% block title %}
-        <title>Yenipost - {{ profiladi|title }} Postları</title>
+        <title>Yenipost - {{ numara|title }} Postları</title>
 {% endblock %}
 {% block sayfalar %}
                 <div class="baslik">
                     <h2>
-                        {{ profiladi }}<br>
+                        {{ numara }}<br>
                         Postları
                     </h2>
                 </div>
                 <div class="ustmetin">
                     <p>
-                        <e>{{ profiladi|title }}</e>'ın postlarına hoşgeldiniz. Dilerseniz ilgili mecrada ki diğer profil veya hesaplarında paylaşımlarına ulaşabilir yada geri dön butonu ile ana sayfada ki tüm postları görebilirsiniz. Post sayfasına giderek, sadece o paylaşımı kendi sosyal mecralarınızda da paylaşabilirsiniz.
+                        <e>{{ numara|title }}</e>'ın postlarına hoşgeldiniz. Dilerseniz ilgili mecrada ki diğer profil veya hesaplarında paylaşımlarına ulaşabilir yada geri dön butonu ile ana sayfada ki tüm postları görebilirsiniz. Post sayfasına giderek, sadece o paylaşımı kendi sosyal mecralarınızda da paylaşabilirsiniz.
                     </p>
                 </div>
                 <div class="posticerik">
@@ -25,12 +25,12 @@
                                 </a>
                             </div>
                             <div class="profil">
-                                <a href="{% url 'mecrasayfasi' post.Mecra %}">
+                                <a href="{% url 'mecrasayfasi' PK=post.Mecra_id MECRA=post.Mecra %}">
                                     <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
                                 </a>
                             </div>
                             <div class="paylas">
-                                <a href="{% url 'postsayfasi' post.pk %}">
+                                <a href="{% url 'postsayfasi' PK=post.pk %}">
                                     <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
                                 </a>
                             </div>
