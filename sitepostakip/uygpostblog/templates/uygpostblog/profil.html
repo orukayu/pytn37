@@ -19,17 +19,17 @@
                     {% for post in posts %}
                     <div class="pencere">
                         <div class="link">
-                            <div class="mecra">
+                            <div class="sollink">
                                 <a href="{% url 'anasayfamiz' %}">
                                     <button class="govdebtn"><i class="fas fa-home"></i> Ana Sayfa</button>
                                 </a>
                             </div>
-                            <div class="profil">
+                            <div class="ortalink">
                                 <a href="{% url 'mecrasayfasi' PK=post.Mecra_id MECRA=post.Mecra %}">
                                     <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
                                 </a>
                             </div>
-                            <div class="paylas">
+                            <div class="saglink">
                                 <a href="{% url 'postsayfasi' PK=post.pk %}">
                                     <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
                                 </a>

@@ -43,8 +43,7 @@ html, body {
 } 
 
 #um1:hover, #um2:hover, #um3:hover, #um4:hover {
-  background-color: #243248;
-  color: #ff9400;
+  font-weight: 600;
 } 
 
 .icerik {
@@ -95,7 +94,7 @@ html, body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 1vw;
-  grid-template-areas: "mecra profil paylas";
+  grid-template-areas: "sollink ortalink saglink";
   max-width: fit-content;
   margin-left: 1vw;
   margin-right: 1vw;
@@ -106,11 +105,11 @@ html, body {
   height: 3em;
 }
 
-.mecra {}
+.sollink {}
 
-.profil {}
+.ortalink {}
 
-.paylas {}
+.saglink {}
 
 .post {
   width: -webkit-fill-available;
@@ -409,4 +408,5 @@ e {
 #takip #um2, #talep #um3, #tesekkur #um4 {
   border-bottom: solid 2px #ff9400;
   pointer-events: none;
+  font-weight: 600;
 }

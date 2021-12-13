@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'wx!uc3xq-pf@f4gvggz8nd6md1(n1_n@364tdnf98di)in*yc)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.yenipost.com', 'yenipost.com']
 

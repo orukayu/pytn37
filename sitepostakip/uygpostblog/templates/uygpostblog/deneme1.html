@@ -1,25 +1,40 @@
 {% extends 'uygpostblog/temel.html' %}
 {% load social_share %}
-            {% block content %}
-                {% for post in posts %}
+{% block title %}
+        <title>Yenipost - {{ mecraadi|title }} Paylaşımları</title>
+{% endblock %}
+{% block sayfalar %}
+                <div class="baslik">
+                    <h2>
+                        {{ mecraadi }}<br>
+                        Paylaşımları
+                    </h2>
+                </div>
+                <div class="ustmetin">
+                    <p>
+                        Takip ettiğimiz profil ve hesapların <e>{{ mecraadi }}</e> paylaşımları listelenmektedir. Dilerseniz tüm paylaşımları görmek için ana sayfaya geri dönebilir veya sadece istediğiniz bir profile/hesaba ait <e>{{ mecraadi }}</e> postlarının listelenmesini de sağlayabilirsiniz. Post sayfasına giderek, sadece o paylaşımı kendi sosyal mecralarınızda da paylaşabilirsiniz.
+                    </p>
+                </div>
+                <div class="posticerik">
+                    {% for post in posts %}
                     <div class="pencere">
                         <div class="link">
-                            <div class="mecra">
-                                <a href="">
-                                    <button class="govdebtn">{{ post.Mecra }} paylaşımları</button>
+                            <div class="sollink">
+                                <a href="{% url 'anasayfamiz' %}">
+                                    <button class="govdebtn"><i class="fas fa-home"></i> Ana Sayfa</button>
                                 </a>
                             </div>
-                            <div class="profil">
-                                {% for aydi in aydi %}
-                                    {% if aydi.id == post.Profil_id %}
-                                    <a href="{% url 'deneme2sayfasi' PK=post.Profil_id PROFIL=aydi.Url %}">
-                                        <button class="govdebtn">{{ post.Profil }} postları</button>
-                                    </a>
-                                    {% endif %}
-                                {% endfor %}
+                            <div class="ortalink">
+                            {% for prof in prof %}
+                                {% if prof.id == post.Profil_id %}
+                                <a href="{% url 'profilsayfasi' PK=post.Profil_id PROFIL=prof.Url %}">
+                                    <button class="govdebtn">{{ post.Profil }} postları</button>
+                                </a>
+                                {% endif %}
+                            {% endfor %}
                             </div>
-                            <div class="paylas">
-                                <a href="">
+                            <div class="saglink">
+                                <a href="{% url 'postsayfasi' PK=post.pk %}">
                                     <button class="govdebtn">Post sayfası <i class="fas fa-comments"></i></button>
                                 </a>
                             </div>
@@ -29,7 +44,16 @@
                             {{ post.Post }}
                             {% endautoescape %}
                         </div>
-                        <div class="gonder"></div>
-                    </div>
-                {% endfor %}
-            {% endblock %}
+                        <div class="gonder">
+                            {% post_to_facebook object_or_url "Facebook" link_class="smda-p" %}
+                            {% post_to_twitter "YeniPost: {{object.title}}" object_or_url "Twitter" link_class="smda-p" %}
+                            {% send_email object.title "YeniPost: {{object.title}}" object_or_url "E-Mail" link_class="smda-p" %}
+                            {% post_to_telegram "Telegram" object_or_url "Telegram" link_class="smda-p" %}
+                            {% post_to_whatsapp object_or_url "WhatsApp" link_class="smda-p" %}
+                        </div>
+                    </div> 
+                    {% endfor %}
+                </div>
+                <div class="ustliste">{{ profiller }}</div>
+                <div class="altmetin">{{ profi }}</div>
+{% endblock %}

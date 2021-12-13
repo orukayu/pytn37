@@ -39,7 +39,7 @@ def hepsi(request):
     # Profil__in komutu ile liste olarak gelen id leri Postlar tablosunda filitrele
     posts = Postlar.objects.filter(Profil__in=acik)
     prof = Profiller.objects.all()
-    return render(request, 'uygpostblog/hepsi.html', {'posts': posts, 'prof':prof})
+    return render(request, 'uygpostblog/hepsi.html', {'posts': posts, 'prof': prof})
 
 # APİ için eklemeler
 
@@ -59,11 +59,15 @@ class PostlarListesi(APIView):
 
 def mecralar(request, PK, MECRA):
     mecraadi = MECRA
-
-    numara = Mecralar.objects.filter(Mecra=mecraadi).get()
+    # Mecralar tablosundaki Mecralardan link ile gelen MECRA ya eşit olanların id si çağırılır
+    numara = Mecralar.objects.filter(Mecra=MECRA).get()
+    # numara ile Postlar tablosundaki Mecra_id sine eşit olan Postlar çağırılır. 
     posts = Postlar.objects.filter(Mecra=numara)
-    prof = Profiller.objects.all()
-    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'mecraadi':mecraadi, 'prof':prof})
+    # posts sorgusundaki profil id lerini liste olarak çekiyoruz
+    profiller = posts.values_list('Profil_id', flat=True)
+    # __in eki ile id nin yinelenecek birden fazla değer alacağını belirtiriz
+    prof = Profiller.objects.filter(id__in=profiller)
+    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'mecraadi': mecraadi, 'prof': prof})
 
 # profil sayfası için views tanımlama
 
@@ -73,14 +77,15 @@ def profiller(request, PK, PROFIL):
     numara = Profiller.objects.filter(Url=profiladi).get()
     posts = Postlar.objects.filter(Profil=numara)
 
-    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'numara':numara})
+    return render(request, 'uygpostblog/profil.html', {'posts': posts, 'numara': numara})
 
 # Post paylaşım sayfası için views tanımlama
 
 def postlar(request, PK):
     postno = PK
     posts = Postlar.objects.filter(pk=PK)
-    prof = Profiller.objects.all()   
+    profili = posts.values('Profil_id')[:1]
+    prof = Profiller.objects.filter(id=profili)
     return render(request, 'uygpostblog/paylas.html', {'posts': posts, 'postno': postno, 'prof': prof})
 
 # Takip Listesi için görünüm kodları
@@ -110,7 +115,7 @@ def listeler(request, MECRA):
     sonkayit = Profiller.objects.values('Bas_Tarihi').order_by('Bas_Tarihi').last()['Bas_Tarihi']
     sonuncu = (sonkayit.strftime("%d.%m.%Y"))
 
-    args = {'baslik':baslik, 'lis': lis, 'mec':mec, 'sonuncu': sonuncu}
+    args = {'baslik': baslik, 'lis': lis, 'mec': mec, 'sonuncu': sonuncu}
     return render(request, 'uygpostblog/listeler.html', args)
 
 # Talep edilenler ve yeni profil talepleri için Talep Listesi sayfasının görünümü
@@ -147,14 +152,17 @@ def hatalikomut(request, exception=None):
 # deneme sayfasının görünüm kodları
 
 def denemeler1(request):
-    # şimdiki zamanı tanımlamak için zmn
-    zmn = datetime.datetime.now()
-    # Profiller tablosunda Görünümü 1 (Açık) olanlar ile Bitiş Tarihleri geçmemiş olanların id sinin listesi
-    acik = Profiller.objects.values_list('id', flat=True).filter(Görünüm=1, Bit_Tarihi__gte=zmn)
-    # Profil__in komutu ile liste olarak gelen id leri Postlar tablosunda filitrele
-    posts = Postlar.objects.filter(Profil__in=acik)
-    aydi = Profiller.objects.all()
-    return render(request, 'uygpostblog/deneme1.html', {'posts': posts, 'aydi': aydi})
+    mecraadi = 'twitter'
+    # Mecralar tablosundaki Mecralardan link ile gelen MECRA ya eşit olanların id si çağırılır
+    numara = Mecralar.objects.filter(Mecra='twitter').get()
+    # numara ile Postlar tablosundaki Mecra_id sine eşit olan Postlar çağırılır. 
+    posts = Postlar.objects.filter(Mecra=numara)
+
+    profiller = list(posts.values_list('Profil_id', flat=True))
+    prof = Profiller.objects.filter(id__in=profiller)
+
+    profi = Profiller.objects.all()
+    return render(request, 'uygpostblog/mecra.html', {'posts': posts, 'mecraadi': mecraadi, 'prof': prof, 'profiller': profiller, 'profi': profi})
 
 def denemeler2(request, PK, PROFIL):
     return render(request,'uygpostblog/deneme2.html', {})
@@ -169,5 +177,5 @@ def aramalar(request):
     else:
 
         sonuc = []
-    return render(request, 'uygpostblog/arama.html', {'sonuc':sonuc, 'metin':metin})
+    return render(request, 'uygpostblog/arama.html', {'sonuc': sonuc, 'metin': metin})
 
